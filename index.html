@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Borsa Panosu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EEF1EF;
+    --surface:#FFFFFF;
+    --surface-2:#E4E9E6;
+    --border:#D3DAD6;
+    --ink:#12191A;
+    --ink-2:#4C5754;
+    --ink-muted:#7C8985;
+    --accent:#0F6E5C;
+    --accent-strong:#0B5548;
+    --accent-tint:#DCEEE8;
+    --accent-ink:#FFFFFF;
+    --gold:#96702A;
+    --gold-tint:#F3E7D2;
+    --good:#1F8A5F;
+    --good-tint:#DCF0E5;
+    --bad:#B23B2E;
+    --bad-tint:#F7E1DE;
+    --neutral-chip:#6E7A82;
+    --neutral-tint:#E7EAEC;
+    --shadow: 0 1px 2px rgba(18,25,26,0.06), 0 8px 24px -12px rgba(18,25,26,0.18);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0B1412;
+      --surface:#121C19;
+      --surface-2:#17211E;
+      --border:#25332F;
+      --ink:#EBF1EF;
+      --ink-2:#AEBAB6;
+      --ink-muted:#7E8D88;
+      --accent:#35B98F;
+      --accent-strong:#4FCBA2;
+      --accent-tint:#173029;
+      --accent-ink:#06120E;
+      --gold:#D9A857;
+      --gold-tint:#2B2415;
+      --good:#33A873;
+      --good-tint:#122A20;
+      --bad:#E0594A;
+      --bad-tint:#2E1714;
+      --neutral-chip:#8B96A1;
+      --neutral-tint:#1B2422;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 28px -12px rgba(0,0,0,0.6);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0B1412;
+    --surface:#121C19;
+    --surface-2:#17211E;
+    --border:#25332F;
+    --ink:#EBF1EF;
+    --ink-2:#AEBAB6;
+    --ink-muted:#7E8D88;
+    --accent:#35B98F;
+    --accent-strong:#4FCBA2;
+    --accent-tint:#173029;
+    --accent-ink:#06120E;
+    --gold:#D9A857;
+    --gold-tint:#2B2415;
+    --good:#33A873;
+    --good-tint:#122A20;
+    --bad:#E0594A;
+    --bad-tint:#2E1714;
+    --neutral-chip:#8B96A1;
+    --neutral-tint:#1B2422;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 28px -12px rgba(0,0,0,0.6);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-inline:16px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;}
+  .num{font-family:"IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums;}
+
+  header.top{
+    position:sticky; top:env(safe-area-inset-top,0px);
+    z-index:20;
+    background:var(--bg);
+    padding-top:18px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--border);
+  }
+  .top-row{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .brand h1{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:600;
+    font-size:clamp(24px, 4vw, 32px);
+    margin:0 0 2px 0;
+    letter-spacing:-0.01em;
+  }
+  .brand p{margin:0; color:var(--ink-2); font-size:13.5px;}
+  .updated{
+    display:flex; align-items:center; gap:8px;
+    font-size:12px; color:var(--ink-muted);
+    background:var(--surface); border:1px solid var(--border);
+    padding:6px 10px; border-radius:999px; white-space:nowrap;
+  }
+  .updated .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);}
+
+  nav.tabs{
+    display:flex; gap:4px; margin-top:14px;
+    background:var(--surface-2); border:1px solid var(--border);
+    border-radius:12px; padding:4px;
+    overflow-x:auto;
+  }
+  nav.tabs button{
+    appearance:none; border:0; background:transparent; color:var(--ink-2);
+    font-family:"IBM Plex Sans"; font-weight:600; font-size:13.5px;
+    padding:9px 14px; border-radius:9px; cursor:pointer; white-space:nowrap;
+    display:flex; align-items:center; gap:7px;
+    transition:background .15s ease, color .15s ease;
+  }
+  nav.tabs button .ic{font-size:15px; line-height:1;}
+  nav.tabs button[aria-selected="true"]{
+    background:var(--surface); color:var(--ink); box-shadow:var(--shadow);
+  }
+  nav.tabs button:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  main{padding-block:20px 48px;}
+  section.panel[hidden]{display:none;}
+
+  .stat-row{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:10px; margin-bottom:10px;}
+  .stat{
+    background:var(--surface); border:1px solid var(--border); border-radius:14px;
+    padding:14px 16px; box-shadow:var(--shadow); text-align:left; font-family:inherit; color:inherit;
+    width:100%; appearance:none; cursor:default;
+  }
+  .stat.clickable{cursor:pointer; position:relative;}
+  .stat.clickable:hover{border-color:var(--accent);}
+  .stat.clickable:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  .stat.clickable .lbl::after{content:"↓ listele"; float:right; font-size:10px; text-transform:none; letter-spacing:0; color:var(--accent-strong); opacity:.75;}
+  .stat.clickable[aria-expanded="true"]{border-color:var(--accent-strong); box-shadow:0 0 0 2px var(--accent-tint), var(--shadow);}
+  .stat .lbl{font-size:11.5px; color:var(--ink-muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px;}
+  .stat .val{font-size:22px; font-weight:600; font-family:"IBM Plex Mono"; font-variant-numeric:tabular-nums;}
+  .stat .sub{font-size:12.5px; color:var(--ink-2); margin-top:3px;}
+  .stat .val.good{color:var(--good);}
+  .stat .val.bad{color:var(--bad);}
+
+  #statExpand{
+    background:var(--accent-tint); border:1px solid var(--border); border-radius:14px;
+    padding:14px 16px; margin-bottom:18px; display:none;
+  }
+  #statExpand.open{display:block;}
+  #statExpand .exTitle{font-size:12.5px; font-weight:700; color:var(--accent-strong); text-transform:uppercase; letter-spacing:.05em; margin-bottom:10px;}
+  #statExpand .exChips{display:flex; flex-wrap:wrap; gap:7px;}
+  .ex-chip{
+    appearance:none; border:1px solid var(--border); background:var(--surface); color:var(--ink);
+    font-family:"IBM Plex Mono"; font-size:12px; font-weight:600; padding:6px 10px; border-radius:9px; cursor:pointer;
+  }
+  .ex-chip:hover{border-color:var(--accent-strong); color:var(--accent-strong);}
+  .ex-chip span{color:var(--ink-muted); font-family:"IBM Plex Sans"; font-weight:400; margin-left:5px;}
+
+  .chip{
+    display:inline-flex; align-items:center; gap:5px;
+    font-size:11.5px; font-weight:600; padding:3px 9px; border-radius:999px;
+    white-space:nowrap;
+  }
+  .chip.ucuz{background:var(--good-tint); color:var(--good);}
+  .chip.pahali{background:var(--bad-tint); color:var(--bad);}
+  .chip.notr{background:var(--neutral-tint); color:var(--neutral-chip);}
+  .chip.na{background:var(--neutral-tint); color:var(--ink-muted);}
+
+  .tchip{display:inline-flex; align-items:center; gap:4px; font-size:11.5px; font-weight:600; padding:3px 8px; border-radius:999px; white-space:nowrap; font-family:"IBM Plex Mono";}
+  .tchip.up{background:var(--good-tint); color:var(--good);}
+  .tchip.down{background:var(--bad-tint); color:var(--bad);}
+  .tchip.flat{background:var(--neutral-tint); color:var(--neutral-chip);}
+  .tchip.tna{background:var(--neutral-tint); color:var(--ink-muted);}
+
+  .card{
+    background:var(--surface); border:1px solid var(--border); border-radius:16px;
+    box-shadow:var(--shadow); padding:18px;
+  }
+  .card + .card{margin-top:14px;}
+  .card h2{
+    font-family:"Fraunces"; font-weight:600; font-size:18px; margin:0 0 4px 0;
+  }
+  .card .lede{color:var(--ink-2); font-size:13.5px; margin:0 0 14px 0; max-width:65ch;}
+  .card h3{font-family:"Fraunces"; font-weight:600; font-size:15px; margin:18px 0 8px 0;}
+  .card h3:first-of-type{margin-top:2px;}
+
+  /* --- chart --- */
+  .chart-wrap{overflow-x:auto;}
+  .barchart{width:100%; min-width:560px;}
+  .barchart .row{display:flex; align-items:center; gap:8px; height:20px;}
+  .barchart .row + .row{margin-top:3px;}
+  .barchart .tick{width:54px; flex:none; font-family:"IBM Plex Mono"; font-size:11px; color:var(--ink-2); text-align:right;}
+  .barchart .track{flex:1; position:relative; height:14px; background:var(--surface-2); border-radius:4px; overflow:hidden;}
+  .barchart .fill{position:absolute; left:0; top:0; height:100%; border-radius:4px;}
+  .barchart .fill.ucuz{background:var(--good);}
+  .barchart .fill.pahali{background:var(--bad);}
+  .barchart .fill.notr{background:var(--neutral-chip);}
+  .barchart .pe{width:38px; flex:none; font-family:"IBM Plex Mono"; font-size:11px; color:var(--ink-muted);}
+  .chart-legend{display:flex; gap:16px; margin-top:12px; flex-wrap:wrap; font-size:12px; color:var(--ink-2);}
+  .chart-legend span{display:inline-flex; align-items:center; gap:6px;}
+  .chart-legend i{width:9px;height:9px;border-radius:2px;display:inline-block;}
+
+  /* --- view toggle + table --- */
+  .filter-row{display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; align-items:center;}
+  .filter-row input[type="search"]{
+    flex:1; min-width:160px;
+    background:var(--surface); border:1px solid var(--border); border-radius:9px;
+    padding:9px 12px; font-size:13.5px; color:var(--ink); font-family:inherit;
+  }
+  .filter-row input[type="search"]:focus-visible{outline:2px solid var(--accent); outline-offset:1px;}
+  .seg{display:flex; gap:4px; background:var(--surface-2); border:1px solid var(--border); border-radius:9px; padding:3px;}
+  .seg button{
+    appearance:none; border:0; background:transparent; color:var(--ink-2); font-family:inherit;
+    font-size:12.5px; font-weight:600; padding:6px 10px; border-radius:6px; cursor:pointer;
+  }
+  .seg button[aria-pressed="true"]{background:var(--surface); color:var(--ink); box-shadow:0 1px 2px rgba(0,0,0,.08);}
+
+  table.stocks{width:100%; border-collapse:collapse; font-size:13.5px;}
+  table.stocks thead th{
+    text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--ink-muted); font-weight:600; padding:0 10px 8px 10px; border-bottom:1px solid var(--border);
+  }
+  table.stocks thead th.num-col, table.stocks td.num-col{text-align:right;}
+  table.stocks tbody tr.stock-row{cursor:pointer;}
+  table.stocks tbody tr.stock-row:hover td{background:var(--surface-2);}
+  table.stocks td{padding:10px; border-bottom:1px solid var(--border); vertical-align:middle;}
+  table.stocks td.ticker{font-family:"IBM Plex Mono"; font-weight:600;}
+  table.stocks td.name{color:var(--ink-2); font-size:12.5px; font-family:"IBM Plex Sans"; font-weight:400;}
+  .chg.up{color:var(--good);}
+  .chg.down{color:var(--bad);}
+  tr.detail-row td{background:var(--accent-tint); padding:0; border-bottom:1px solid var(--border);}
+  tr.detail-row[hidden]{display:none;}
+  .detail-inner{padding:14px 18px 18px 18px;}
+  .detail-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:10px; margin-bottom:12px;}
+  .detail-grid div{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:8px 10px;}
+  .detail-grid .k{font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-muted);}
+  .detail-grid .v{font-family:"IBM Plex Mono"; font-size:14px; font-weight:600; margin-top:2px;}
+  .news-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px;}
+  .news-list li{font-size:13px; line-height:1.4;}
+  .news-list a{color:var(--accent-strong); text-decoration:none; font-weight:600;}
+  .news-list a:hover{text-decoration:underline;}
+  .news-list .meta{color:var(--ink-muted); font-size:11.5px; display:block; margin-top:1px;}
+  .news-empty{font-size:13px; color:var(--ink-muted); font-style:italic;}
+  tr.stock-row.flash td{animation:flash 1.6s ease;}
+  @keyframes flash{0%{background:var(--gold-tint);}100%{background:transparent;}}
+
+  /* --- matrix / heatmap --- */
+  .matrix-scroll{overflow-x:auto;}
+  table.matrix{width:100%; border-collapse:separate; border-spacing:0 4px; font-size:12.5px; min-width:520px;}
+  table.matrix thead th{
+    text-align:center; font-size:10.5px; text-transform:uppercase; letter-spacing:.04em;
+    color:var(--ink-muted); font-weight:700; padding:0 6px 6px 6px;
+  }
+  table.matrix thead th:first-child{text-align:left;}
+  table.matrix td{padding:8px 6px; text-align:center; font-family:"IBM Plex Mono"; font-weight:600;}
+  table.matrix td.mx-name{text-align:left; font-family:"IBM Plex Sans"; font-weight:600; color:var(--ink); white-space:nowrap;}
+  table.matrix td.mx-name .tk{font-family:"IBM Plex Mono"; font-weight:700;}
+  table.matrix td.mx-cell{border-radius:8px;}
+  .mx-good{background:var(--good-tint); color:var(--good);}
+  .mx-bad{background:var(--bad-tint); color:var(--bad);}
+  .mx-neutral{background:var(--neutral-tint); color:var(--neutral-chip);}
+  .mx-gold{background:var(--gold-tint); color:var(--gold);}
+  .mx-na{background:var(--neutral-tint); color:var(--ink-muted); font-weight:400;}
+  .matrix-legend{display:flex; gap:14px; flex-wrap:wrap; margin-top:12px; font-size:11.5px; color:var(--ink-2);}
+  .matrix-legend span{display:inline-flex; align-items:center; gap:5px;}
+  .matrix-legend i{width:9px;height:9px;border-radius:3px;display:inline-block;}
+
+  /* --- sector grouping --- */
+  tr.sector-head td{
+    background:var(--surface-2); font-family:"IBM Plex Sans"; font-weight:700; font-size:11.5px;
+    text-transform:uppercase; letter-spacing:.04em; color:var(--ink-2);
+    padding:7px 10px; border-radius:8px; border-bottom:0;
+  }
+  table.matrix tr.sector-head td{text-align:left; border-radius:8px;}
+  .sec-avg{font-weight:500; text-transform:none; letter-spacing:0; color:var(--ink-muted); font-family:"IBM Plex Mono"; font-size:11px;}
+  .best-badge{color:var(--gold); font-size:12px;}
+
+  /* --- header hints / explanations --- */
+  .hint{font-size:11px; font-weight:500; color:var(--ink-muted); text-transform:none; letter-spacing:0; margin-left:5px;}
+  .th-sub{display:block; font-size:9px; font-weight:400; text-transform:none; letter-spacing:0; color:var(--ink-muted); margin-top:2px;}
+
+  /* --- refresh button --- */
+  .refresh-btn{
+    appearance:none; border:1px solid var(--border); background:var(--surface); color:var(--ink);
+    font-family:"IBM Plex Sans"; font-weight:600; font-size:12px; padding:6px 12px; border-radius:999px;
+    cursor:pointer; display:inline-flex; align-items:center; gap:6px; white-space:nowrap;
+  }
+  .refresh-btn:hover{border-color:var(--accent);}
+  .refresh-btn:disabled{opacity:.6; cursor:default;}
+  .refresh-btn .spin{display:inline-block;}
+  .refresh-btn.spinning .spin{animation:spin 0.9s linear infinite;}
+  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  #refreshMsg{font-size:11.5px; color:var(--ink-muted); margin-top:6px;}
+  #refreshMsg.err{color:var(--bad);}
+  #refreshMsg.ok{color:var(--good);}
+
+  /* --- generic news list (top-level cards) --- */
+  ul.news{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;}
+  ul.news li{padding-bottom:12px; border-bottom:1px solid var(--border);}
+  ul.news li:last-child{border-bottom:0; padding-bottom:0;}
+  ul.news a.title{color:var(--ink); text-decoration:none; font-weight:600; font-size:14px; display:block;}
+  ul.news a.title:hover{color:var(--accent-strong);}
+  ul.news .desc{color:var(--ink-2); font-size:13px; margin-top:3px;}
+  ul.news .src{color:var(--ink-muted); font-size:11.5px; margin-top:4px; display:block;}
+
+  /* --- commentary --- */
+  .comment-card{border:1px solid var(--border); border-radius:12px; padding:13px 15px; background:var(--surface-2);}
+  .comment-card + .comment-card{margin-top:10px;}
+  .comment-card .who{display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap; margin-bottom:6px;}
+  .comment-card .who b{font-size:13.5px;}
+  .comment-card .who .role{font-size:11.5px; color:var(--ink-muted);}
+  .comment-card p{margin:0; font-size:13px; color:var(--ink-2); line-height:1.55;}
+  .comment-card a{color:var(--accent-strong); font-weight:600; text-decoration:none; font-size:12px;}
+  .comment-card a:hover{text-decoration:underline;}
+  .stance{font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:2px 8px; border-radius:999px;}
+  .stance.pos{background:var(--good-tint); color:var(--good);}
+  .stance.neu{background:var(--neutral-tint); color:var(--neutral-chip);}
+  .stance.mix{background:var(--gold-tint); color:var(--gold);}
+
+  /* --- picks --- */
+  .pick{display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--border);}
+  .pick:last-child{border-bottom:0;}
+  .pick .tk{font-family:"IBM Plex Mono"; font-weight:700; font-size:14px; background:var(--accent-tint); color:var(--accent-strong); border-radius:8px; padding:6px 10px; height:fit-content; flex:none;}
+  .pick p{margin:0; font-size:13px; color:var(--ink-2); line-height:1.55;}
+  .pick p b{color:var(--ink);}
+  .pick-ref{display:flex; gap:14px; flex-wrap:wrap; margin-top:8px; padding:8px 10px; background:var(--surface-2); border-radius:9px; font-size:11.5px;}
+  .pick-ref div{display:flex; flex-direction:column; gap:1px;}
+  .pick-ref .k{color:var(--ink-muted); text-transform:uppercase; letter-spacing:.04em; font-size:10px;}
+  .pick-ref b{font-family:"IBM Plex Mono"; font-size:13px; color:var(--ink);}
+  .pick-ref .up{color:var(--good);}
+  .disclaimer{font-size:12px; color:var(--ink-muted); background:var(--surface-2); border:1px dashed var(--border); border-radius:10px; padding:10px 12px; margin-top:14px;}
+
+  /* --- funds --- */
+  .fund-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px;}
+  .fund-card{background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:13px 15px;}
+  .fund-card .code{font-family:"IBM Plex Mono"; font-weight:700; font-size:13px; color:var(--accent-strong);}
+  .fund-card .fname{font-size:13px; font-weight:600; margin-top:2px;}
+  .fund-card .frow{display:flex; justify-content:space-between; margin-top:8px; font-size:12px; color:var(--ink-2);}
+  .fund-card .frow b{font-family:"IBM Plex Mono"; color:var(--ink);}
+  .ret-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-top:10px; padding-top:10px; border-top:1px solid var(--border);}
+  .ret-grid div{display:flex; flex-direction:column; gap:2px;}
+  .ret-grid .k{font-size:10px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-muted);}
+  .ret-grid b{font-family:"IBM Plex Mono"; font-size:12.5px; color:var(--ink);}
+  .fund-note{font-size:11.5px; color:var(--ink-muted); margin-top:9px; line-height:1.45; font-style:italic;}
+
+  /* --- dividend list --- */
+  .div-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0;}
+  .div-list li{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:9px 0; border-bottom:1px solid var(--border); font-size:13px;}
+  .div-list li:last-child{border-bottom:0;}
+  .div-list .tk{font-family:"IBM Plex Mono"; font-weight:700;}
+  .div-list .dn{color:var(--ink-2); font-size:12px; margin-left:6px;}
+  .div-list .yv{font-family:"IBM Plex Mono"; font-weight:700; color:var(--gold);}
+  .pill-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;}
+  .pill{font-family:"IBM Plex Mono"; font-size:12px; font-weight:700; background:var(--good-tint); color:var(--good); padding:5px 10px; border-radius:8px;}
+  .pill.gold{background:var(--gold-tint); color:var(--gold);}
+
+  /* --- commodity/crypto tiles --- */
+  .tile-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin-bottom:16px;}
+  .tile{background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:var(--shadow);}
+  .tile .lbl{font-size:12px; color:var(--ink-muted); text-transform:uppercase; letter-spacing:.05em;}
+  .tile .price{font-family:"IBM Plex Mono"; font-size:27px; font-weight:600; margin-top:6px; font-variant-numeric:tabular-nums;}
+  .tile .chgline{margin-top:5px; font-size:13.5px; font-weight:600;}
+  .tile .note{margin-top:8px; font-size:12px; color:var(--ink-2);}
+
+  .kap-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .kap-list li{font-size:13px; display:flex; gap:10px; align-items:flex-start;}
+  .kap-list .kcode{font-family:"IBM Plex Mono"; font-weight:700; font-size:12px; color:var(--gold); background:var(--gold-tint); padding:2px 7px; border-radius:6px; flex:none; margin-top:1px;}
+  .kap-list .ktxt b{font-weight:600;}
+  .kap-list .ktxt .kmeta{color:var(--ink-muted); font-size:11.5px; display:block; margin-top:1px;}
+
+  footer.foot{
+    border-top:1px solid var(--border); margin-top:12px; padding-top:16px; padding-bottom:24px;
+    color:var(--ink-muted); font-size:12px; line-height:1.6;
+  }
+  footer.foot strong{color:var(--ink-2);}
+
+  @media (max-width:560px){
+    table.stocks thead th.hide-sm, table.stocks td.hide-sm{display:none;}
+    .barchart{min-width:460px;}
+    .stat.clickable .lbl::after{display:none;}
+  }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="top">
+    <div class="top-row">
+      <div class="brand">
+        <h1>Borsa Panosu</h1>
+        <p>BIST 30 değerleme taraması · TEFAS fonları · emtia · bitcoin</p>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+        <div class="updated"><span class="dot"></span><span id="updatedText">19 Eylül 2026, 19:00 (İstanbul) itibarıyla</span></div>
+        <button class="refresh-btn" id="refreshBtn" type="button"><span class="spin">⟳</span> Güncelle</button>
+      </div>
+    </div>
+    <div id="refreshMsg"></div>
+    <nav class="tabs" role="tablist" aria-label="Bölümler">
+      <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
+      <button role="tab" aria-selected="false" data-tab="fon"><span class="ic">🏦</span>Türk Fonları</button>
+      <button role="tab" aria-selected="false" data-tab="emtia"><span class="ic">🥇</span>Emtialar</button>
+      <button role="tab" aria-selected="false" data-tab="btc"><span class="ic">₿</span>Bitcoin</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================= BIST30 ================= -->
+    <section class="panel" id="panel-bist" data-panel="bist">
+      <div class="stat-row" id="bistStats"></div>
+      <div id="statExpand"><div class="exTitle" id="statExpandTitle"></div><div class="exChips" id="statExpandBody"></div></div>
+
+      <div class="card">
+        <h2>Bugünün gündemi</h2>
+        <p class="lede">16 Eylül'de Hazine ve Maliye Bakanı Şimşek'in borsa ve yatırım fonlarına yönelik açıklama yapacağı iddiaları ile Pusula Portföy'e bağlı bazı fonlarda temerrüt endişesi bir araya gelince BIST 100 devre kesti ve günü %5,54 düşüşle 13.122,58 puandan kapattı; bankacılık (-%6,38) ve holding (-%6,48) endeksleri en sert geri çekilen gruplar oldu.</p>
+        <ul class="news">
+          <li>
+            <a class="title" href="https://www.borsaningundemi.com/haber/simsek-iddiasi-borsayi-etkiledi-bist-100-endeksi-sert-dustu-1908464" target="_blank" rel="noopener">BIST 100 devre kesti: Borsa günü sert düşüşle kapattı</a>
+            <span class="src">BorsaninGündemi.com · 16 Eylül 2026</span>
+          </li>
+          <li>
+            <a class="title" href="https://www.borsaningundemi.com/haber/bist-30da-fk-orani-en-dusuk-10-hisse-1854206" target="_blank" rel="noopener">BIST 30'da F/K oranı en düşük 10 hisse</a>
+            <span class="src">BorsaninGündemi.com</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Yabancı medya ve bağımsız yorumcular ne diyor?</h2>
+        <p class="lede">Türk medyası dışından, BIST/Türkiye hisseleri üzerine görüş bildiren üç isim — bir yatırım bankası, bağımsız bir gelişen piyasalar stratejisti ve bağımsız bir değer yatırımı bülteni.</p>
+        <div class="comment-card">
+          <div class="who"><b>Goldman Sachs</b> <span class="stance mix">Karışık / 2027'ye Olumlu</span></div>
+          <p>Şubat 2026'da Bloomberg'e yansıyan notta Goldman Sachs, düşen enflasyon ve faiz indirimlerinin katalizör olacağını belirterek Türk banka hisseleri için "2027'de risk/getiri dengesinin yukarı yönlü olduğunu" yazdı — bu tabloda GARAN, AKBNK, ISCTR, VAKBN, YKBNK'yı ilgilendiriyor. Ancak 2026 pozisyonlanmasını "daha dengeli" buluyor; son ralli sonrası değerlemelerin bir kısmının zaten fiyatlandığını ekliyor.</p>
+          <a href="https://www.bloomberg.com/news/articles/2026-02-23/goldman-sachs-says-turkish-bank-stocks-can-go-higher-in-2027" target="_blank" rel="noopener">Bloomberg üzerinden habere bakın →</a>
+        </div>
+        <div class="comment-card">
+          <div class="who"><b>Timothy Ash</b> <span class="role">Bağımsız gelişen piyasalar stratejisti</span> <span class="stance neu">Temkinli İyimser</span></div>
+          <p>Şimşek programı altında enflasyonun %75'ten %61,8'e gerilemesini, cari açığın daralmasını ve rezervlerin 150 milyar doları aşmasını "gerçek ilerleme" olarak nitelendiriyor. Hisse bazlı öneri vermiyor, ama sıkı para politikasından erken vazgeçilirse "daha yüksek ve kalıcı enflasyona geri dönüleceği" konusunda uyarıyor — bu da bankacılık ve F/K'sı düşük hisselerdeki toparlanmanın kırılgan olabileceği anlamına geliyor.</p>
+          <a href="https://timothyash.substack.com/p/turkey-at-a-turning-point" target="_blank" rel="noopener">Timothy Ash'in yazısını okuyun →</a>
+        </div>
+        <div class="comment-card">
+          <div class="who"><b>Swen Lorenz</b> <span class="role">Undervalued Shares (bağımsız bülten)</span> <span class="stance pos">Yapısal Olarak Ucuz</span></div>
+          <p>Türk borsasını "ucuz, opak ve pek popüler olmayan" bir piyasa olarak tanımlamış ve tarihi F/K ortalamasının (10-12x) çok altında, ~5x seviyesinde işlem gördüğünü yazmış; örnek olarak THYAO, Şişecam, Koç Holding, Anadolu Efes ve BİM'i anmış (tavsiye değil, örnek olarak). Bugünkü tabloyla kıyaslayınca ilginç bir tablo çıkıyor: THYAO hâlâ endeksin en ucuz hissesi (F/K 3,0x) iken, KCHOL ve BIMAS artık göreli olarak "pahalı" grubunda — yani tez, isimden isime çok farklı gerçekleşmiş.</p>
+          <a href="https://www.undervalued-shares.com/weekly-dispatches/turkey-taking-stock-in-times-of-change/" target="_blank" rel="noopener">Undervalued Shares yazısına bakın →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>F/K oranına göre görünüm <span class="hint">(F/K = Fiyat/Kazanç oranı: hissenin fiyatının, şirketin hisse başına yıllık kârına bölünmesiyle bulunur)</span></h2>
+        <p class="lede">30 hissenin cari F/K oranları, medyan F/K'ya (≈10,4x) göre sıralandı. Yeşil bar medyana göre ucuz, kırmızı bar pahalı kalmış hisseleri; kâr açıklamayan ya da veri bulunmayan 4 hisse (ASELS, DSTKF, PETKM, SASA) grafikte gösterilmiyor. Örneğin listenin en solundaki THYAO'nun 3,0x'lik F/K değeri, hissenin yıllık kârının yalnızca 3 katı bir fiyatla işlem gördüğü anlamına gelir — medyanın (≈10,4x) çok altında olduğu için "ucuz" grubuna giriyor; düşük F/K genelde ucuzluk işareti sayılır, ama bazen düşük kâr beklentisini veya piyasanın o hisseye duyduğu güvensizliği de yansıtabilir.</p>
+        <div class="chart-wrap"><div class="barchart" id="barchart"></div></div>
+        <div class="chart-legend">
+          <span><i style="background:var(--good)"></i>Ucuz (medyanın ~%30 altı)</span>
+          <span><i style="background:var(--neutral-chip)"></i>Nötr</span>
+          <span><i style="background:var(--bad)"></i>Pahalı (medyanın ~%30 üstü)</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Sektör Karşılaştırması <span class="hint">(sektör içi ortalama F/K ve en dengeli görünen hisse)</span></h2>
+        <p class="lede">30 hisse, ana faaliyet alanına göre 12 sektöre ayrıldı (genel/yaklaşık bir sınıflandırmadır, resmi BIST sektör endeksleriyle birebir örtüşmeyebilir). Her sektör için ortalama F/K, ucuz/nötr/pahalı dağılımı hesaplandı ve o sektördeki verilere (ucuz F/K + yükseliş trendi + temettü) göre en dengeli görünen hisse "★ En mantıklı" olarak işaretlendi — bu bir yatırım tavsiyesi değil, yalnızca aynı sayfadaki verilerin sektör içi bir karşılaştırmasıdır.</p>
+        <div class="chart-wrap">
+          <table class="stocks" id="sectorCompareTable">
+            <thead>
+              <tr>
+                <th>Sektör</th>
+                <th class="num-col">Hisse Sayısı</th>
+                <th class="num-col">Ort. F/K</th>
+                <th>Ucuz / Nötr / Pahalı</th>
+                <th>★ En Mantıklı</th>
+              </tr>
+            </thead>
+            <tbody id="sectorCompareBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Hisse listesi &amp; değerleme matrisi</h2>
+        <p class="lede">Hisseler sektörlerine göre gruplandırılmıştır; bir hisseye tıklayarak F/K, PD/DD detaylarını, teknik trendi ve ilgili haberleri görebilirsiniz. Matriks görünümü F/K, PD/DD, temettü verimi ve teknik trendi tek ekranda, renk kodlu olarak karşılaştırır. ★ işareti, o sektördeki "en mantıklı" hisseyi gösterir.</p>
+        <div class="filter-row">
+          <div class="seg" id="viewToggle">
+            <button aria-pressed="true" data-view="table">Tablo</button>
+            <button aria-pressed="false" data-view="matrix">Matriks</button>
+          </div>
+          <input type="search" id="stockSearch" placeholder="Hisse kodu veya şirket adı ara…" aria-label="Hisse ara">
+          <div class="seg" id="valFilter">
+            <button aria-pressed="true" data-val="all">Tümü</button>
+            <button aria-pressed="false" data-val="ucuz">Ucuz</button>
+            <button aria-pressed="false" data-val="notr">Nötr</button>
+            <button aria-pressed="false" data-val="pahali">Pahalı</button>
+          </div>
+        </div>
+
+        <div id="tableView">
+          <div class="chart-wrap">
+            <table class="stocks" id="stockTable">
+              <thead>
+                <tr>
+                  <th>Hisse</th>
+                  <th class="num-col">Son Fiyat</th>
+                  <th class="num-col">Değişim<span class="th-sub">günlük %</span></th>
+                  <th class="num-col hide-sm">F/K<span class="th-sub">Fiyat/Kazanç</span></th>
+                  <th class="num-col hide-sm">PD/DD<span class="th-sub">Piy.Değ./Defter D.</span></th>
+                  <th class="hide-sm">Trend<span class="th-sub">20/52 gün ort.</span></th>
+                  <th>Değerleme<span class="th-sub">medyan F/K'ya göre</span></th>
+                </tr>
+              </thead>
+              <tbody id="stockBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="matrixView" hidden>
+          <div class="matrix-scroll">
+            <table class="matrix" id="matrixTable">
+              <thead>
+                <tr><th>Hisse</th><th>F/K<span class="th-sub">Fiyat/Kazanç</span></th><th>PD/DD<span class="th-sub">Piy.Değ./Defter D.</span></th><th>Temettü<span class="th-sub">yıllık verim</span></th><th>Teknik Trend<span class="th-sub">MA20/MA52</span></th></tr>
+              </thead>
+              <tbody id="matrixBody"></tbody>
+            </table>
+          </div>
+          <div class="matrix-legend">
+            <span><i style="background:var(--good)"></i>Olumlu (ucuz F/K, iskontolu PD/DD, yüksek temettü, yükseliş trendi)</span>
+            <span><i style="background:var(--neutral-chip)"></i>Nötr</span>
+            <span><i style="background:var(--bad)"></i>Olumsuz (pahalı F/K, primli PD/DD, düşüş trendi)</span>
+            <span><i style="background:var(--gold)"></i>Yüksek temettü (≥%5)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Temettü için öne çıkan hisseler <span class="hint">(Temettü Verimi = yıllık kâr payı / güncel fiyat)</span></h2>
+        <p class="lede">2026 yılında kâr payı dağıtan/dağıtacağını açıklayan BIST30 şirketleri, temettü verimine göre sıralı. Verim yanında, şirketin son 5 yılda kaç kez nakit temettü ödediği ve buna karşılık gelen yıllık ortalama sıklık da gösteriliyor (kaynak: paraajansi.com.tr). Veri bulunamayan hisseler (bankalar dahil bazı isimler) listede yer almıyor — bu, o şirketin temettü dağıtmadığı anlamına gelmez, kaynaklarda net rakam bulunamadığı anlamına gelir.</p>
+        <ul class="div-list" id="divList"></ul>
+
+        <h3>Hem ucuz hem temettü veren</h3>
+        <p class="lede" style="margin-bottom:8px;">F/K'ya göre "Ucuz" grubunda olup aynı zamanda düzenli temettü ödeyen hisseler:</p>
+        <div class="pill-row" id="divCheapPills"></div>
+
+        <h3>Temettü + yükseliş trendinde (gidecek hisseler)</h3>
+        <p class="lede" style="margin-bottom:8px;">Hem temettü ödeyip hem de fiyatı 20 ve 52 günlük ortalamalarının üzerinde seyrederek teknik olarak yükseliş trendinde görünen hisseler:</p>
+        <div class="pill-row" id="divUpPills"></div>
+      </div>
+
+      <div class="card">
+        <h2>Claude'un değerlendirmesi</h2>
+        <p class="lede">Bu sayfadaki verilere (göreli F/K, PD/DD, teknik trend, temettü, haber akışı) dayanarak kendi seçimim olsaydı öne çıkaracağım isimler — bu bir yatırım tavsiyesi değildir, yalnızca aynı verilerin sentezidir; kendi araştırmanızı yapın ve gerekirse bir yatırım danışmanına danışın. Her kart altında ayrıca "referans alım bölgesi" (güncel fiyat + teknik trend) ve basit bir F/K bazlı "referans hedef" (hissenin F/K'sı medyana dönerse ulaşılabilecek fiyat) gösteriliyor — bu bir fiyat tahmini değil, sayfadaki verilerden türetilen basit bir matematiksel senaryodur.</p>
+        <div id="picksList"></div>
+        <div class="disclaimer">Bu değerlendirme yatırım danışmanlığı kapsamında değildir; genel bilgi amaçlıdır ve kişisel finansal durumunuza göre hazırlanmamıştır. "Referans hedef" rakamı yalnızca hissenin F/K oranının BIST30 medyanına dönmesi varsayımına dayanan basit bir hesaplamadır; kârlılığın değişmesi, piyasa koşulları veya şirkete özgü gelişmeler bu senaryoyu tamamen geçersiz kılabilir — gerçek bir fiyat hedefi veya alım tavsiyesi değildir. Yatırım kararları öncesinde profesyonel destek almanız önerilir.</div>
+      </div>
+
+      <div class="card">
+        <h2>Güncel KAP bildirim akışı</h2>
+        <p class="lede">19 Eylül 2026 itibarıyla KAP'a düşen son bildirimlerden bir kesit (çoğunlukla küçük/orta ölçekli şirketler — BIST30 şirketlerine özel bildirimler ilgili hissenin detay panelinde listelenir).</p>
+        <ul class="kap-list" id="kapList"></ul>
+      </div>
+    </section>
+
+    <!-- ================= FONLAR ================= -->
+    <section class="panel" id="panel-fon" data-panel="fon" hidden>
+      <div class="card">
+        <h2>TEFAS'ta öne çıkan fonlar</h2>
+        <p class="lede">TEFAS'ta 1.000'in üzerinde fon işlem görüyor; burada 15-19 Eylül 2026 itibarıyla portföy büyüklüğü, yatırımcı sayısı ve günlük/aylık/yıllık/5 yıllık getirileri ile öne çıkan fonlar listeleniyor. Genel kıyas: Eylül 2026'da yüksek getirili para piyasası fonları aylık %3,70-%4,50 bandında getiri sağladı (ör. KHP %4,50, PNU %4,27, PRY %4,20). Fonlar burada türüne göre ayrı bölümlerde gösteriliyor — para piyasası fonları, serbest fonlar ve endeks fonları (BYF) farklı risk/getiri profillerine sahip olduğundan doğrudan birbiriyle kıyaslanmamalı; her fon kartının üstünde türü ve hangi portföy yönetim şirketine ait olduğu ayrıca etiketleniyor. Liste, günlük tarama genişledikçe daha fazla kategoriyi (hisse senedi, katılım, altın fonları) kapsayacak şekilde büyüyecek.</p>
+      </div>
+      <div class="card">
+        <h2>Para Piyasası Fonları <span class="hint">(en büyük portföyler)</span></h2>
+        <p class="lede">Her kart; fonun türünü ve kurucusunu (portföy yönetim şirketini), büyüklük ve yatırımcı sayısının altında günlük, aylık, yıllık ve 5 yıllık getiriyi gösterir. Bir dönem için nokta bazlı veri bulunamadıysa "—" ile işaretlenir ve bulunabilen en yakın ölçüt (ör. son 80 ayın ortalaması) not olarak eklenir.</p>
+        <div class="fund-grid" id="fundBig"></div>
+      </div>
+      <div class="card">
+        <h2>Para Piyasası Fonları <span class="hint">(en çok yatırımcıya sahip)</span></h2>
+        <div class="fund-grid" id="fundInv"></div>
+      </div>
+      <div class="card">
+        <h2>Serbest Fonlar <span class="hint">(kaldıraç/döviz pozisyonu alabilen, para piyasası fonlarından farklı risk profiline sahip fonlar)</span></h2>
+        <p class="lede">Bu fonlar klasik para piyasası fonlarından farklı olarak kaldıraçlı, döviz veya türev pozisyon alabildiğinden getirileri (ve riski) çok daha değişken olabilir — yukarıdaki para piyasası fonlarıyla doğrudan kıyaslanmamalı.</p>
+        <div class="fund-grid" id="fundFree"></div>
+      </div>
+      <div class="card">
+        <h2>Endeks Fonları (BYF) <span class="hint">(belirli bir endeksi birebir takip eden borsa yatırım fonları)</span></h2>
+        <p class="lede">Bu fonlar (Borsa Yatırım Fonu / BYF) belirli bir endeksi (ör. Katılım 30, BIST Temettü 25) birebir takip eder; aktif yönetilmezler, bu yüzden getirileri o endeksin performansına yakın seyreder. Aşağıdakiler aynı zamanda temettü dağıtan endeks fonlarıdır — detayları temettü bölümünde de yer alıyor.</p>
+        <div class="fund-grid" id="fundIndex"></div>
+      </div>
+      <div class="card">
+        <h2>Temettü (kâr payı) veren fonlar</h2>
+        <p class="lede">TEFAS'ta yatırımcılarına nakit kâr payı dağıtan hisse senedi/katılım fonları, yıllık dağıtım sayısı ve en son temettü verimine göre sıralı. Bu fonlarda temettü stopajsız olduğu için doğrudan hisse temettüsüne göre vergi avantajı sunuyor. Kurucu portföy yönetim şirketi her fonun yanında gösteriliyor.</p>
+        <ul class="div-list" id="divFundList"></ul>
+        <h3>Temettü stratejili ama kârını yeniden yatıran fonlar</h3>
+        <p class="lede" style="margin-bottom:8px;">Bu fonlar temettü ödeyen şirketlere yatırım yapıyor ama topladıkları kâr payını nakit dağıtmak yerine fon içinde yeniden yatırıyor — 2026 performanslarıyla:</p>
+        <div class="fund-grid" id="divFundReinvest"></div>
+      </div>
+      <div class="card">
+        <h2>Fon gündemi</h2>
+        <ul class="news">
+          <li>
+            <a class="title" href="https://www.ekoturk.com/piyasalar/yatirim-fonlarinda-son-tablo-en-cok-yatirimci-hangi-fonda-en-buyuk-portfoy-hangisinde/" target="_blank" rel="noopener">Yatırım fonlarında son tablo: En çok yatırımcı hangi fonda, en büyük portföy hangisinde?</a>
+            <span class="src">EkoTürk · 15 Eylül 2026</span>
+          </li>
+          <li>
+            <a class="title" href="https://www.borsaningundemi.com/haber/simsek-iddiasi-borsayi-etkiledi-bist-100-endeksi-sert-dustu-1908464" target="_blank" rel="noopener">Pusula Portföy'e bağlı fonlarda temerrüt endişesi piyasayı etkiledi</a>
+            <span class="src">BorsaninGündemi.com · 16 Eylül 2026</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= EMTIA ================= -->
+    <section class="panel" id="panel-emtia" data-panel="emtia" hidden>
+      <div class="tile-grid" id="commodityTiles"></div>
+      <div class="card">
+        <h2>Emtia gündemi</h2>
+        <ul class="news" id="commodityNews"></ul>
+      </div>
+    </section>
+
+    <!-- ================= BITCOIN ================= -->
+    <section class="panel" id="panel-btc" data-panel="btc" hidden>
+      <div class="tile-grid" id="btcTiles"></div>
+      <div class="card">
+        <h2>Kripto gündemi</h2>
+        <ul class="news" id="btcNews"></ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <strong>Kaynaklar:</strong> Hisse fiyat/F/K/PD/DD verileri İş Yatırım, Bigpara ve TradingView'dan; teknik trend (20/52 günlük ortalama) Mynet Finans günlük teknik analizlerinden; temettü verimleri R10, Sanayi Gazetesi ve Midas'tan; temettü ödeme sıklığı (son 5 yıl) paraajansi.com.tr'den; sektör sınıflandırması ve sektör-içi karşılaştırma genel/yaklaşık bir gruplandırma olup Claude tarafından derlenmiştir; TEFAS fon büyüklük/yatırımcı verileri EkoTürk üzerinden TEFAS kaynaklı; fon getirileri FVT.com.tr ve YatırımX'ten; temettü veren fonlar Midas ve TemettüFonları.com'dan; altın/gümüş/petrol Doviz.com; Bitcoin fiyatı günlük taramada Doviz.com'dan, "Güncelle" butonuyla anlık çekilen değer ise CoinGecko public API'sinden; yabancı yorum bölümü Bloomberg, Timothy Ash (bağımsız stratejist) ve Undervalued Shares bültenine dayanıyor; haberler BorsaninGündemi, CNBC-e, Coin-Türk ve ilgili kaynaklardan derlenmiştir. Fiyatlar gecikmeli olabilir, yatırım tavsiyesi değildir. F/K bazlı "ucuz/pahalı" etiketi, sektör karşılaştırmasındaki "★ en mantıklı" işareti, "F/K bazlı referans hedef" ve "Claude'un değerlendirmesi" bölümü yalnızca BIST30 içi göreli bir kıyaslama ve verilerin öznel/matematiksel bir sentezidir; profesyonel yatırım danışmanlığının yerini tutmaz ve fiyat tahmini değildir.<br>
+    Bu pano her gün otomatik olarak yenilenir; sayfadaki "Güncelle" butonu yalnızca Bitcoin fiyatını CoinGecko üzerinden anlık tazeler (bu sayfa statik/bağımsız bir web sayfası olduğundan BIST/TEFAS/emtia kaynaklarına tarayıcıdan CORS izni olmadan anlık erişilemiyor). Sayfa, herkesin doğrudan tarayıcıdan açabileceği bağımsız bir web sayfası olarak yayınlanmıştır.
+  </footer>
+</div>
+
+<script>
+(function(){
+  var stocks = [
+    {t:"AEFES", n:"Anadolu Efes", sector:"Gıda & İçecek", p:19.08, chg:-1.52, pe:11.3, pb:0.9, val:"notr", trend:null, div:null,
+      news:[]},
+    {t:"AKBNK", n:"Akbank", sector:"Bankacılık", p:71.55, chg:-1.19, pe:5.6, pb:1.2, val:"ucuz", trend:"notr", div:3.07, divCount5y:5,
+      news:[{title:"Bankacılık endeksi %6,38 geriledi: BIST 100 devre kesti", url:"https://www.borsaningundemi.com/haber/simsek-iddiasi-borsayi-etkiledi-bist-100-endeksi-sert-dustu-1908464", src:"BorsaninGündemi.com", date:"16 Eylül 2026"}]},
+    {t:"ASELS", n:"Aselsan", sector:"Savunma & Teknoloji", p:379.75, chg:-1.84, pe:null, pb:5.7, val:"na", trend:"notr", div:null,
+      news:[
+        {title:"Aselsan'dan (ASELS) 845 milyon dolarlık sözleşme", url:"https://www.cnbce.com/borsa/borsanin-dev-sirketi-kapa-acikladi-845-milyon-dolarlik-yeni-sozlesme-h30817", src:"CNBC-e", date:"Eylül 2026"},
+        {title:"ASELSAN'dan 271,5 milyon dolarlık yeni sözleşme", url:"https://haber.doviz.com/borsa-haberleri/aselsan-dan-271-5-milyon-dolarlik-yeni-sozlesme/879383", src:"Doviz.com", date:"Eylül 2026"},
+        {title:"Aselsan 114,7 milyon dolarlık satış sözleşmeleri imzaladı", url:"https://yatirimlar.com/haber/aselsan-114-7-milyon-dolarlik-satis-sozlesmeleri-imzaladi_251928", src:"Yatırımlar Dergisi", date:"Eylül 2026"}
+      ]},
+    {t:"ASTOR", n:"Astor Enerji", sector:"Enerji & Kimya", p:248.00, chg:-2.94, pe:22.1, pb:5.7, val:"pahali", trend:"dususte", div:null, news:[]},
+    {t:"BIMAS", n:"BİM Birleşik Mağazalar", sector:"Perakende", p:418.00, chg:0.42, pe:17.0, pb:2.5, val:"pahali", trend:"yukselis", div:1.27, divCount5y:5,
+      news:[
+        {title:"3 perakende devi için 33 hedef! BIMAS, MGROS ve SOKM önerileri…", url:"https://www.turkiyegazetesi.com.tr/ekonomi/3-perakende-devi-icin-33-hedef-bimas-mgros-ve-sokm-onerileri-1810142", src:"Türkiye Gazetesi", date:"Eylül 2026"},
+        {title:"HSBC'den 3 gıda perakendecisi için hedef fiyat güncellemesi", url:"https://www.yatirimx.com.tr/piyasa/hsbcden-3-gida-perakendecisi-icin-hedef-fiyat-guncellemesi/24538", src:"YatırımX", date:"Eylül 2026"}
+      ]},
+    {t:"DSTKF", n:"Destek Finans Faktoring", sector:"Finansal Hizmetler (Diğer)", p:null, chg:-9.98, pe:null, pb:null, val:"na", trend:null, div:null, news:[]},
+    {t:"EKGYO", n:"Emlak Konut GYO", sector:"Gayrimenkul & İnşaat", p:19.01, chg:-1.20, pe:5.6, pb:0.4, val:"ucuz", trend:null, div:null, news:[]},
+    {t:"ENKAI", n:"Enka İnşaat", sector:"Gayrimenkul & İnşaat", p:85.75, chg:-0.47, pe:11.3, pb:1.3, val:"notr", trend:"dususte", div:1.84, divCount5y:4, news:[]},
+    {t:"EREGL", n:"Ereğli Demir Çelik", sector:"Sanayi, Metal & Madencilik", p:36.42, chg:0.77, pe:32.7, pb:0.8, val:"pahali", trend:"dususte", div:null, news:[]},
+    {t:"FROTO", n:"Ford Otosan", sector:"Otomotiv", p:78.40, chg:-1.87, pe:8.3, pb:1.5, val:"notr", trend:null, div:2.9, divCount5y:9, news:[]},
+    {t:"GARAN", n:"Garanti BBVA", sector:"Bankacılık", p:132.50, chg:-1.96, pe:4.6, pb:1.1, val:"ucuz", trend:"yukselis", div:3.80, divCount5y:5,
+      news:[
+        {title:"Garanti BBVA'dan 3 milyar TL'lik takipteki kredi portföyü satışı", url:"https://www.cnbce.com/borsa/garanti-bbvadan-3-milyar-tllik-takipteki-kredi-portfoyu-satisi-h37197", src:"CNBC-e", date:"Eylül 2026"},
+        {title:"Garanti Bankası'ndan (GARAN) 449 milyon liralık satış", url:"https://www.finansopia.com/kap-bildirimleri/garanti-bankasindan-garan-449-milyon-liralik-satis/", src:"Finansopia", date:"Eylül 2026"}
+      ]},
+    {t:"GUBRF", n:"Gübre Fabrikaları", sector:"Enerji & Kimya", p:443.50, chg:3.32, pe:18.0, pb:3.6, val:"pahali", trend:null, div:null, news:[]},
+    {t:"ISCTR", n:"Türkiye İş Bankası (C)", sector:"Bankacılık", p:13.26, chg:-0.82, pe:4.9, pb:0.7, val:"ucuz", trend:"yukselis", div:3.18, divCount5y:5, news:[]},
+    {t:"KCHOL", n:"Koç Holding", sector:"Holding", p:218.70, chg:-1.83, pe:14.6, pb:0.7, val:"pahali", trend:"notr", div:3.18, divCount5y:5,
+      news:[{title:"Koç Holding (KCHOL) haber akışı ve güncel gelişmeler", url:"https://paratic.com/haberleri/kchol/", src:"Paratic", date:"Eylül 2026"}]},
+    {t:"KRDMD", n:"Kardemir (D)", sector:"Sanayi, Metal & Madencilik", p:44.02, chg:-0.14, pe:10.9, pb:0.4, val:"notr", trend:null, div:null, news:[]},
+    {t:"MGROS", n:"Migros Ticaret", sector:"Perakende", p:525.00, chg:0.10, pe:13.8, pb:1.0, val:"pahali", trend:"dususte", div:null,
+      news:[{title:"3 perakende devi için 33 hedef! BIMAS, MGROS ve SOKM önerileri…", url:"https://www.turkiyegazetesi.com.tr/ekonomi/3-perakende-devi-icin-33-hedef-bimas-mgros-ve-sokm-onerileri-1810142", src:"Türkiye Gazetesi", date:"Eylül 2026"}]},
+    {t:"PETKM", n:"Petkim", sector:"Enerji & Kimya", p:21.44, chg:-0.46, pe:null, pb:0.7, val:"na", trend:null, div:null, news:[]},
+    {t:"PGSUS", n:"Pegasus Hava Taşımacılığı", sector:"Ulaştırma", p:147.60, chg:-1.73, pe:4.6, pb:0.7, val:"ucuz", trend:null, div:null, news:[]},
+    {t:"SAHOL", n:"Sabancı Holding", sector:"Holding", p:88.05, chg:-2.81, pe:9.2, pb:0.5, val:"notr", trend:"notr", div:3.39, divCount5y:5, news:[]},
+    {t:"SASA", n:"Sasa Polyester", sector:"Enerji & Kimya", p:2.35, chg:-2.89, pe:null, pb:0.7, val:"na", trend:"dususte", div:null,
+      news:[
+        {title:"SASA Polyester'in ağustos satışları yüzde 30,2 arttı", url:"https://hibya.com/sasa-polyesterin-agustos-satislari-yuzde-302-artti-1017420", src:"Hibya Haber Ajansı", date:"Eylül 2026"},
+        {title:"Sasa Polyester'den (SASA) yüzde 66,666 oranında sermaye tavanı artırımı kararı", url:"https://rotaborsa.com/sasa-polyesterden-sasa-yuzde-66666-oraninda-sermaye-tavani-artirimi-karari/", src:"Rota Borsa", date:"Eylül 2026"}
+      ]},
+    {t:"SISE", n:"Şişecam", sector:"Sanayi, Metal & Madencilik", p:39.62, chg:-1.39, pe:10.3, pb:0.5, val:"notr", trend:"dususte", div:2.20, divCount5y:5, news:[]},
+    {t:"TAVHL", n:"TAV Havalimanları", sector:"Ulaştırma", p:276.25, chg:0.91, pe:17.2, pb:1.2, val:"pahali", trend:null, div:0.56, divCount5y:1, news:[]},
+    {t:"TCELL", n:"Turkcell", sector:"Telekomünikasyon", p:97.20, chg:-1.97, pe:10.4, pb:0.7, val:"notr", trend:"dususte", div:null, news:[]},
+    {t:"THYAO", n:"Türk Hava Yolları", sector:"Ulaştırma", p:285.50, chg:-1.30, pe:3.0, pb:0.4, val:"ucuz", trend:"dususte", div:null,
+      news:[{title:"Türk Hava Yolları haber akışı", url:"https://www.hurriyet.com.tr/haberleri/turk-hava-yollari", src:"Hürriyet", date:"Güncel"}]},
+    {t:"TOASO", n:"Tofaş", sector:"Otomotiv", p:284.50, chg:-0.87, pe:9.7, pb:2.1, val:"notr", trend:"yukselis", div:7.0, divCount5y:5, news:[]},
+    {t:"TRALT", n:"Türk Altın İşletmeleri", sector:"Sanayi, Metal & Madencilik", p:50.20, chg:1.29, pe:29.5, pb:3.0, val:"pahali", trend:"dususte", div:null, news:[]},
+    {t:"TTKOM", n:"Türk Telekom", sector:"Telekomünikasyon", p:52.45, chg:-0.66, pe:6.0, pb:0.7, val:"ucuz", trend:"dususte", div:null, news:[]},
+    {t:"TUPRS", n:"Tüpraş", sector:"Enerji & Kimya", p:417.25, chg:1.27, pe:11.1, pb:1.8, val:"notr", trend:"yukselis", div:7.7, divCount5y:6, news:[]},
+    {t:"VAKBN", n:"VakıfBank", sector:"Bankacılık", p:33.10, chg:0.30, pe:4.7, pb:0.9, val:"ucuz", trend:"notr", div:null, news:[]},
+    {t:"YKBNK", n:"Yapı Kredi", sector:"Bankacılık", p:35.32, chg:2.60, pe:5.4, pb:1.0, val:"ucuz", trend:"notr", div:null, news:[]}
+  ];
+
+  // sırayla gösterilecek sektör grupları (yaklaşık/genel bir sınıflandırmadır; kesin BIST sektör endeksleriyle birebir örtüşmeyebilir)
+  var sectorOrder = ["Bankacılık","Holding","Enerji & Kimya","Ulaştırma","Sanayi, Metal & Madencilik","Perakende","Otomotiv","Telekomünikasyon","Gayrimenkul & İnşaat","Savunma & Teknoloji","Gıda & İçecek","Finansal Hizmetler (Diğer)"];
+
+  // bir hissenin "en mantıklı" karşılaştırma puanı: ucuz F/K + yükseliş trendi + temettü bir arada ne kadar güçlüyse puan o kadar yüksek
+  function stockScore(s){
+    var sc = 0;
+    if(s.val==="ucuz") sc += 3; else if(s.val==="notr") sc += 1;
+    if(s.trend==="yukselis") sc += 2; else if(s.trend==="notr") sc += 0.5;
+    if(s.div!==null && s.div!==undefined) sc += Math.min(s.div/3, 2);
+    return sc;
+  }
+  // her sektör için: hisse sayısı, ortalama F/K (veri olanlar üzerinden), ucuz/nötr/pahalı dağılımı ve en mantıklı görünen hisse
+  var sectorStats = {};
+  sectorOrder.forEach(function(sector){
+    var group = stocks.filter(function(s){ return s.sector===sector; });
+    var withPe = group.filter(function(s){ return s.pe!==null; });
+    var avgPe = withPe.length ? (withPe.reduce(function(a,s){return a+s.pe;},0)/withPe.length) : null;
+    var counts = {ucuz:0,notr:0,pahali:0,na:0};
+    group.forEach(function(s){ counts[s.val]++; });
+    var scored = group.map(function(s){ return {s:s, sc:stockScore(s)}; }).sort(function(a,b){ return b.sc-a.sc; });
+    var best = scored.length ? scored[0] : null;
+    sectorStats[sector] = {group:group, avgPe:avgPe, counts:counts, best: (best && best.sc>0) ? best.s : null};
+  });
+  var bestBySector = {};
+  sectorOrder.forEach(function(sector){ if(sectorStats[sector].best) bestBySector[sectorStats[sector].best.t] = sector; });
+
+  var fallbackNews = {title:"Genel piyasa gündemini görüntüle (BIST 100 devre kesti)", url:"https://www.borsaningundemi.com/haber/simsek-iddiasi-borsayi-etkiledi-bist-100-endeksi-sert-dustu-1908464", src:"BorsaninGündemi.com", date:"16 Eylül 2026"};
+
+  var valLabel = {ucuz:"Ucuz", notr:"Nötr", pahali:"Pahalı", na:"Veri Yetersiz"};
+  var trendLabel = {yukselis:"Yükseliş", dususte:"Düşüş", notr:"Nötr", na:"Veri Yok"};
+  var trendArrow = {yukselis:"↑", dususte:"↓", notr:"→", na:"–"};
+  var trendCls = {yukselis:"up", dususte:"down", notr:"flat", na:"tna"};
+  var trendMx = {yukselis:"mx-good", dususte:"mx-bad", notr:"mx-neutral", na:"mx-na"};
+  var valMx = {ucuz:"mx-good", pahali:"mx-bad", notr:"mx-neutral", na:"mx-na"};
+
+  function trendOf(s){ return s.trend || "na"; }
+  function pbClassMx(v){ if(v===null||v===undefined) return "mx-na"; if(v<1) return "mx-good"; if(v<=2) return "mx-neutral"; return "mx-bad"; }
+  function divClassMx(v){ if(v===null||v===undefined) return "mx-na"; if(v>=5) return "mx-gold"; if(v>=2) return "mx-good"; return "mx-neutral"; }
+
+  var fundsFree = [
+    {code:"TLY", name:"Tera Portföy Birinci Serbest Fon", kurum:"Tera Portföy", cat:"Serbest Fon", size:"247,1 milyar TL", inv:"102.462 yatırımcı",
+      ret:{daily:1.73, monthly:19.71, yearly:655.48, y5:null}, note:"Serbest fon niteliğinde (kaldıraç/döviz pozisyonu alabilir) — saf para piyasası fonlarıyla doğrudan kıyaslanmamalı."}
+  ];
+  var fundsBig = [
+    {code:"GTL", name:"Garanti Portföy Birinci Para Piyasası Fonu", kurum:"Garanti Portföy", cat:"Para Piyasası Fonu", size:"205,1 milyar TL", inv:"351.942 yatırımcı",
+      ret:{daily:0.31, monthly:3.15, yearly:45.56, y5:null}, note:null},
+    {code:"TI1", name:"İş Portföy Para Piyasası Fonu", kurum:"İş Portföy", cat:"Para Piyasası Fonu", size:"204,3 milyar TL", inv:"233.508 yatırımcı",
+      ret:{daily:null, monthly:null, yearly:null, y5:null}, note:"Nokta bazlı günlük/yıllık veri bulunamadı; son 80 ayın ortalama aylık getirisi %2,15 (en iyi ay %4,07, en kötü ay %0,07)."}
+  ];
+  var fundsInv = [
+    {code:"HLL", name:"Ziraat Portföy Halkbank Para Piyasası Fonu", kurum:"Ziraat Portföy", cat:"Para Piyasası Fonu", size:"51,6 milyar TL", inv:"1.027.645 yatırımcı",
+      ret:{daily:0.29, monthly:null, yearly:null, y5:null}, note:"Son 80 ayın ortalama aylık getirisi %2,20 (en iyi ay %4,09, en kötü ay %0,08)."},
+    {code:"TKM", name:"TEB Portföy Para Piyasası Fonu", kurum:"TEB Portföy", cat:"Para Piyasası Fonu", size:"77,1 milyar TL", inv:"501.821 yatırımcı",
+      ret:{daily:null, monthly:null, yearly:null, y5:null}, note:"Son 80 ayın ortalama aylık getirisi %0,83 (en iyi ay %4,12). Kaynaktaki tek bir ayda görülen -%99,99 değeri muhtemel bir veri hatası, dikkatli yorumlanmalı."},
+    {code:"YLB", name:"Yapı Kredi Portföy Para Piyasası Fonu", kurum:"Yapı Kredi Portföy", cat:"Para Piyasası Fonu", size:"95,4 milyar TL", inv:"360.890 yatırımcı",
+      ret:{daily:null, monthly:null, yearly:null, y5:null}, note:"Son 80 ayın ortalama aylık getirisi %2,16 (en iyi ay %4,07, en kötü ay %0,07); kaynak sayfada 1Y/5Y verisi yayınlanmamış."}
+  ];
+
+  var divFundsCash = [
+    {code:"YLY", name:"Yapı Kredi Portföy Kilyos Kar Payı Ödeyen Hisse Senedi Serbest Fon", kurum:"Yapı Kredi Portföy", cat:"Serbest Fon", freq:"Yılda ~1,75-2 kez", yield:5.38},
+    {code:"FBC", name:"Kar Payı Ödeyen Katılım Fonu (Foneria/One Portföy)", kurum:"One Portföy", cat:"Katılım Fonu", freq:"Yılda 2 kez", yield:3.17},
+    {code:"KPH", name:"İş Portföy Kar Payı Ödeyen Hisse Senedi Fonu", kurum:"İş Portföy", cat:"Hisse Senedi Fonu", freq:"Yılda 2 kez", yield:2.65},
+    {code:"NKP", name:"Neo Portföy Kar Payı Ödeyen Değişken Fon", kurum:"Neo Portföy", cat:"Değişken Fon", freq:"Yılda 3 kez", yield:1.85},
+    {code:"OPI", name:"Osmanlı Portföy Kar Payı Ödeyen Hisse Senedi Fonu", kurum:"Osmanlı Portföy", cat:"Hisse Senedi Fonu", freq:"Yılda 2 kez", yield:2.09},
+    {code:"GKG", name:"Garanti Portföy Kar Payı Ödeyen Hisse Senedi Fonu", kurum:"Garanti Portföy", cat:"Hisse Senedi Fonu", freq:"Yılda 1,5 kez", yield:1.77},
+    {code:"AYA", name:"Ata Portföy Kar Payı Ödeyen Hisse Senedi Fonu", kurum:"Ata Portföy", cat:"Hisse Senedi Fonu", freq:"Yılda 2,8 kez", yield:1.45},
+    {code:"KPA", name:"Kuveyt Türk Portföy Kar Payı Ödeyen Katılım Hisse Senedi Fonu", kurum:"Kuveyt Türk Portföy", cat:"Katılım Fonu", freq:"Yılda 3,5 kez", yield:1.22},
+    {code:"GSP", name:"Azimut PYŞ Kar Payı Ödeyen Hisse Senedi Fonu", kurum:"Azimut Portföy", cat:"Hisse Senedi Fonu", freq:"Yılda 2 kez", yield:1.03},
+    {code:"OPTGY", name:"Osmanlı Portföy Katılım 30 Endeksi Hisse Senedi Yoğun BYF", kurum:"Osmanlı Portföy", cat:"Endeks Fonu (BYF)", freq:"Yılda 5,5 kez", yield:0.93},
+    {code:"OPT25", name:"Osmanlı Portföy BIST Temettü 25 Endeksi Hisse Senedi Yoğun BYF", kurum:"Osmanlı Portföy", cat:"Endeks Fonu (BYF)", freq:"Yılda 5,33 kez", yield:0.17}
+  ];
+  var divFundsReinvest = [
+    {code:"ALC", name:"Ak Portföy Kar Payı Ödeyen Şirketler Hisse Senedi Fonu", kurum:"Ak Portföy", cat:"Hisse Senedi Fonu", perf:58.02},
+    {code:"GTM", name:"Garanti Portföy Temettü Ödeyen Şirketler Hisse Senedi Fonu", kurum:"Garanti Portföy", cat:"Hisse Senedi Fonu", perf:50.37},
+    {code:"DPT", name:"Deniz Portföy BIST Temettü 25 Endeksi Hisse Senedi Fonu", kurum:"Deniz Portföy", cat:"Endeks Fonu (BYF)", perf:45.35},
+    {code:"FBZ", name:"Fiba Portföy Kar Payı Ödeyen Serbest Fon", kurum:"Fiba Portföy", cat:"Serbest Fon", perf:24.66}
+  ];
+
+  // endeks fonları (BYF) - temettü listelerinden ayrıca derlenmiş, tek bakışta karşılaştırma için
+  var fundsIndex = divFundsCash.filter(function(f){ return f.cat==="Endeks Fonu (BYF)"; }).map(function(f){
+    return {code:f.code, name:f.name, kurum:f.kurum, cat:f.cat, size:null, inv:null, ret:null, note:"Temettü verimi: %"+f.yield.toFixed(2)+" ("+f.freq+"). Detay için 'Temettü veren fonlar' bölümüne bakın."};
+  }).concat(divFundsReinvest.filter(function(f){ return f.cat==="Endeks Fonu (BYF)"; }).map(function(f){
+    return {code:f.code, name:f.name, kurum:f.kurum, cat:f.cat, size:null, inv:null, ret:null, note:"2026 performansı: %"+f.perf.toFixed(2)+" (kârını nakit dağıtmıyor, yeniden yatırıyor). Detay için 'Temettü veren fonlar' bölümüne bakın."};
+  }));
+
+  var kap = [
+    {c:"REEDR", t:"Reeder Teknoloji", d:"2025 TSRS uyumlu sürdürülebilirlik raporu ile 1Y2026 net satış 778,1 mn TL, net zarar 514,2 mn TL açıklandı.", when:"18 Eylül 2026"},
+    {c:"EMVAR", t:"Emlak Varlık Kiralama", d:"100 milyon TL tutarındaki kira sertifikası itfası tamamlandı, yatırımcılara 114,79 mn TL ödendi.", when:"18 Eylül 2026"},
+    {c:"MERKO", t:"Merko Gıda", d:"AG Girişim Holding, 50.000 pay alarak MERKO'daki payını %17,76'ya çıkardı.", when:"18 Eylül 2026"},
+    {c:"GYO", t:"Ziraat / Halk / Vakıf GYO", d:"İstanbul Kartal'da karma kullanımlı bir proje için ortak girişim kuruldu; kâr/zarar payı eşit paylaşılacak.", when:"18 Eylül 2026"},
+    {c:"MAVI", t:"Mavi Giyim", d:"Geri alım programı kapsamında sermayenin %1,86'sına denk gelen pay geri alındı.", when:"18 Eylül 2026"},
+    {c:"PCILT", t:"PC İletişim ve Medya", d:"18 Eylül'de ortalama 29,74 TL'den 70.000 pay geri alındı.", when:"19 Eylül 2026"}
+  ];
+
+  var commodities = [
+    {lbl:"Gram Altın", price:"6.865,89 TL", chg:0.94, trend:"yukselis", note:"Küresel merkez bankalarının, özellikle Çin Merkez Bankası'nın rekor altın alımları fiyatları desteklemeye devam ediyor."},
+    {lbl:"Ons Altın", price:"$4.378,66", chg:0.85, trend:"yukselis", note:"Goldman Sachs, altın için önümüzdeki yıllara yönelik yeni rekor tahminlerini güncelledi."},
+    {lbl:"Gümüş (Ons)", price:"$66,26", chg:1.63, trend:"yukselis", note:"Gümüşte yükseliş hızlandı; bir yıllık getiri %58'i aştı."},
+    {lbl:"Brent Petrol", price:"$103,19", chg:-1.56, trend:"dususte", note:"Brent, gün içinde %1,56 değer kaybederek geriledi."}
+  ];
+  var commodityNews = [
+    {title:"Çin'in altın alımında yeni rekor", url:"https://www.platinonline.com/altin/altin-icin-kritik-hamle-cinin-altin-aliminda-yeni-rekor-1099075", src:"Platin Online", date:"Eylül 2026"},
+    {title:"Goldman Sachs'tan altın için çarpıcı tahmin: Yeni rekorlar kapıda", url:"https://www.borsaningundemi.com/haber/goldman-sachstan-altin-icin-carpici-tahmin-yeni-rekorlar-kapida-1907427", src:"BorsaninGündemi.com", date:"Eylül 2026"},
+    {title:"Gümüşte yükseliş hızlandı: Ons 66 doları aştı, bir yıllık getiri %58'i geçti", url:"https://www.dunya.com/foto-galeri/ekonomi/gumuste-yukselis-hizlandi-ons-66-dolari-asti-bir-yillik-getiri-yuzde-58i-gecti-galeri-840619", src:"Dünya Gazetesi", date:"Eylül 2026"}
+  ];
+
+  var btcTiles = [
+    {lbl:"Bitcoin (USD)", price:"$81.053", chg:4.56, trend:"yukselis", note:"Son 24 saatte %4,56 yükseldi."},
+    {lbl:"Bitcoin (TRY)", price:"₺3.909.000", chg:4.56, trend:"yukselis", note:"Türk Lirası bazında güncel değer."},
+    {lbl:"7 Günlük Değişim", price:"%5,04", chg:5.04, trend:"yukselis", note:"Haftalık bazda pozitif seyir sürüyor."}
+  ];
+  var btcNews = [
+    {title:"Bitcoin, ETF girişlerinin desteğiyle 80 bin doların üzerine çıktı", url:"https://coin-turk.com/bitcoin-etf-girislerinin-destegiyle-80-bin-dolarin-uzerine-cikti", src:"Coin-Türk", date:"Eylül 2026"},
+    {title:"Bitcoin'de 83 bin ila 86 bin dolar aralığı kritik direnç olarak öne çıktı", url:"https://coin-turk.com/bitcoinde-83-bin-ila-86-bin-dolar-araligi-kritik-direnc-olarak-one-cikti", src:"Coin-Türk", date:"Eylül 2026"}
+  ];
+
+  var picks = [
+    {t:"GARAN", txt:"En dengeli seçim: F/K 4,6x ile ucuz, fiyatı yükseliş trendinde, %3,80 temettü veriyor ve takipteki kredi portföyünü satarak bilançosunu güçlendiriyor. Goldman Sachs'ın banka hisselerine dönük yapıcı görüşüyle de örtüşüyor."},
+    {t:"ISCTR", txt:"GARAN'a benzer profil: F/K 4,9x, yükseliş trendinde ve %3,18 temettü. Grup içi çeşitliliği ve düşük PD/DD'si (0,7x) nedeniyle değer yatırımcısı için makul bir alternatif."},
+    {t:"TUPRS", txt:"Grup içi en yüksek temettü verimine sahip (%7,7) ve fiyatı hem 20 hem 52 günlük ortalamanın üzerinde. F/K'sı 'ucuz' değil ama rafineri marjlarının tarihsel olarak dayanıklı olması ve düzenli nakit dağıtımı bunu bir 'gelir hissesi' adayı yapıyor."},
+    {t:"VAKBN", txt:"F/K'nın en düşük olduğu bankalardan biri (4,7x) ve defter değerinin altında işlem görüyor (PD/DD 0,9x). Teknik görünüm net değil, temettü verisi de bulunamadı — daha sabırlı, saf değer odaklı bir izleme adayı."},
+    {t:"THYAO", txt:"Endeksin en ucuz hissesi (F/K 3,0x, PD/DD 0,4x) ve Swen Lorenz gibi yabancı yorumcuların uzun süredir işaret ettiği bir isim. Ancak şu an teknik olarak zayıf (fiyat her iki ortalamanın da altında) — 'çok ucuz ama teknik olarak dip arıyor', temkinle izlenmeli."}
+  ];
+
+  function fmtNum(v, d){ if(v===null||v===undefined) return "—"; return v.toLocaleString("tr-TR",{minimumFractionDigits:d===undefined?2:d, maximumFractionDigits:d===undefined?2:d}); }
+  function fmtChg(v){ if(v===null||v===undefined) return "—"; var s=(v>0?"+":"")+v.toLocaleString("tr-TR",{minimumFractionDigits:2,maximumFractionDigits:2})+"%"; return s; }
+  function fmtPct1(v){ return v.toLocaleString("tr-TR",{minimumFractionDigits:2,maximumFractionDigits:2}); }
+
+  // ---- tabs ----
+  var tabBtns = document.querySelectorAll('nav.tabs button');
+  tabBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      tabBtns.forEach(function(b){ b.setAttribute('aria-selected', b===btn ? 'true':'false'); });
+      document.querySelectorAll('section.panel').forEach(function(p){
+        p.hidden = (p.dataset.panel !== btn.dataset.tab);
+      });
+    });
+  });
+
+  var median = 0;
+  (function(){
+    var withPe = stocks.filter(function(s){return s.pe!==null;}).slice().sort(function(a,b){return a.pe-b.pe;});
+    var mid = withPe[Math.floor((withPe.length-1)/2)].pe;
+    var mid2 = withPe[Math.ceil((withPe.length-1)/2)].pe;
+    median = (mid+mid2)/2;
+  })();
+
+  // ---- BIST stats (clickable) ----
+  var statGroups = {};
+  (function(){
+    var counts = {ucuz:0,notr:0,pahali:0,na:0};
+    stocks.forEach(function(s){counts[s.val]++;});
+    var upList = stocks.filter(function(s){return s.chg>0;});
+    var downList = stocks.filter(function(s){return s.chg<0;});
+    var trendUp = stocks.filter(function(s){return s.trend==="yukselis";});
+    var trendDown = stocks.filter(function(s){return s.trend==="dususte";});
+
+    statGroups = {
+      up: {title:"Bugün Yükselenler ("+upList.length+")", list:upList, metric:function(s){return fmtChg(s.chg);}},
+      down: {title:"Bugün Düşenler ("+downList.length+")", list:downList, metric:function(s){return fmtChg(s.chg);}},
+      ucuz: {title:"F/K'ya Göre Ucuz Kalmış Hisseler ("+counts.ucuz+")", list:stocks.filter(function(s){return s.val==="ucuz";}), metric:function(s){return s.pe.toFixed(1)+"x";}},
+      pahali: {title:"F/K'ya Göre Pahalı Kalmış Hisseler ("+counts.pahali+")", list:stocks.filter(function(s){return s.val==="pahali";}), metric:function(s){return s.pe.toFixed(1)+"x";}},
+      trendUp: {title:"Teknik Olarak Yükseliş Trendinde ("+trendUp.length+")", list:trendUp, metric:function(s){return "MA20/MA52 üzeri";}},
+      trendDown: {title:"Teknik Olarak Düşüş Trendinde ("+trendDown.length+")", list:trendDown, metric:function(s){return "MA20/MA52 altı";}}
+    };
+
+    var el = document.getElementById('bistStats');
+    el.innerHTML =
+      '<button class="stat clickable" id="stat-up" data-key="up" aria-expanded="false"><div class="lbl">Yükselen</div><div class="val good">'+upList.length+'</div><div class="sub">30 hisse içinde</div></button>' +
+      '<button class="stat clickable" id="stat-down" data-key="down" aria-expanded="false"><div class="lbl">Düşen</div><div class="val bad">'+downList.length+'</div><div class="sub">30 hisse içinde</div></button>' +
+      '<div class="stat"><div class="lbl">Medyan F/K</div><div class="val">'+median.toFixed(1)+'x</div><div class="sub">F/K verisi olan 26 hisse</div></div>' +
+      '<button class="stat clickable" id="stat-ucuz" data-key="ucuz" aria-expanded="false"><div class="lbl">Ucuz Kalmış</div><div class="val good">'+counts.ucuz+'</div><div class="sub">medyana göre iskontolu</div></button>' +
+      '<button class="stat clickable" id="stat-pahali" data-key="pahali" aria-expanded="false"><div class="lbl">Pahalı Kalmış</div><div class="val bad">'+counts.pahali+'</div><div class="sub">medyana göre primli</div></button>' +
+      '<button class="stat clickable" id="stat-trendUp" data-key="trendUp" aria-expanded="false"><div class="lbl">Trend: Yükseliş</div><div class="val good">'+trendUp.length+'</div><div class="sub">MA20/MA52 üzerinde</div></button>' +
+      '<button class="stat clickable" id="stat-trendDown" data-key="trendDown" aria-expanded="false"><div class="lbl">Trend: Düşüş</div><div class="val bad">'+trendDown.length+'</div><div class="sub">MA20/MA52 altında</div></button>';
+
+    var activeKey = null;
+    document.querySelectorAll('.stat.clickable').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var key = btn.dataset.key;
+        if(activeKey === key){
+          document.getElementById('statExpand').classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+          activeKey = null;
+          return;
+        }
+        document.querySelectorAll('.stat.clickable').forEach(function(b){b.setAttribute('aria-expanded','false');});
+        btn.setAttribute('aria-expanded','true');
+        activeKey = key;
+        var g = statGroups[key];
+        document.getElementById('statExpandTitle').textContent = g.title;
+        document.getElementById('statExpandBody').innerHTML = g.list.map(function(s){
+          var idx = stocks.indexOf(s);
+          return '<button class="ex-chip" data-jump="'+idx+'">'+s.t+'<span>'+g.metric(s)+'</span></button>';
+        }).join('') || '<span style="font-size:12.5px;color:var(--ink-muted);">Bu kritere uyan hisse yok.</span>';
+        document.getElementById('statExpand').classList.add('open');
+        document.querySelectorAll('.ex-chip').forEach(function(chip){
+          chip.addEventListener('click', function(){ jumpToStock(parseInt(chip.dataset.jump,10)); });
+        });
+      });
+    });
+  })();
+
+  // ---- bar chart ----
+  (function(){
+    var withPe = stocks.filter(function(s){return s.pe!==null;}).slice().sort(function(a,b){return a.pe-b.pe;});
+    var max = Math.max.apply(null, withPe.map(function(s){return s.pe;}));
+    var el = document.getElementById('barchart');
+    var html = "";
+    withPe.forEach(function(s){
+      var pct = Math.max(2, (s.pe/max*100));
+      html += '<div class="row"><div class="tick">'+s.t+'</div><div class="track"><div class="fill '+s.val+'" style="width:'+pct.toFixed(1)+'%"></div></div><div class="pe">'+s.pe.toFixed(1)+'x</div></div>';
+    });
+    el.innerHTML = html;
+  })();
+
+  // ---- view toggle (table / matrix) ----
+  document.querySelectorAll('#viewToggle button').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('#viewToggle button').forEach(function(x){x.setAttribute('aria-pressed', x===b?'true':'false');});
+      document.getElementById('tableView').hidden = (b.dataset.view !== 'table');
+      document.getElementById('matrixView').hidden = (b.dataset.view !== 'matrix');
+    });
+  });
+
+  // ---- matrix (sektöre göre gruplu) ----
+  (function(){
+    var html = "";
+    sectorOrder.forEach(function(sector){
+      var rows = stocks.filter(function(s){ return s.sector===sector; });
+      if(!rows.length) return;
+      var st = sectorStats[sector];
+      html += '<tr class="sector-head"><td colspan="5">'+sector+' <span class="sec-avg">('+rows.length+' hisse · ort. F/K '+(st.avgPe!==null?st.avgPe.toFixed(1)+'x':'—')+')</span></td></tr>';
+      rows.forEach(function(s){
+        var isBest = st.best && st.best.t===s.t;
+        html += '<tr>'+
+          '<td class="mx-name"><span class="tk">'+s.t+'</span>'+(isBest?' <span class="best-badge" title="Bu sektörde veriye göre en dengeli görünen hisse">★</span>':'')+'</td>'+
+          '<td class="mx-cell '+valMx[s.val]+'">'+(s.pe!==null?s.pe.toFixed(1)+"x":"A/D")+'</td>'+
+          '<td class="mx-cell '+pbClassMx(s.pb)+'">'+(s.pb!==null?s.pb.toFixed(1)+"x":"—")+'</td>'+
+          '<td class="mx-cell '+divClassMx(s.div)+'">'+(s.div!==null?"%"+fmtPct1(s.div):"—")+'</td>'+
+          '<td class="mx-cell '+trendMx[trendOf(s)]+'">'+trendArrow[trendOf(s)]+' '+trendLabel[trendOf(s)]+'</td>'+
+          '</tr>';
+      });
+    });
+    document.getElementById('matrixBody').innerHTML = html;
+  })();
+
+  // ---- stock table (sektöre göre gruplu) ----
+  var tbody = document.getElementById('stockBody');
+  function renderTable(filterText, filterVal){
+    filterText = (filterText||"").toLocaleUpperCase("tr-TR");
+    var html = "";
+    var shown = 0;
+    sectorOrder.forEach(function(sector){
+      var st = sectorStats[sector];
+      var matches = [];
+      stocks.forEach(function(s, i){
+        if(s.sector!==sector) return;
+        if(filterVal && filterVal!=="all" && s.val!==filterVal) return;
+        if(filterText && s.t.toLocaleUpperCase("tr-TR").indexOf(filterText)===-1 && s.n.toLocaleUpperCase("tr-TR").indexOf(filterText)===-1) return;
+        matches.push(i);
+      });
+      if(!matches.length) return;
+      html += '<tr class="sector-head"><td colspan="7">'+sector+' <span class="sec-avg">('+matches.length+' hisse · ort. F/K '+(st.avgPe!==null?st.avgPe.toFixed(1)+'x':'—')+')</span></td></tr>';
+      matches.forEach(function(i){
+        var s = stocks[i];
+        var chgClass = s.chg>0?"up":(s.chg<0?"down":"");
+        var isBest = st.best && st.best.t===s.t;
+        shown++;
+        html += '<tr class="stock-row" data-i="'+i+'" tabindex="0">'+
+          '<td class="ticker">'+s.t+(isBest?' <span class="best-badge" title="Bu sektörde veriye göre en dengeli görünen hisse">★</span>':'')+'<div class="name">'+s.n+'</div></td>'+
+          '<td class="num-col num">'+(s.p!==null? fmtNum(s.p,2)+" TL" : "—")+'</td>'+
+          '<td class="num-col num chg '+chgClass+'">'+fmtChg(s.chg)+'</td>'+
+          '<td class="num-col num hide-sm">'+(s.pe!==null? s.pe.toFixed(1)+"x":"—")+'</td>'+
+          '<td class="num-col num hide-sm">'+(s.pb!==null? s.pb.toFixed(1)+"x":"—")+'</td>'+
+          '<td class="hide-sm"><span class="tchip '+trendCls[trendOf(s)]+'">'+trendArrow[trendOf(s)]+' '+trendLabel[trendOf(s)]+'</span></td>'+
+          '<td><span class="chip '+s.val+'">'+valLabel[s.val]+'</span></td>'+
+          '</tr>'+
+          '<tr class="detail-row" id="detail-'+i+'" hidden><td colspan="7"></td></tr>';
+      });
+    });
+    if(!shown){ html = '<tr><td colspan="7" style="padding:16px 10px;color:var(--ink-muted);font-size:13px;">Bu kritere uyan hisse yok.</td></tr>'; }
+    tbody.innerHTML = html;
+    attachRowHandlers();
+  }
+
+  function buildDetail(s){
+    var refT = refTarget(s);
+    var grid = '<div class="detail-grid">'+
+      '<div><div class="k">Sektör</div><div class="v" style="font-size:12.5px;">'+(s.sector||"—")+'</div></div>'+
+      '<div><div class="k">Son Fiyat</div><div class="v">'+(s.p!==null?fmtNum(s.p,2)+" TL":"Veri yok")+'</div></div>'+
+      '<div><div class="k">Günlük Değişim</div><div class="v">'+fmtChg(s.chg)+'</div></div>'+
+      '<div><div class="k">F/K (Fiyat/Kazanç)</div><div class="v">'+(s.pe!==null?s.pe.toFixed(1)+"x":"A/D")+'</div></div>'+
+      '<div><div class="k">PD/DD (Piy.Değ./Defter D.)</div><div class="v">'+(s.pb!==null?s.pb.toFixed(1)+"x":"A/D")+'</div></div>'+
+      '<div><div class="k">Teknik Trend (20/52 gün ort.)</div><div class="v">'+trendArrow[trendOf(s)]+' '+trendLabel[trendOf(s)]+'</div></div>'+
+      '<div><div class="k">Temettü Verimi</div><div class="v">'+(s.div!==null?"%"+fmtPct1(s.div):"Veri Yok")+'</div></div>'+
+      (s.divCount5y!==null&&s.divCount5y!==undefined ? '<div><div class="k">Temettü Sıklığı</div><div class="v" style="font-size:12.5px;">Son 5 yılda '+s.divCount5y+' kez</div></div>' : '')+
+      '<div><div class="k">F/K Bazlı Referans Hedef</div><div class="v" style="font-size:13px;">'+(refT!==null?fmtNum(refT,2)+" TL":"—")+'</div></div>'+
+      '</div>'+
+      (bestBySector[s.t] ? '<p style="font-size:12px;color:var(--gold);margin:-4px 0 12px 0;">★ '+s.sector+' sektöründe veriye göre en dengeli görünen hisse olarak işaretlendi.</p>' : '')+
+      '<p style="font-size:11px;color:var(--ink-muted);margin:-4px 0 12px 0;">F/K bazlı referans hedef, yalnızca F/K oranının BIST30 medyanına dönmesi varsayımına dayanan basit bir hesaplamadır; yatırım tavsiyesi değildir.</p>';
+    var newsItems = s.news && s.news.length ? s.news : [fallbackNews];
+    var newsHtml = '<ul class="news-list">' + newsItems.map(function(n){
+      return '<li><a href="'+n.url+'" target="_blank" rel="noopener">'+n.title+'</a><span class="meta">'+n.src+' · '+n.date+'</span></li>';
+    }).join('') + '</ul>';
+    if(!(s.news && s.news.length)){
+      newsHtml = '<p class="news-empty">Bu hisseye özel bir haber bulunamadı, genel piyasa gündemi gösteriliyor:</p>' + newsHtml;
+    }
+    return '<div class="detail-inner">'+grid+newsHtml+'</div>';
+  }
+
+  function openDetail(i){
+    var d = document.getElementById('detail-'+i);
+    if(!d) return;
+    document.querySelectorAll('tr.detail-row').forEach(function(r){ r.hidden = true; });
+    d.querySelector('td').innerHTML = buildDetail(stocks[i]);
+    d.hidden = false;
+  }
+
+  function attachRowHandlers(){
+    document.querySelectorAll('tr.stock-row').forEach(function(row){
+      function toggle(){
+        var i = row.dataset.i;
+        var d = document.getElementById('detail-'+i);
+        var willOpen = d.hidden;
+        document.querySelectorAll('tr.detail-row').forEach(function(r){ r.hidden = true; });
+        if(willOpen){ openDetail(i); }
+      }
+      row.addEventListener('click', toggle);
+      row.addEventListener('keypress', function(e){ if(e.key==="Enter") toggle(); });
+    });
+  }
+  renderTable("", "all");
+
+  document.getElementById('stockSearch').addEventListener('input', function(e){
+    var active = document.querySelector('#valFilter button[aria-pressed="true"]').dataset.val;
+    renderTable(e.target.value, active);
+  });
+  document.querySelectorAll('#valFilter button').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('#valFilter button').forEach(function(x){x.setAttribute('aria-pressed', x===b?'true':'false');});
+      renderTable(document.getElementById('stockSearch').value, b.dataset.val);
+    });
+  });
+
+  // jump from a stat-expand chip or a dividend pill to the stock's row in the table
+  window.jumpToStock = function(i){
+    document.querySelector('[data-view="table"]').click();
+    document.querySelector('#valFilter [data-val="all"]').click();
+    document.getElementById('stockSearch').value = "";
+    renderTable("", "all");
+    setTimeout(function(){
+      var row = document.querySelector('tr.stock-row[data-i="'+i+'"]');
+      if(row){
+        row.scrollIntoView({behavior:"smooth", block:"center"});
+        row.classList.add('flash');
+        openDetail(i);
+        setTimeout(function(){ row.classList.remove('flash'); }, 1700);
+      }
+    }, 30);
+  };
+
+  // ---- KAP list ----
+  document.getElementById('kapList').innerHTML = kap.map(function(k){
+    return '<li><span class="kcode">'+k.c+'</span><span class="ktxt"><b>'+k.t+'</b> — '+k.d+'<span class="kmeta">'+k.when+'</span></span></li>';
+  }).join('');
+
+  // ---- funds ----
+  function retCell(v){ return v!==null&&v!==undefined ? "%"+fmtPct1(v) : "—"; }
+  function fundTags(f){
+    var html = '<div class="pill-row" style="margin-top:0;margin-bottom:8px;">';
+    if(f.cat) html += '<span class="pill" style="background:var(--accent-tint);color:var(--accent-strong);">'+f.cat+'</span>';
+    if(f.kurum) html += '<span class="pill" style="background:var(--neutral-tint);color:var(--neutral-chip);">'+f.kurum+'</span>';
+    html += '</div>';
+    return html;
+  }
+  function fundCard(f){
+    var r = f.ret || {};
+    var html = '<div class="fund-card"><div class="code">'+f.code+'</div><div class="fname">'+f.name+'</div>'+
+      fundTags(f);
+    if(f.size!==null && f.size!==undefined){ html += '<div class="frow"><span>Büyüklük</span><b>'+f.size+'</b></div>'; }
+    if(f.inv!==null && f.inv!==undefined){ html += '<div class="frow"><span>Yatırımcı</span><b>'+f.inv+'</b></div>'; }
+    if(f.ret){
+      html += '<div class="ret-grid">'+
+        '<div><span class="k">Günlük</span><b>'+retCell(r.daily)+'</b></div>'+
+        '<div><span class="k">Aylık</span><b>'+retCell(r.monthly)+'</b></div>'+
+        '<div><span class="k">Yıllık</span><b>'+retCell(r.yearly)+'</b></div>'+
+        '<div><span class="k">5 Yıllık</span><b>'+retCell(r.y5)+'</b></div>'+
+      '</div>';
+    }
+    if(f.note){ html += '<div class="fund-note">'+f.note+'</div>'; }
+    html += '</div>';
+    return html;
+  }
+  document.getElementById('fundFree').innerHTML = fundsFree.map(fundCard).join('');
+  document.getElementById('fundBig').innerHTML = fundsBig.map(fundCard).join('');
+  document.getElementById('fundInv').innerHTML = fundsInv.map(fundCard).join('');
+  document.getElementById('fundIndex').innerHTML = fundsIndex.map(fundCard).join('');
+
+  // ---- dividend-paying funds ----
+  document.getElementById('divFundList').innerHTML = divFundsCash.slice().sort(function(a,b){return b.yield-a.yield;}).map(function(f){
+    return '<li><span><span class="tk">'+f.code+'</span><span class="dn">'+f.name+'</span><span class="dn" style="display:block;margin-left:0;margin-top:2px;">'+(f.kurum?'<b style="color:var(--ink-2);">'+f.kurum+'</b> · ':'')+(f.cat?f.cat+' · ':'')+f.freq+'</span></span><span class="yv">%'+fmtPct1(f.yield)+'</span></li>';
+  }).join('');
+  document.getElementById('divFundReinvest').innerHTML = divFundsReinvest.map(function(f){
+    return '<div class="fund-card"><div class="code">'+f.code+'</div><div class="fname">'+f.name+'</div>'+
+      fundTags(f)+
+      '<div class="frow"><span>2026 performansı</span><b>%'+fmtPct1(f.perf)+'</b></div>'+
+      '<div class="fund-note">Nakit temettü dağıtmıyor; kâr fon içinde yeniden yatırılıyor.</div></div>';
+  }).join('');
+
+  // ---- dividend list ----
+  (function(){
+    var payers = stocks.filter(function(s){return s.div!==null;}).slice().sort(function(a,b){return b.div-a.div;});
+    document.getElementById('divList').innerHTML = payers.map(function(s){
+      var i = stocks.indexOf(s);
+      var freqTxt = (s.divCount5y!==null && s.divCount5y!==undefined) ? '<span class="dn" style="display:block;margin-left:0;margin-top:2px;">Son 5 yılda '+s.divCount5y+' kez ödeme (~yılda '+(s.divCount5y/5).toLocaleString("tr-TR",{minimumFractionDigits:1,maximumFractionDigits:1})+' kez)</span>' : '';
+      return '<li><span><span class="tk">'+s.t+'</span><span class="dn">'+s.n+'</span>'+freqTxt+'</span><span class="yv">%'+fmtPct1(s.div)+'</span></li>';
+    }).join('');
+
+    var cheapDiv = payers.filter(function(s){return s.val==="ucuz";});
+    document.getElementById('divCheapPills').innerHTML = cheapDiv.length ? cheapDiv.map(function(s){
+      return '<span class="pill">'+s.t+' · F/K '+s.pe.toFixed(1)+'x · %'+fmtPct1(s.div)+' temettü</span>';
+    }).join('') : '<span style="font-size:12.5px;color:var(--ink-muted);">Bu kritere uyan hisse bulunamadı.</span>';
+
+    var upDiv = payers.filter(function(s){return s.trend==="yukselis";});
+    document.getElementById('divUpPills').innerHTML = upDiv.length ? upDiv.map(function(s){
+      return '<span class="pill gold">'+s.t+' · %'+fmtPct1(s.div)+' temettü · trend ↑</span>';
+    }).join('') : '<span style="font-size:12.5px;color:var(--ink-muted);">Bu kritere uyan hisse bulunamadı.</span>';
+  })();
+
+  // ---- Claude's picks ----
+  // basit, şeffaf bir "referans hedef" hesaplaması: hissenin F/K'sı BIST30 medyanına dönerse (kâr sabit kalırsa) ulaşabileceği fiyat.
+  // bu bir tahmin/tavsiye değildir, yalnızca aynı sayfadaki F/K verisinden türetilen bir mean-reversion senaryosudur.
+  function refTarget(s){
+    if(s.p===null || s.pe===null || s.pe<=0 || !median) return null;
+    return s.p * (median / s.pe);
+  }
+  document.getElementById('picksList').innerHTML = picks.map(function(p){
+    var s = stocks.filter(function(x){ return x.t===p.t; })[0];
+    var refHtml = "";
+    if(s){
+      var tgt = refTarget(s);
+      refHtml = '<div class="pick-ref">'+
+        '<div><span class="k">Güncel Fiyat</span><b>'+(s.p!==null?fmtNum(s.p,2)+" TL":"—")+'</b></div>'+
+        '<div><span class="k">Referans Alım Bölgesi</span><b>'+(s.p!==null?fmtNum(s.p,2)+" TL civarı":"—")+'</b></div>'+
+        '<div><span class="k">Teknik Trend</span><b>'+trendArrow[trendOf(s)]+' '+trendLabel[trendOf(s)]+'</b></div>'+
+        '<div><span class="k">F/K Bazlı Referans Hedef</span><b class="up">'+(tgt!==null?fmtNum(tgt,2)+" TL (medyan F/K'ya dönerse)":"F/K verisi yetersiz")+'</b></div>'+
+        '</div>';
+    }
+    return '<div class="pick"><div><div class="tk">'+p.t+'</div></div><div style="flex:1;"><p>'+p.txt+'</p>'+refHtml+'</div></div>';
+  }).join('');
+
+  // ---- commodities ----
+  function renderCommodities(){
+    document.getElementById('commodityTiles').innerHTML = commodities.map(function(c){
+      var cls = c.chg>0?"good":(c.chg<0?"bad":"");
+      var trendChip = c.trend ? '<span class="tchip '+trendCls[c.trend]+'" style="margin-top:6px;display:inline-flex;">'+trendArrow[c.trend]+' '+trendLabel[c.trend]+' trend</span>' : '';
+      return '<div class="tile"><div class="lbl">'+c.lbl+'</div><div class="price">'+c.price+'</div>'+
+        '<div class="chgline '+cls+'">'+fmtChg(c.chg)+' (24s)</div>'+trendChip+'<div class="note">'+c.note+'</div></div>';
+    }).join('');
+  }
+  renderCommodities();
+  document.getElementById('commodityNews').innerHTML = commodityNews.map(function(n){
+    return '<li><a class="title" href="'+n.url+'" target="_blank" rel="noopener">'+n.title+'</a><span class="src">'+n.src+' · '+n.date+'</span></li>';
+  }).join('');
+
+  // ---- bitcoin ----
+  function renderBtc(){
+    document.getElementById('btcTiles').innerHTML = btcTiles.map(function(c){
+      var cls = c.chg>0?"good":(c.chg<0?"bad":"");
+      var trendChip = c.trend ? '<span class="tchip '+trendCls[c.trend]+'" style="margin-top:6px;display:inline-flex;">'+trendArrow[c.trend]+' '+trendLabel[c.trend]+' trend</span>' : '';
+      return '<div class="tile"><div class="lbl">'+c.lbl+'</div><div class="price">'+c.price+'</div>'+
+        '<div class="chgline '+cls+'">'+fmtChg(c.chg)+'</div>'+trendChip+'<div class="note">'+c.note+'</div></div>';
+    }).join('');
+  }
+  renderBtc();
+  document.getElementById('btcNews').innerHTML = btcNews.map(function(n){
+    return '<li><a class="title" href="'+n.url+'" target="_blank" rel="noopener">'+n.title+'</a><span class="src">'+n.src+' · '+n.date+'</span></li>';
+  }).join('');
+
+  // ---- sektör karşılaştırması ----
+  (function(){
+    document.getElementById('sectorCompareBody').innerHTML = sectorOrder.map(function(sector){
+      var st = sectorStats[sector];
+      if(!st.group.length) return "";
+      var dist = st.counts.ucuz+' ucuz / '+st.counts.notr+' nötr / '+st.counts.pahali+(st.counts.na?' / '+st.counts.na+' veri yok':'');
+      var bestHtml = st.best ? '<button class="ex-chip" data-jump="'+stocks.indexOf(st.best)+'">★ '+st.best.t+'<span>skor bazlı</span></button>' : '<span style="font-size:12px;color:var(--ink-muted);">Yeterli veri yok</span>';
+      return '<tr>'+
+        '<td class="ticker">'+sector+'<div class="name">'+st.group.length+' hisse</div></td>'+
+        '<td class="num-col num">'+st.group.length+'</td>'+
+        '<td class="num-col num">'+(st.avgPe!==null?st.avgPe.toFixed(1)+'x':'—')+'</td>'+
+        '<td style="font-size:12.5px;">'+dist+'</td>'+
+        '<td>'+bestHtml+'</td>'+
+        '</tr>';
+    }).join('');
+    document.querySelectorAll('#sectorCompareBody .ex-chip').forEach(function(chip){
+      chip.addEventListener('click', function(){ jumpToStock(parseInt(chip.dataset.jump,10)); });
+    });
+  })();
+
+  // ---- "Güncelle" butonu: anlık veri güncelleme ----
+  // Not: bu sayfa statik olarak yayınlanmış bağımsız bir web sayfasıdır ve sunucu tarafı yok;
+  // İş Yatırım / TEFAS / Mynet Finans gibi kaynaklar tarayıcıdan doğrudan (CORS izni olmadan) çekilemiyor.
+  // Bu yüzden BIST hisseleri, fonlar ve emtia (altın/gümüş/petrol) verileri günlük otomatik taramayla güncellenir.
+  // Bitcoin için CoinGecko'nun ücretsiz, anahtar gerektirmeyen ve CORS'a izin veren public API'si sayesinde
+  // gerçek anlık fiyat çekmek mümkün - bu yüzden "Güncelle" butonu en azından Bitcoin sekmesini anlık tazeler.
+  (function(){
+    var btn = document.getElementById('refreshBtn');
+    var msg = document.getElementById('refreshMsg');
+    btn.addEventListener('click', function(){
+      btn.disabled = true; btn.classList.add('spinning');
+      msg.className = ""; msg.textContent = "Bitcoin fiyatı anlık olarak kontrol ediliyor…";
+      fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,try&include_24hr_change=true')
+        .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+        .then(function(data){
+          var b = data && data.bitcoin;
+          if(!b) throw new Error('boş yanıt');
+          var usd = b.usd, try_ = b.try, chg = b.usd_24h_change;
+          btcTiles[0].price = "$"+usd.toLocaleString("en-US",{maximumFractionDigits:0});
+          btcTiles[0].chg = chg; btcTiles[0].trend = chg>=0?"yukselis":"dususte";
+          btcTiles[0].note = "CoinGecko üzerinden az önce anlık çekildi.";
+          btcTiles[1].price = "₺"+try_.toLocaleString("tr-TR",{maximumFractionDigits:0});
+          btcTiles[1].chg = chg; btcTiles[1].trend = chg>=0?"yukselis":"dususte";
+          btcTiles[1].note = "CoinGecko üzerinden az önce anlık çekildi (TL karşılığı).";
+          renderBtc();
+          var now = new Date();
+          var hh = String(now.getHours()).padStart(2,'0'), mm = String(now.getMinutes()).padStart(2,'0');
+          msg.className = "ok";
+          msg.textContent = "✓ Bitcoin fiyatı "+hh+":"+mm+" itibarıyla anlık güncellendi (kaynak: CoinGecko). BIST hisseleri, fonlar ve emtia fiyatları ise sunucu taraması gerektirdiğinden yalnızca günlük otomatik güncellemede (her gün ~19:00 İstanbul) yenilenir — üstteki tarih bu taramanın son çalıştığı zamanı gösterir.";
+        })
+        .catch(function(err){
+          msg.className = "err";
+          msg.textContent = "Anlık Bitcoin verisi şu anda alınamadı (ağ/CORS kısıtlaması olabilir). BIST hisseleri, fonlar ve emtia zaten yalnızca günlük otomatik taramayla güncellendiği için bu buton onları etkilemiyor; en güncel tam tarama üstteki tarihte görünür.";
+        })
+        .finally(function(){
+          btn.disabled = false; btn.classList.remove('spinning');
+        });
+    });
+  })();
+
+})();
+</script>
+
+</body>
+</html>
