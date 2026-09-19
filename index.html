@@ -642,8 +642,8 @@
   </main>
 
   <footer class="foot">
-    <strong>Kaynaklar:</strong> Hisse fiyat/F/K/PD/DD verileri İş Yatırım, Bigpara ve TradingView'dan; teknik trend (20/52 günlük ortalama) Mynet Finans günlük teknik analizlerinden; temettü verimleri R10, Sanayi Gazetesi ve Midas'tan; temettü ödeme sıklığı (son 5 yıl) paraajansi.com.tr'den; sektör sınıflandırması ve sektör-içi karşılaştırma genel/yaklaşık bir gruplandırma olup Claude tarafından derlenmiştir; TEFAS fon büyüklük/yatırımcı verileri EkoTürk üzerinden TEFAS kaynaklı; fon getirileri FVT.com.tr ve YatırımX'ten; temettü veren fonlar Midas ve TemettüFonları.com'dan; altın/gümüş/petrol Doviz.com; Bitcoin fiyatı günlük taramada Doviz.com'dan, "Güncelle" butonuyla anlık çekilen değer ise CoinGecko public API'sinden; yabancı yorum bölümü Bloomberg, Timothy Ash (bağımsız stratejist) ve Undervalued Shares bültenine dayanıyor; haberler BorsaninGündemi, CNBC-e, Coin-Türk ve ilgili kaynaklardan derlenmiştir. Fiyatlar gecikmeli olabilir, yatırım tavsiyesi değildir. F/K bazlı "ucuz/pahalı" etiketi, sektör karşılaştırmasındaki "★ en mantıklı" işareti, "F/K bazlı referans hedef" ve "Claude'un değerlendirmesi" bölümü yalnızca BIST30 içi göreli bir kıyaslama ve verilerin öznel/matematiksel bir sentezidir; profesyonel yatırım danışmanlığının yerini tutmaz ve fiyat tahmini değildir.<br>
-    Bu pano her gün otomatik olarak yenilenir; sayfadaki "Güncelle" butonu yalnızca Bitcoin fiyatını CoinGecko üzerinden anlık tazeler (bu sayfa statik/bağımsız bir web sayfası olduğundan BIST/TEFAS/emtia kaynaklarına tarayıcıdan CORS izni olmadan anlık erişilemiyor). Sayfa, herkesin doğrudan tarayıcıdan açabileceği bağımsız bir web sayfası olarak yayınlanmıştır.
+    <strong>Kaynaklar:</strong> Hisse fiyat/F/K/PD/DD verileri İş Yatırım, Bigpara ve TradingView'dan; teknik trend (20/52 günlük ortalama) Mynet Finans günlük teknik analizlerinden; temettü verimleri R10, Sanayi Gazetesi ve Midas'tan; temettü ödeme sıklığı (son 5 yıl) paraajansi.com.tr'den; sektör sınıflandırması ve sektör-içi karşılaştırma genel/yaklaşık bir gruplandırma olup Claude tarafından derlenmiştir; TEFAS fon büyüklük/yatırımcı verileri EkoTürk üzerinden TEFAS kaynaklı; fon getirileri FVT.com.tr ve YatırımX'ten; temettü veren fonlar Midas ve TemettüFonları.com'dan; altın/gümüş/petrol Doviz.com; Bitcoin fiyatı günlük taramada Doviz.com'dan, "Güncelle" butonuyla anlık çekilen Bitcoin/altın/gümüş değerleri ise sırasıyla CoinGecko, gold-api.com ve open.er-api.com (USD/TRY kuru) public API'lerinden; yabancı yorum bölümü Bloomberg, Timothy Ash (bağımsız stratejist) ve Undervalued Shares bültenine dayanıyor; haberler BorsaninGündemi, CNBC-e, Coin-Türk ve ilgili kaynaklardan derlenmiştir. Fiyatlar gecikmeli olabilir, yatırım tavsiyesi değildir. F/K bazlı "ucuz/pahalı" etiketi, sektör karşılaştırmasındaki "★ en mantıklı" işareti, "F/K bazlı referans hedef" ve "Claude'un değerlendirmesi" bölümü yalnızca BIST30 içi göreli bir kıyaslama ve verilerin öznel/matematiksel bir sentezidir; profesyonel yatırım danışmanlığının yerini tutmaz ve fiyat tahmini değildir.<br>
+    Bu pano her gün otomatik olarak yenilenir; sayfadaki "Güncelle" butonu Bitcoin, Gram Altın, Ons Altın ve Gümüş (Ons) fiyatlarını CoinGecko/gold-api.com/open.er-api.com üzerinden anlık tazeler (bu sayfa statik/bağımsız bir web sayfası olduğundan BIST hisseleri, TEFAS fonları ve Brent petrol için ücretsiz/CORS izinli anlık bir kaynak bulunmuyor, bu üçü yalnızca günlük otomatik taramada yenilenir). Sayfa, herkesin doğrudan tarayıcıdan açabileceği bağımsız bir web sayfası olarak yayınlanmıştır.
   </footer>
 </div>
 
@@ -1206,41 +1206,105 @@
 
   // ---- "Güncelle" butonu: anlık veri güncelleme ----
   // Not: bu sayfa statik olarak yayınlanmış bağımsız bir web sayfasıdır ve sunucu tarafı yok;
-  // İş Yatırım / TEFAS / Mynet Finans gibi kaynaklar tarayıcıdan doğrudan (CORS izni olmadan) çekilemiyor.
-  // Bu yüzden BIST hisseleri, fonlar ve emtia (altın/gümüş/petrol) verileri günlük otomatik taramayla güncellenir.
-  // Bitcoin için CoinGecko'nun ücretsiz, anahtar gerektirmeyen ve CORS'a izin veren public API'si sayesinde
-  // gerçek anlık fiyat çekmek mümkün - bu yüzden "Güncelle" butonu en azından Bitcoin sekmesini anlık tazeler.
+  // İş Yatırım / TEFAS / Mynet Finans gibi kaynaklar tarayıcıdan doğrudan (CORS izni olmadan) çekilemiyor,
+  // bu yüzden BIST hisseleri ve TEFAS fonları yalnızca günlük otomatik taramayla güncellenir.
+  // Ancak Bitcoin (CoinGecko), altın+gümüş (gold-api.com) ve USD/TRY kuru (open.er-api.com) için
+  // ücretsiz, anahtar gerektirmeyen ve CORS'a izin veren public API'ler mevcut - bu yüzden "Güncelle"
+  // butonu Bitcoin'in yanı sıra Gram Altın, Ons Altın ve Gümüş (Ons) fiyatlarını da anlık tazeler.
+  // Brent Petrol için ücretsiz/anahtarsız bir CORS API bulunamadığı için o veri günlük taramada kalır.
   (function(){
     var btn = document.getElementById('refreshBtn');
     var msg = document.getElementById('refreshMsg');
+
+    function parseTRNum(str){
+      var cleaned = String(str).replace(/[^0-9.,-]/g, '');
+      cleaned = cleaned.replace(/\./g, '').replace(',', '.');
+      return parseFloat(cleaned);
+    }
+    // o günkü otomatik tarama değerleri - anlık % değişim bu referansa göre hesaplanır
+    var gramGoldBaseline = parseTRNum(commodities[0].price);
+    var ounceGoldBaseline = parseTRNum(commodities[1].price);
+    var silverBaseline = parseTRNum(commodities[2].price);
+
     btn.addEventListener('click', function(){
       btn.disabled = true; btn.classList.add('spinning');
-      msg.className = ""; msg.textContent = "Bitcoin fiyatı anlık olarak kontrol ediliyor…";
-      fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,try&include_24hr_change=true')
-        .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
-        .then(function(data){
-          var b = data && data.bitcoin;
-          if(!b) throw new Error('boş yanıt');
+      msg.className = ""; msg.textContent = "Bitcoin, altın ve gümüş fiyatları anlık olarak kontrol ediliyor…";
+
+      var btcP = fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,try&include_24hr_change=true').then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); });
+      var goldP = fetch('https://api.gold-api.com/price/XAU').then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); });
+      var silverP = fetch('https://api.gold-api.com/price/XAG').then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); });
+      var fxP = fetch('https://open.er-api.com/v6/latest/USD').then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); });
+
+      Promise.allSettled([btcP, goldP, silverP, fxP]).then(function(results){
+        var btcRes = results[0], goldRes = results[1], silverRes = results[2], fxRes = results[3];
+        var okParts = [], failParts = [];
+        var now = new Date();
+        var hh = String(now.getHours()).padStart(2,'0'), mm = String(now.getMinutes()).padStart(2,'0');
+
+        if(btcRes.status==="fulfilled" && btcRes.value && btcRes.value.bitcoin){
+          var b = btcRes.value.bitcoin;
           var usd = b.usd, try_ = b.try, chg = b.usd_24h_change;
           btcTiles[0].price = "$"+usd.toLocaleString("en-US",{maximumFractionDigits:0});
           btcTiles[0].chg = chg; btcTiles[0].trend = chg>=0?"yukselis":"dususte";
-          btcTiles[0].note = "CoinGecko üzerinden az önce anlık çekildi.";
+          btcTiles[0].note = "CoinGecko üzerinden "+hh+":"+mm+" itibarıyla anlık çekildi.";
           btcTiles[1].price = "₺"+try_.toLocaleString("tr-TR",{maximumFractionDigits:0});
           btcTiles[1].chg = chg; btcTiles[1].trend = chg>=0?"yukselis":"dususte";
-          btcTiles[1].note = "CoinGecko üzerinden az önce anlık çekildi (TL karşılığı).";
-          renderBtc();
-          var now = new Date();
-          var hh = String(now.getHours()).padStart(2,'0'), mm = String(now.getMinutes()).padStart(2,'0');
-          msg.className = "ok";
-          msg.textContent = "✓ Bitcoin fiyatı "+hh+":"+mm+" itibarıyla anlık güncellendi (kaynak: CoinGecko). BIST hisseleri, fonlar ve emtia fiyatları ise sunucu taraması gerektirdiğinden yalnızca günlük otomatik güncellemede (her gün ~19:00 İstanbul) yenilenir — üstteki tarih bu taramanın son çalıştığı zamanı gösterir.";
-        })
-        .catch(function(err){
-          msg.className = "err";
-          msg.textContent = "Anlık Bitcoin verisi şu anda alınamadı (ağ/CORS kısıtlaması olabilir). BIST hisseleri, fonlar ve emtia zaten yalnızca günlük otomatik taramayla güncellendiği için bu buton onları etkilemiyor; en güncel tam tarama üstteki tarihte görünür.";
-        })
-        .finally(function(){
-          btn.disabled = false; btn.classList.remove('spinning');
-        });
+          btcTiles[1].note = "CoinGecko üzerinden "+hh+":"+mm+" itibarıyla anlık çekildi (TL karşılığı).";
+          okParts.push("Bitcoin");
+        } else { failParts.push("Bitcoin"); }
+
+        var usdTry = null;
+        if(fxRes.status==="fulfilled" && fxRes.value && fxRes.value.rates && fxRes.value.rates.TRY){
+          usdTry = fxRes.value.rates.TRY;
+        }
+
+        if(goldRes.status==="fulfilled" && goldRes.value && typeof goldRes.value.price==="number"){
+          var xauUsd = goldRes.value.price;
+          var chgOns = ((xauUsd - ounceGoldBaseline)/ounceGoldBaseline)*100;
+          commodities[1].price = "$"+xauUsd.toLocaleString("tr-TR",{minimumFractionDigits:2,maximumFractionDigits:2});
+          commodities[1].chg = chgOns; commodities[1].trend = chgOns>=0?"yukselis":"dususte";
+          commodities[1].note = "gold-api.com üzerinden "+hh+":"+mm+" itibarıyla anlık çekildi.";
+          if(usdTry){
+            var gramTry = (xauUsd/31.1035)*usdTry;
+            var chgGram = ((gramTry - gramGoldBaseline)/gramGoldBaseline)*100;
+            commodities[0].price = gramTry.toLocaleString("tr-TR",{minimumFractionDigits:2,maximumFractionDigits:2})+" TL";
+            commodities[0].chg = chgGram; commodities[0].trend = chgGram>=0?"yukselis":"dususte";
+            commodities[0].note = "gold-api.com (ons altın) ve open.er-api.com (USD/TRY kuru) ile "+hh+":"+mm+" itibarıyla anlık hesaplandı.";
+            okParts.push("Altın (gram + ons)");
+          } else {
+            commodities[0].note = "Ons altın anlık güncellendi, ancak USD/TRY kuru alınamadığı için gram altın (TL) değeri güncellenemedi.";
+            okParts.push("Ons Altın");
+          }
+        } else { failParts.push("Altın"); }
+
+        if(silverRes.status==="fulfilled" && silverRes.value && typeof silverRes.value.price==="number"){
+          var xagUsd = silverRes.value.price;
+          var chgAg = ((xagUsd - silverBaseline)/silverBaseline)*100;
+          commodities[2].price = "$"+xagUsd.toLocaleString("tr-TR",{minimumFractionDigits:2,maximumFractionDigits:2});
+          commodities[2].chg = chgAg; commodities[2].trend = chgAg>=0?"yukselis":"dususte";
+          commodities[2].note = "gold-api.com üzerinden "+hh+":"+mm+" itibarıyla anlık çekildi.";
+          okParts.push("Gümüş");
+        } else { failParts.push("Gümüş"); }
+
+        renderBtc();
+        renderCommodities();
+
+        var msgText = "";
+        if(okParts.length){
+          msgText += "✓ "+okParts.join(", ")+" "+hh+":"+mm+" itibarıyla anlık güncellendi. ";
+        }
+        msgText += "BIST hisseleri, TEFAS fonları ve Brent petrol için ücretsiz/anlık bir veri kaynağı bulunmadığından bu buton onları güncelleyemiyor; bu veriler yalnızca günlük otomatik taramada (her gün ~19:00 İstanbul) yenilenir — üstteki tarih bu taramanın son çalıştığı zamanı gösterir.";
+        if(failParts.length){
+          msgText += " ("+failParts.join(", ")+" için anlık veri şu an alınamadı.)";
+        }
+        msg.className = okParts.length ? "ok" : "err";
+        msg.textContent = msgText;
+      }).catch(function(err){
+        msg.className = "err";
+        msg.textContent = "Anlık veri güncellemesi sırasında bir hata oluştu (ağ/CORS kısıtlaması olabilir). Veriler yalnızca günlük otomatik taramayla güncellendiği için üstteki tarih hâlâ geçerlidir.";
+      }).finally(function(){
+        btn.disabled = false; btn.classList.remove('spinning');
+      });
     });
   })();
 
