@@ -1,0 +1,32 @@
+name: Emtia ve Bitcoin guncellemesi
+
+on:
+  schedule:
+    # her 2 saatte bir, her gun (kripto/emtia 7/24 hareket eder)
+    - cron: "0 */2 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Emtia ve Bitcoin guncelle
+        run: python refresh_commodities.py
+      - name: Degisiklik varsa commit+push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html data/commodity_state.json
+          if git diff --cached --quiet; then
+            echo "Degisiklik yok, commit atlanacak."
+          else
+            git commit -m "Emtia ve Bitcoin guncellemesi (otomatik)"
+            git push
+          fi
