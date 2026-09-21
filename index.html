@@ -403,7 +403,7 @@
     <div class="auto-status" style="margin-top:4px;display:flex;flex-direction:column;gap:2px;">
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);"></span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);"></span>
-      <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);"></span>
+      <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 21.09 22:27 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
       <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);"></span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
@@ -769,10 +769,10 @@
   ];
 
   var commodities = [
-    {lbl:"Gram Altın", price:"6.865,89 TL", chg:0.90, trend:"yukselis", note:"Fed'in 16 Eylül'de politika faizini 25 baz puan artırmasının ardından kısa süreli gerileyen altın, hafta sonunda dolardaki zayıflama ve petrol fiyatlarındaki düşüşle haftayı ~%0,9 yükselişle kapattı."},
-    {lbl:"Ons Altın", price:"$4.378,63", chg:0.85, trend:"yukselis", note:"Önceki kapanış 4.341,70$ idi; Fed sonrası kısa gerilemenin ardından toparlanma sürüyor."},
-    {lbl:"Gümüş (Ons)", price:"$66,26", chg:1.63, trend:"yukselis", note:"Önceki kapanış 65,20$; haftalık %2,73 artış. Zaman damgası tam doğrulanamadı, ikinci bir kaynakla teyit edilemedi."},
-    {lbl:"Brent Petrol", price:"$103,87", chg:-0.91, trend:"dususte", note:"Petroldeki gerileme geçen hafta altına destek verdi; arz beklentileri ve dolar hareketleri etkili (iki kaynak arasında ~$0,7 fark var, zaman damgalı bloomberght verisi esas alındı)."}
+    {lbl:"Gram Altın", price:"6.819,80 TL", chg:0.00, trend:"notr", note:"Ons altın (gold-api.com) × USD/TRY (open.er-api.com) ile 21.09 22:27 (İstanbul) itibarıyla hesaplandı, önceki otomatik güncellemeye göre %0,00 yükseldi."},
+    {lbl:"Ons Altın", price:"$4.347,20", chg:0.00, trend:"notr", note:"gold-api.com üzerinden 21.09 22:27 (İstanbul) itibarıyla otomatik çekildi, önceki otomatik güncellemeye göre %0,00 yükseldi."},
+    {lbl:"Gümüş (Ons)", price:"$66,18", chg:0.00, trend:"notr", note:"gold-api.com üzerinden 21.09 22:27 (İstanbul) itibarıyla otomatik çekildi, önceki otomatik güncellemeye göre %0,00 yükseldi."},
+    {lbl:"Brent Petrol", price:"$96,45", chg:-2.86, trend:"dususte", note:"Yahoo Finance (BZ=F, Brent Crude Oil futures) üzerinden 21.09 22:27 (İstanbul) itibarıyla otomatik çekildi, önceki kapanışa göre %2,86 geriledi."}
   ];
   var commodityNews = [
     {title:"Emtia piyasalarında Fed etkisi! Altın ve gümüşü yükseltti", url:"https://www.borsaningundemi.com/haber/emtia-piyasalarinda-fed-etkisi-altin-ve-gumusu-yukseltti-1908889", src:"BorsaninGündemi.com", date:"Eylül 2026"},
@@ -780,9 +780,9 @@
   ];
 
   var btcTiles = [
-    {lbl:"Bitcoin (USD)", price:"$80.304", chg:-0.96, trend:"dususte", note:"Son 24 saatte %0,96 geriledi; ancak 7 günlük görünüm pozitif (+%3,83) — kısa vadeli karışık bir sinyal."},
-    {lbl:"Bitcoin (TRY)", price:"₺3.875.789", chg:-0.96, trend:"dususte", note:"Türk Lirası bazında güncel değer."},
-    {lbl:"7 Günlük Değişim", price:"%3,83", chg:3.83, trend:"yukselis", note:"Haftalık bazda pozitif seyir sürüyor; Salı ~75.000$'dan Cuma ~81.000$ bölgesine yükseliş yaşandı."}
+    {lbl:"Bitcoin (USD)", price:"$86.250", chg:6.41, trend:"yukselis", note:"CoinGecko üzerinden 21.09 22:27 (İstanbul) itibarıyla otomatik çekildi (USD)."},
+    {lbl:"Bitcoin (TRY)", price:"₺4.209.098", chg:6.41, trend:"yukselis", note:"CoinGecko üzerinden 21.09 22:27 (İstanbul) itibarıyla otomatik çekildi (TRY)."},
+    {lbl:"7 Günlük Değişim", price:"%8,89", chg:8.89, trend:"yukselis", note:"CoinGecko üzerinden 21.09 22:27 (İstanbul) itibarıyla otomatik çekildi (7 günlük değişim)."}
   ];
   var btcNews = [
     {title:"Bitcoin bugün ne kadar? Kripto piyasasında yükseliş hızlandı", url:"https://www.gazetekritik.com/ekonomi/bitcoin-bugun-ne-kadar-kripto-piyasasinda-yukselis-hizlandi/414711", src:"GazeteKritik", date:"18 Eylül 2026"},
