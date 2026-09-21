@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Borsa Panosu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -394,9 +390,6 @@
     .stat.clickable .lbl::after{display:none;}
   }
 </style>
-</head>
-<body>
-
 
 <div class="wrap">
   <header class="top">
@@ -406,7 +399,7 @@
         <p>BIST 30 değerleme taraması · TEFAS fonları · emtia · bitcoin</p>
       </div>
       <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-        <div class="updated"><span class="dot"></span><span id="updatedText">19 Eylül 2026, 19:00 (İstanbul) itibarıyla</span></div>
+        <div class="updated"><span class="dot"></span><span id="updatedText">20 Eylül 2026, 12:30 (İstanbul) itibarıyla · BIST/fon verileri 18 Eylül Cuma kapanışına ait (hafta sonu borsa kapalı)</span></div>
         <button class="refresh-btn" id="refreshBtn" type="button"><span class="spin">⟳</span> Güncelle</button>
       </div>
     </div>
@@ -428,15 +421,19 @@
 
       <div class="card">
         <h2>Bugünün gündemi</h2>
-        <p class="lede">16 Eylül'de Hazine ve Maliye Bakanı Şimşek'in borsa ve yatırım fonlarına yönelik açıklama yapacağı iddiaları ile Pusula Portföy'e bağlı bazı fonlarda temerrüt endişesi bir araya gelince BIST 100 devre kesti ve günü %5,54 düşüşle 13.122,58 puandan kapattı; bankacılık (-%6,38) ve holding (-%6,48) endeksleri en sert geri çekilen gruplar oldu.</p>
+        <p class="lede">Borsa İstanbul hafta sonu tatiline, 16 Eylül'deki devre kesici sonrası kısmi bir toparlanmayla ("17 Eylül'de BIST 100 %1,08 yükseldi, bankacılık endeksi %5,91 arttı") girdi; ancak Cuma (18 Eylül) seansı yeniden hafif kayıpla kapandı — BIST 30 günü %0,93 (-151,45 puan) düşüşle tamamladı. Bugün (20 Eylül, Pazar) borsa kapalı olduğu için aşağıdaki BIST/fon verileri 18 Eylül Cuma kapanışını yansıtıyor; emtia ve Bitcoin fiyatları ise anlık.</p>
         <ul class="news">
           <li>
-            <a class="title" href="https://www.borsaningundemi.com/haber/simsek-iddiasi-borsayi-etkiledi-bist-100-endeksi-sert-dustu-1908464" target="_blank" rel="noopener">BIST 100 devre kesti: Borsa günü sert düşüşle kapattı</a>
-            <span class="src">BorsaninGündemi.com · 16 Eylül 2026</span>
+            <a class="title" href="https://finans.mynet.com/haber/detay/borsa/borsa-istanbul-acildi-18-eylul-cuma-2026-bist-100-de-yeni-gelismeler/575476/" target="_blank" rel="noopener">Borsa İstanbul açıldı 18 Eylül Cuma 2026: BIST 100'de yeni gelişmeler</a>
+            <span class="src">Mynet Finans · 18 Eylül 2026</span>
           </li>
           <li>
-            <a class="title" href="https://www.borsaningundemi.com/haber/bist-30da-fk-orani-en-dusuk-10-hisse-1854206" target="_blank" rel="noopener">BIST 30'da F/K oranı en düşük 10 hisse</a>
-            <span class="src">BorsaninGündemi.com</span>
+            <a class="title" href="https://bigpara.hurriyet.com.tr/haberler/borsa-istanbul-haberleri/borsa-13-bin-puanin-altina-geriledi_ID102249469/" target="_blank" rel="noopener">Borsa İstanbul'da yükseliş sürüyor (BIST 100 %1,08 yükseldi)</a>
+            <span class="src">Bigpara/Hürriyet · 17 Eylül 2026</span>
+          </li>
+          <li>
+            <a class="title" href="https://www.politikam.com/astor-enerji-astor-hisseleri-neden-dusuyor-16-eylul-2026" target="_blank" rel="noopener">ASTOR hisselerinde sert düşüş: Astor Enerji %9,83 geriledi</a>
+            <span class="src">Politikam · 16 Eylül 2026</span>
           </li>
         </ul>
       </div>
@@ -463,7 +460,7 @@
 
       <div class="card">
         <h2>F/K oranına göre görünüm <span class="hint">(F/K = Fiyat/Kazanç oranı: hissenin fiyatının, şirketin hisse başına yıllık kârına bölünmesiyle bulunur)</span></h2>
-        <p class="lede">30 hissenin cari F/K oranları, medyan F/K'ya (≈10,4x) göre sıralandı. Yeşil bar medyana göre ucuz, kırmızı bar pahalı kalmış hisseleri; kâr açıklamayan ya da veri bulunmayan 4 hisse (ASELS, DSTKF, PETKM, SASA) grafikte gösterilmiyor. Örneğin listenin en solundaki THYAO'nun 3,0x'lik F/K değeri, hissenin yıllık kârının yalnızca 3 katı bir fiyatla işlem gördüğü anlamına gelir — medyanın (≈10,4x) çok altında olduğu için "ucuz" grubuna giriyor; düşük F/K genelde ucuzluk işareti sayılır, ama bazen düşük kâr beklentisini veya piyasanın o hisseye duyduğu güvensizliği de yansıtabilir.</p>
+        <p class="lede">30 hissenin cari F/K oranları, medyan F/K'ya (≈10,7x) göre sıralandı. Yeşil bar medyana göre ucuz, kırmızı bar pahalı kalmış hisseleri; kâr açıklamayan ya da veri bulunmayan 6 hisse (ASELS, DSTKF, EKGYO, PETKM, PGSUS, SASA) grafikte gösterilmiyor — bu turda EKGYO ve PGSUS için de F/K "A/D" (kâr/zarar verisi net değil) döndü. Örneğin listenin en solundaki THYAO'nun 3,0x'lik F/K değeri, hissenin yıllık kârının yalnızca 3 katı bir fiyatla işlem gördüğü anlamına gelir — medyanın (≈10,7x) çok altında olduğu için "ucuz" grubuna giriyor; düşük F/K genelde ucuzluk işareti sayılır, ama bazen düşük kâr beklentisini veya piyasanın o hisseye duyduğu güvensizliği de yansıtabilir.</p>
         <div class="chart-wrap"><div class="barchart" id="barchart"></div></div>
         <div class="chart-legend">
           <span><i style="background:var(--good)"></i>Ucuz (medyanın ~%30 altı)</span>
@@ -568,7 +565,7 @@
 
       <div class="card">
         <h2>Güncel KAP bildirim akışı</h2>
-        <p class="lede">19 Eylül 2026 itibarıyla KAP'a düşen son bildirimlerden bir kesit (çoğunlukla küçük/orta ölçekli şirketler — BIST30 şirketlerine özel bildirimler ilgili hissenin detay panelinde listelenir).</p>
+        <p class="lede">18-19 Eylül 2026 itibarıyla KAP'a düşen son bildirimlerden bir kesit (çoğunlukla küçük/orta ölçekli şirketler — BIST30 şirketlerine özel bildirimler ilgili hissenin detay panelinde listelenir).</p>
         <ul class="kap-list" id="kapList"></ul>
       </div>
     </section>
@@ -577,7 +574,7 @@
     <section class="panel" id="panel-fon" data-panel="fon" hidden>
       <div class="card">
         <h2>TEFAS'ta öne çıkan fonlar</h2>
-        <p class="lede">TEFAS'ta 1.000'in üzerinde fon işlem görüyor; burada 15-19 Eylül 2026 itibarıyla portföy büyüklüğü, yatırımcı sayısı ve günlük/aylık/yıllık/5 yıllık getirileri ile öne çıkan fonlar listeleniyor. Genel kıyas: Eylül 2026'da yüksek getirili para piyasası fonları aylık %3,70-%4,50 bandında getiri sağladı (ör. KHP %4,50, PNU %4,27, PRY %4,20). Fonlar burada türüne göre ayrı bölümlerde gösteriliyor — para piyasası fonları, serbest fonlar ve endeks fonları (BYF) farklı risk/getiri profillerine sahip olduğundan doğrudan birbiriyle kıyaslanmamalı; her fon kartının üstünde türü ve hangi portföy yönetim şirketine ait olduğu ayrıca etiketleniyor. Liste, günlük tarama genişledikçe daha fazla kategoriyi (hisse senedi, katılım, altın fonları) kapsayacak şekilde büyüyecek.</p>
+        <p class="lede">TEFAS'ta 1.000'in üzerinde fon işlem görüyor; burada 15-20 Eylül 2026 itibarıyla portföy büyüklüğü, yatırımcı sayısı ve günlük/aylık/yıllık getirileri ile öne çıkan fonlar listeleniyor. Öne çıkanlar: GTL (Garanti Portföy) 205,1 milyar TL büyüklükle TEFAS'ın en büyük para piyasası fonu, HLL (Ziraat Portföy) ise 1.027.645 yatırımcıyla en çok yatırımcıya sahip fon. Fonlar burada türüne göre ayrı bölümlerde gösteriliyor — para piyasası fonları, serbest fonlar ve endeks fonları (BYF) farklı risk/getiri profillerine sahip olduğundan doğrudan birbiriyle kıyaslanmamalı; her fon kartının üstünde türü ve hangi portföy yönetim şirketine ait olduğu ayrıca etiketleniyor. Liste, günlük tarama genişledikçe daha fazla kategoriyi (hisse senedi, katılım, altın fonları) kapsayacak şekilde büyüyecek.</p>
       </div>
       <div class="card">
         <h2>Para Piyasası Fonları <span class="hint">(en büyük portföyler)</span></h2>
@@ -642,7 +639,7 @@
   </main>
 
   <footer class="foot">
-    <strong>Kaynaklar:</strong> Hisse fiyat/F/K/PD/DD verileri İş Yatırım, Bigpara ve TradingView'dan; teknik trend (20/52 günlük ortalama) Mynet Finans günlük teknik analizlerinden; temettü verimleri R10, Sanayi Gazetesi ve Midas'tan; temettü ödeme sıklığı (son 5 yıl) paraajansi.com.tr'den; sektör sınıflandırması ve sektör-içi karşılaştırma genel/yaklaşık bir gruplandırma olup Claude tarafından derlenmiştir; TEFAS fon büyüklük/yatırımcı verileri EkoTürk üzerinden TEFAS kaynaklı; fon getirileri FVT.com.tr ve YatırımX'ten; temettü veren fonlar Midas ve TemettüFonları.com'dan; altın/gümüş/petrol Doviz.com; Bitcoin fiyatı günlük taramada Doviz.com'dan, "Güncelle" butonuyla anlık çekilen Bitcoin/altın/gümüş değerleri ise sırasıyla CoinGecko, gold-api.com ve open.er-api.com (USD/TRY kuru) public API'lerinden; yabancı yorum bölümü Bloomberg, Timothy Ash (bağımsız stratejist) ve Undervalued Shares bültenine dayanıyor; haberler BorsaninGündemi, CNBC-e, Coin-Türk ve ilgili kaynaklardan derlenmiştir. Fiyatlar gecikmeli olabilir, yatırım tavsiyesi değildir. F/K bazlı "ucuz/pahalı" etiketi, sektör karşılaştırmasındaki "★ en mantıklı" işareti, "F/K bazlı referans hedef" ve "Claude'un değerlendirmesi" bölümü yalnızca BIST30 içi göreli bir kıyaslama ve verilerin öznel/matematiksel bir sentezidir; profesyonel yatırım danışmanlığının yerini tutmaz ve fiyat tahmini değildir.<br>
+    <strong>Kaynaklar:</strong> Hisse fiyat/günlük değişim verileri Getmidas (canlı borsa, 15 dk gecikmeli) ve TradingView'dan; F/K ve PD/DD İş Yatırım "şirket kartı" sayfalarından; teknik trend (20/52 günlük ortalama) Mynet Finans günlük teknik analizlerinden; temettü verimleri Getmidas ve Fintables'tan; temettü ödeme sıklığı (son 5 yıl) paraajansi.com.tr'den; sektör sınıflandırması ve sektör-içi karşılaştırma genel/yaklaşık bir gruplandırma olup Claude tarafından derlenmiştir; TEFAS fon büyüklük/yatırımcı verileri EkoTürk ve KulisBorsa üzerinden TEFAS kaynaklı; fon getirileri FVT.com.tr'den; temettü veren fonlar TemettüFonları.com, Getmidas ve KAP'tan; altın/gümüş/petrol Haberturk, BloombergHT ve Doviz.com'dan; Bitcoin fiyatı günlük taramada Doviz.com'dan, "Güncelle" butonuyla anlık çekilen Bitcoin/altın/gümüş değerleri ise sırasıyla CoinGecko, gold-api.com ve open.er-api.com (USD/TRY kuru) public API'lerinden; yabancı yorum bölümü Bloomberg, Timothy Ash (bağımsız stratejist) ve Undervalued Shares bültenine dayanıyor; haberler BorsaninGündemi, Mynet Finans, Bigpara/Hürriyet, Rota Borsa, Politikam, Borsa Gündem, Finansopia, Paratic, Hibya, GazeteKritik, Ekonomi Politikası ve KAP bildirim akışından (Getmidas KAP haberleri) derlenmiştir. Fiyatlar gecikmeli olabilir, yatırım tavsiyesi değildir. F/K bazlı "ucuz/pahalı" etiketi, sektör karşılaştırmasındaki "★ en mantıklı" işareti, "F/K bazlı referans hedef" ve "Claude'un değerlendirmesi" bölümü yalnızca BIST30 içi göreli bir kıyaslama ve verilerin öznel/matematiksel bir sentezidir; profesyonel yatırım danışmanlığının yerini tutmaz ve fiyat tahmini değildir.<br>
     Bu pano her gün otomatik olarak yenilenir; sayfadaki "Güncelle" butonu Bitcoin, Gram Altın, Ons Altın ve Gümüş (Ons) fiyatlarını CoinGecko/gold-api.com/open.er-api.com üzerinden anlık tazeler (bu sayfa statik/bağımsız bir web sayfası olduğundan BIST hisseleri, TEFAS fonları ve Brent petrol için ücretsiz/CORS izinli anlık bir kaynak bulunmuyor, bu üçü yalnızca günlük otomatik taramada yenilenir). Sayfa, herkesin doğrudan tarayıcıdan açabileceği bağımsız bir web sayfası olarak yayınlanmıştır.
   </footer>
 </div>
@@ -650,58 +647,45 @@
 <script>
 (function(){
   var stocks = [
-    {t:"AEFES", n:"Anadolu Efes", sector:"Gıda & İçecek", p:19.08, chg:-1.52, pe:11.3, pb:0.9, val:"notr", trend:null, div:null,
-      news:[]},
-    {t:"AKBNK", n:"Akbank", sector:"Bankacılık", p:71.55, chg:-1.19, pe:5.6, pb:1.2, val:"ucuz", trend:"notr", div:3.07, divCount5y:5,
-      news:[{title:"Bankacılık endeksi %6,38 geriledi: BIST 100 devre kesti", url:"https://www.borsaningundemi.com/haber/simsek-iddiasi-borsayi-etkiledi-bist-100-endeksi-sert-dustu-1908464", src:"BorsaninGündemi.com", date:"16 Eylül 2026"}]},
-    {t:"ASELS", n:"Aselsan", sector:"Savunma & Teknoloji", p:379.75, chg:-1.84, pe:null, pb:5.7, val:"na", trend:"notr", div:null,
-      news:[
-        {title:"Aselsan'dan (ASELS) 845 milyon dolarlık sözleşme", url:"https://www.cnbce.com/borsa/borsanin-dev-sirketi-kapa-acikladi-845-milyon-dolarlik-yeni-sozlesme-h30817", src:"CNBC-e", date:"Eylül 2026"},
-        {title:"ASELSAN'dan 271,5 milyon dolarlık yeni sözleşme", url:"https://haber.doviz.com/borsa-haberleri/aselsan-dan-271-5-milyon-dolarlik-yeni-sozlesme/879383", src:"Doviz.com", date:"Eylül 2026"},
-        {title:"Aselsan 114,7 milyon dolarlık satış sözleşmeleri imzaladı", url:"https://yatirimlar.com/haber/aselsan-114-7-milyon-dolarlik-satis-sozlesmeleri-imzaladi_251928", src:"Yatırımlar Dergisi", date:"Eylül 2026"}
-      ]},
-    {t:"ASTOR", n:"Astor Enerji", sector:"Enerji & Kimya", p:248.00, chg:-2.94, pe:22.1, pb:5.7, val:"pahali", trend:"dususte", div:null, news:[]},
-    {t:"BIMAS", n:"BİM Birleşik Mağazalar", sector:"Perakende", p:418.00, chg:0.42, pe:17.0, pb:2.5, val:"pahali", trend:"yukselis", div:1.27, divCount5y:5,
-      news:[
-        {title:"3 perakende devi için 33 hedef! BIMAS, MGROS ve SOKM önerileri…", url:"https://www.turkiyegazetesi.com.tr/ekonomi/3-perakende-devi-icin-33-hedef-bimas-mgros-ve-sokm-onerileri-1810142", src:"Türkiye Gazetesi", date:"Eylül 2026"},
-        {title:"HSBC'den 3 gıda perakendecisi için hedef fiyat güncellemesi", url:"https://www.yatirimx.com.tr/piyasa/hsbcden-3-gida-perakendecisi-icin-hedef-fiyat-guncellemesi/24538", src:"YatırımX", date:"Eylül 2026"}
-      ]},
-    {t:"DSTKF", n:"Destek Finans Faktoring", sector:"Finansal Hizmetler (Diğer)", p:null, chg:-9.98, pe:null, pb:null, val:"na", trend:null, div:null, news:[]},
-    {t:"EKGYO", n:"Emlak Konut GYO", sector:"Gayrimenkul & İnşaat", p:19.01, chg:-1.20, pe:5.6, pb:0.4, val:"ucuz", trend:null, div:null, news:[]},
-    {t:"ENKAI", n:"Enka İnşaat", sector:"Gayrimenkul & İnşaat", p:85.75, chg:-0.47, pe:11.3, pb:1.3, val:"notr", trend:"dususte", div:1.84, divCount5y:4, news:[]},
-    {t:"EREGL", n:"Ereğli Demir Çelik", sector:"Sanayi, Metal & Madencilik", p:36.42, chg:0.77, pe:32.7, pb:0.8, val:"pahali", trend:"dususte", div:null, news:[]},
-    {t:"FROTO", n:"Ford Otosan", sector:"Otomotiv", p:78.40, chg:-1.87, pe:8.3, pb:1.5, val:"notr", trend:null, div:2.9, divCount5y:9, news:[]},
-    {t:"GARAN", n:"Garanti BBVA", sector:"Bankacılık", p:132.50, chg:-1.96, pe:4.6, pb:1.1, val:"ucuz", trend:"yukselis", div:3.80, divCount5y:5,
-      news:[
-        {title:"Garanti BBVA'dan 3 milyar TL'lik takipteki kredi portföyü satışı", url:"https://www.cnbce.com/borsa/garanti-bbvadan-3-milyar-tllik-takipteki-kredi-portfoyu-satisi-h37197", src:"CNBC-e", date:"Eylül 2026"},
-        {title:"Garanti Bankası'ndan (GARAN) 449 milyon liralık satış", url:"https://www.finansopia.com/kap-bildirimleri/garanti-bankasindan-garan-449-milyon-liralik-satis/", src:"Finansopia", date:"Eylül 2026"}
-      ]},
-    {t:"GUBRF", n:"Gübre Fabrikaları", sector:"Enerji & Kimya", p:443.50, chg:3.32, pe:18.0, pb:3.6, val:"pahali", trend:null, div:null, news:[]},
-    {t:"ISCTR", n:"Türkiye İş Bankası (C)", sector:"Bankacılık", p:13.26, chg:-0.82, pe:4.9, pb:0.7, val:"ucuz", trend:"yukselis", div:3.18, divCount5y:5, news:[]},
-    {t:"KCHOL", n:"Koç Holding", sector:"Holding", p:218.70, chg:-1.83, pe:14.6, pb:0.7, val:"pahali", trend:"notr", div:3.18, divCount5y:5,
-      news:[{title:"Koç Holding (KCHOL) haber akışı ve güncel gelişmeler", url:"https://paratic.com/haberleri/kchol/", src:"Paratic", date:"Eylül 2026"}]},
-    {t:"KRDMD", n:"Kardemir (D)", sector:"Sanayi, Metal & Madencilik", p:44.02, chg:-0.14, pe:10.9, pb:0.4, val:"notr", trend:null, div:null, news:[]},
-    {t:"MGROS", n:"Migros Ticaret", sector:"Perakende", p:525.00, chg:0.10, pe:13.8, pb:1.0, val:"pahali", trend:"dususte", div:null,
-      news:[{title:"3 perakende devi için 33 hedef! BIMAS, MGROS ve SOKM önerileri…", url:"https://www.turkiyegazetesi.com.tr/ekonomi/3-perakende-devi-icin-33-hedef-bimas-mgros-ve-sokm-onerileri-1810142", src:"Türkiye Gazetesi", date:"Eylül 2026"}]},
-    {t:"PETKM", n:"Petkim", sector:"Enerji & Kimya", p:21.44, chg:-0.46, pe:null, pb:0.7, val:"na", trend:null, div:null, news:[]},
-    {t:"PGSUS", n:"Pegasus Hava Taşımacılığı", sector:"Ulaştırma", p:147.60, chg:-1.73, pe:4.6, pb:0.7, val:"ucuz", trend:null, div:null, news:[]},
-    {t:"SAHOL", n:"Sabancı Holding", sector:"Holding", p:88.05, chg:-2.81, pe:9.2, pb:0.5, val:"notr", trend:"notr", div:3.39, divCount5y:5, news:[]},
-    {t:"SASA", n:"Sasa Polyester", sector:"Enerji & Kimya", p:2.35, chg:-2.89, pe:null, pb:0.7, val:"na", trend:"dususte", div:null,
-      news:[
-        {title:"SASA Polyester'in ağustos satışları yüzde 30,2 arttı", url:"https://hibya.com/sasa-polyesterin-agustos-satislari-yuzde-302-artti-1017420", src:"Hibya Haber Ajansı", date:"Eylül 2026"},
-        {title:"Sasa Polyester'den (SASA) yüzde 66,666 oranında sermaye tavanı artırımı kararı", url:"https://rotaborsa.com/sasa-polyesterden-sasa-yuzde-66666-oraninda-sermaye-tavani-artirimi-karari/", src:"Rota Borsa", date:"Eylül 2026"}
-      ]},
-    {t:"SISE", n:"Şişecam", sector:"Sanayi, Metal & Madencilik", p:39.62, chg:-1.39, pe:10.3, pb:0.5, val:"notr", trend:"dususte", div:2.20, divCount5y:5, news:[]},
-    {t:"TAVHL", n:"TAV Havalimanları", sector:"Ulaştırma", p:276.25, chg:0.91, pe:17.2, pb:1.2, val:"pahali", trend:null, div:0.56, divCount5y:1, news:[]},
-    {t:"TCELL", n:"Turkcell", sector:"Telekomünikasyon", p:97.20, chg:-1.97, pe:10.4, pb:0.7, val:"notr", trend:"dususte", div:null, news:[]},
-    {t:"THYAO", n:"Türk Hava Yolları", sector:"Ulaştırma", p:285.50, chg:-1.30, pe:3.0, pb:0.4, val:"ucuz", trend:"dususte", div:null,
-      news:[{title:"Türk Hava Yolları haber akışı", url:"https://www.hurriyet.com.tr/haberleri/turk-hava-yollari", src:"Hürriyet", date:"Güncel"}]},
-    {t:"TOASO", n:"Tofaş", sector:"Otomotiv", p:284.50, chg:-0.87, pe:9.7, pb:2.1, val:"notr", trend:"yukselis", div:7.0, divCount5y:5, news:[]},
-    {t:"TRALT", n:"Türk Altın İşletmeleri", sector:"Sanayi, Metal & Madencilik", p:50.20, chg:1.29, pe:29.5, pb:3.0, val:"pahali", trend:"dususte", div:null, news:[]},
+    {t:"AEFES", n:"Anadolu Efes", sector:"Gıda & İçecek", p:18.79, chg:-1.52, pe:11.3, pb:0.9, val:"notr", trend:"notr", div:0.80, divCount5y:5, news:[]},
+    {t:"AKBNK", n:"Akbank", sector:"Bankacılık", p:70.70, chg:-1.19, pe:5.6, pb:1.2, val:"ucuz", trend:"notr", div:3.11, divCount5y:5, news:[]},
+    {t:"ASELS", n:"Aselsan", sector:"Savunma & Teknoloji", p:372.75, chg:-1.84, pe:null, pb:5.5, val:"na", trend:"notr", div:0.13, divCount5y:5,
+      news:[{title:"Aselsan'dan (ASELS) 56 milyon dolarlık stratejik yatırım", url:"https://paratic.com/aselsandan-asels-56-milyon-dolarlik-stratejik-yatirim/", src:"Paratic", date:"18 Eylül 2026"}]},
+    {t:"ASTOR", n:"Astor Enerji", sector:"Enerji & Kimya", p:248.00, chg:-2.94, pe:22.1, pb:5.7, val:"pahali", trend:"dususte", div:null,
+      news:[{title:"ASTOR hisselerinde sert düşüş: Astor Enerji %9,83 geriledi", url:"https://www.politikam.com/astor-enerji-astor-hisseleri-neden-dusuyor-16-eylul-2026", src:"Politikam", date:"16 Eylül 2026"}]},
+    {t:"BIMAS", n:"BİM Birleşik Mağazalar", sector:"Perakende", p:419.75, chg:0.42, pe:17.1, pb:2.5, val:"pahali", trend:"yukselis", div:0.60, divCount5y:7,
+      news:[{title:"BİM (BIMAS) yatırımcılarına temettü duyurusu", url:"https://rotaborsa.com/bim-bimas-yatirimcilarina-temettu-duyurusu/", src:"Rota Borsa", date:"18 Eylül 2026"}]},
+    {t:"DSTKF", n:"Destek Finans Faktoring", sector:"Finansal Hizmetler (Diğer)", p:1984.00, chg:-9.98, pe:null, pb:null, val:"na", trend:"dususte", div:null, news:[]},
+    {t:"EKGYO", n:"Emlak Konut GYO", sector:"Gayrimenkul & İnşaat", p:19.01, chg:-1.20, pe:null, pb:0.5, val:"na", trend:"dususte", div:2.79, divCount5y:5, news:[]},
+    {t:"ENKAI", n:"Enka İnşaat", sector:"Gayrimenkul & İnşaat", p:85.35, chg:-0.47, pe:11.3, pb:1.3, val:"notr", trend:"dususte", div:2.31, divCount5y:11, news:[]},
+    {t:"EREGL", n:"Ereğli Demir Çelik", sector:"Sanayi, Metal & Madencilik", p:36.42, chg:0.77, pe:32.7, pb:0.8, val:"pahali", trend:"dususte", div:1.36, divCount5y:5, news:[]},
+    {t:"FROTO", n:"Ford Otosan", sector:"Otomotiv", p:76.00, chg:-1.87, pe:8.3, pb:1.5, val:"notr", trend:"dususte", div:3.32, divCount5y:8, news:[]},
+    {t:"GARAN", n:"Garanti BBVA", sector:"Bankacılık", p:129.90, chg:-1.96, pe:4.5, pb:1.1, val:"ucuz", trend:"yukselis", div:3.98, divCount5y:5,
+      news:[{title:"Garanti Bankası'ndan (GARAN) 449 milyon liralık satış", url:"https://www.finansopia.com/kap-bildirimleri/garanti-bankasindan-garan-449-milyon-liralik-satis/", src:"Finansopia", date:"15 Eylül 2026"}]},
+    {t:"GUBRF", n:"Gübre Fabrikaları", sector:"Enerji & Kimya", p:443.50, chg:3.32, pe:18.6, pb:3.8, val:"pahali", trend:"dususte", div:null,
+      news:[{title:"Gübre Fabrikaları'nın temettü teklifi 30 Eylül'de genel kurulda oylanacak", url:"https://www.borsagundem.com.tr/gubre-fabrikalarinin-temettu-teklifi-30-eylulde-genel-kurulda-oylanacak", src:"Borsa Gündem", date:"3 Eylül 2026"}]},
+    {t:"ISCTR", n:"Türkiye İş Bankası (C)", sector:"Bankacılık", p:13.26, chg:-0.82, pe:4.9, pb:0.7, val:"ucuz", trend:"yukselis", div:4.17, divCount5y:5, news:[]},
+    {t:"KCHOL", n:"Koç Holding", sector:"Holding", p:214.70, chg:-1.83, pe:14.6, pb:0.7, val:"pahali", trend:"notr", div:3.60, divCount5y:5, news:[]},
+    {t:"KRDMD", n:"Kardemir (D)", sector:"Sanayi, Metal & Madencilik", p:44.02, chg:-0.14, pe:11.6, pb:0.5, val:"notr", trend:"notr", div:null, news:[]},
+    {t:"MGROS", n:"Migros Ticaret", sector:"Perakende", p:525.00, chg:0.10, pe:13.8, pb:1.0, val:"notr", trend:"dususte", div:0.67, divCount5y:5, news:[]},
+    {t:"PETKM", n:"Petkim", sector:"Enerji & Kimya", p:21.44, chg:-0.46, pe:null, pb:0.7, val:"na", trend:"notr", div:null, news:[]},
+    {t:"PGSUS", n:"Pegasus Hava Taşımacılığı", sector:"Ulaştırma", p:147.60, chg:-1.73, pe:null, pb:0.7, val:"na", trend:"dususte", div:null,
+      news:[{title:"Pegasus (PGSUS) Ağustos ayı trafik sonuçlarını açıkladı", url:"https://rotaborsa.com/pegasus-pgsus-agustos-ayi-trafik-sonuclarini-acikladi-3/", src:"Rota Borsa", date:"14 Eylül 2026"}]},
+    {t:"SAHOL", n:"Sabancı Holding", sector:"Holding", p:88.05, chg:-2.81, pe:8.9, pb:0.4, val:"notr", trend:"notr", div:1.59, divCount5y:5, news:[]},
+    {t:"SASA", n:"Sasa Polyester", sector:"Enerji & Kimya", p:2.35, chg:-2.89, pe:null, pb:0.7, val:"na", trend:"yukselis", div:null,
+      news:[{title:"SASA Polyester'in ağustos satışları yüzde 30,2 arttı", url:"https://hibya.com/sasa-polyesterin-agustos-satislari-yuzde-302-artti-1017420", src:"Hibya Haber Ajansı", date:"1 Eylül 2026"}]},
+    {t:"SISE", n:"Şişecam", sector:"Sanayi, Metal & Madencilik", p:39.62, chg:-1.39, pe:10.3, pb:0.5, val:"notr", trend:"dususte", div:1.28, divCount5y:5, news:[]},
+    {t:"TAVHL", n:"TAV Havalimanları", sector:"Ulaştırma", p:276.25, chg:0.91, pe:17.2, pb:1.2, val:"pahali", trend:"yukselis", div:0.66, divCount5y:1, news:[]},
+    {t:"TCELL", n:"Turkcell", sector:"Telekomünikasyon", p:97.20, chg:-1.97, pe:10.2, pb:0.7, val:"notr", trend:"dususte", div:1.84, divCount5y:5, news:[]},
+    {t:"THYAO", n:"Türk Hava Yolları", sector:"Ulaştırma", p:285.50, chg:-1.30, pe:3.0, pb:0.4, val:"ucuz", trend:"dususte", div:1.02, divCount5y:2, news:[]},
+    {t:"TOASO", n:"Tofaş", sector:"Otomotiv", p:284.50, chg:-0.87, pe:9.7, pb:2.1, val:"notr", trend:"yukselis", div:6.45, divCount5y:5, news:[]},
+    {t:"TRALT", n:"Türk Altın İşletmeleri", sector:"Sanayi, Metal & Madencilik", p:50.20, chg:1.29, pe:29.5, pb:3.0, val:"pahali", trend:"dususte", div:1.47, divCount5y:2, news:[]},
     {t:"TTKOM", n:"Türk Telekom", sector:"Telekomünikasyon", p:52.45, chg:-0.66, pe:6.0, pb:0.7, val:"ucuz", trend:"dususte", div:null, news:[]},
-    {t:"TUPRS", n:"Tüpraş", sector:"Enerji & Kimya", p:417.25, chg:1.27, pe:11.1, pb:1.8, val:"notr", trend:"yukselis", div:7.7, divCount5y:6, news:[]},
+    {t:"TUPRS", n:"Tüpraş", sector:"Enerji & Kimya", p:417.25, chg:1.27, pe:11.1, pb:1.8, val:"notr", trend:"yukselis", div:3.94, divCount5y:6,
+      news:[{title:"Tüpraş'tan (TUPRS) yatırımcı bilgilendirme sunumu", url:"https://rotaborsa.com/tuprastan-tuprs-yatirimci-bilgilendirme-sunumu-7/", src:"Rota Borsa", date:"2 Eylül 2026"}]},
     {t:"VAKBN", n:"VakıfBank", sector:"Bankacılık", p:33.10, chg:0.30, pe:4.7, pb:0.9, val:"ucuz", trend:"notr", div:null, news:[]},
-    {t:"YKBNK", n:"Yapı Kredi", sector:"Bankacılık", p:35.32, chg:2.60, pe:5.4, pb:1.0, val:"ucuz", trend:"notr", div:null, news:[]}
+    {t:"YKBNK", n:"Yapı Kredi", sector:"Bankacılık", p:36.24, chg:2.60, pe:5.4, pb:1.0, val:"ucuz", trend:"notr", div:4.16, divCount5y:4,
+      news:[{title:"Rekabet Kurulu Yapı Kredi'nin (YKBNK) dev satışı için kararını açıkladı", url:"https://rotaborsa.com/rekabet-kurulu-yapi-kredinin-ykbnk-dev-satisi-icin-kararini-acikladi/", src:"Rota Borsa", date:"10 Eylül 2026"}]}
   ];
 
   // sırayla gösterilecek sektör grupları (yaklaşık/genel bir sınıflandırmadır; kesin BIST sektör endeksleriyle birebir örtüşmeyebilir)
@@ -730,7 +714,7 @@
   var bestBySector = {};
   sectorOrder.forEach(function(sector){ if(sectorStats[sector].best) bestBySector[sectorStats[sector].best.t] = sector; });
 
-  var fallbackNews = {title:"Genel piyasa gündemini görüntüle (BIST 100 devre kesti)", url:"https://www.borsaningundemi.com/haber/simsek-iddiasi-borsayi-etkiledi-bist-100-endeksi-sert-dustu-1908464", src:"BorsaninGündemi.com", date:"16 Eylül 2026"};
+  var fallbackNews = {title:"Genel piyasa gündemini görüntüle (18 Eylül Cuma kapanışı)", url:"https://finans.mynet.com/haber/detay/borsa/borsa-istanbul-acildi-18-eylul-cuma-2026-bist-100-de-yeni-gelismeler/575476/", src:"Mynet Finans", date:"18 Eylül 2026"};
 
   var valLabel = {ucuz:"Ucuz", notr:"Nötr", pahali:"Pahalı", na:"Veri Yetersiz"};
   var trendLabel = {yukselis:"Yükseliş", dususte:"Düşüş", notr:"Nötr", na:"Veri Yok"};
@@ -744,41 +728,47 @@
   function divClassMx(v){ if(v===null||v===undefined) return "mx-na"; if(v>=5) return "mx-gold"; if(v>=2) return "mx-good"; return "mx-neutral"; }
 
   var fundsFree = [
-    {code:"TLY", name:"Tera Portföy Birinci Serbest Fon", kurum:"Tera Portföy", cat:"Serbest Fon", size:"247,1 milyar TL", inv:"102.462 yatırımcı",
-      ret:{daily:1.73, monthly:19.71, yearly:655.48, y5:null}, note:"Serbest fon niteliğinde (kaldıraç/döviz pozisyonu alabilir) — saf para piyasası fonlarıyla doğrudan kıyaslanmamalı."}
+    {code:"TLY", name:"Tera Portföy Birinci Serbest Fonu", kurum:"Tera Portföy", cat:"Serbest Fon", size:"247,1 milyar TL", inv:"102.462 yatırımcı",
+      ret:{daily:1.73, monthly:19.71, yearly:655.48, y5:null}, note:"Serbest fon niteliğinde (kaldıraç/döviz pozisyonu alabilir) — saf para piyasası fonlarıyla doğrudan kıyaslanmamalı. Yüksek yıllık getiri büyük ölçüde TL'nin değer kaybını yansıtıyor."},
+    {code:"GRO", name:"Garanti Portföy Otuzuncu Serbest (Döviz) Fonu", kurum:"Garanti Portföy", cat:"Serbest Fon (Döviz)", size:"196 milyar TL", inv:"27.335 yatırımcı",
+      ret:{daily:null, monthly:2.49, yearly:null, y5:null}, note:"Aylık getiri, son 80 ayın ortalaması olarak alınmıştır; günlük/yıllık nokta veri bulunamadı."},
+    {code:"ILH", name:"İş Portföy Birinci Para Piyasası Serbest (TL) Fonu", kurum:"İş Portföy", cat:"Serbest Fon", size:"168,2 milyar TL", inv:"11.314 yatırımcı",
+      ret:null, note:"İsminde 'para piyasası' geçse de TEFAS'ta serbest fon sınıfında; getiri verisi bu turda bulunamadı."}
   ];
   var fundsBig = [
     {code:"GTL", name:"Garanti Portföy Birinci Para Piyasası Fonu", kurum:"Garanti Portföy", cat:"Para Piyasası Fonu", size:"205,1 milyar TL", inv:"351.942 yatırımcı",
-      ret:{daily:0.31, monthly:3.15, yearly:45.56, y5:null}, note:null},
+      ret:{daily:0.31, monthly:3.15, yearly:45.56, y5:null}, note:"TEFAS'ın en büyük para piyasası fonu."},
     {code:"TI1", name:"İş Portföy Para Piyasası Fonu", kurum:"İş Portföy", cat:"Para Piyasası Fonu", size:"204,3 milyar TL", inv:"233.508 yatırımcı",
       ret:{daily:null, monthly:null, yearly:null, y5:null}, note:"Nokta bazlı günlük/yıllık veri bulunamadı; son 80 ayın ortalama aylık getirisi %2,15 (en iyi ay %4,07, en kötü ay %0,07)."}
   ];
   var fundsInv = [
     {code:"HLL", name:"Ziraat Portföy Halkbank Para Piyasası Fonu", kurum:"Ziraat Portföy", cat:"Para Piyasası Fonu", size:"51,6 milyar TL", inv:"1.027.645 yatırımcı",
-      ret:{daily:0.29, monthly:null, yearly:null, y5:null}, note:"Son 80 ayın ortalama aylık getirisi %2,20 (en iyi ay %4,09, en kötü ay %0,08)."},
+      ret:{daily:0.29, monthly:null, yearly:null, y5:null}, note:"TEFAS'ta en çok yatırımcıya sahip fon. Son 80 ayın ortalama aylık getirisi %2,20 (en iyi ay %4,09, en kötü ay %0,08)."},
     {code:"TKM", name:"TEB Portföy Para Piyasası Fonu", kurum:"TEB Portföy", cat:"Para Piyasası Fonu", size:"77,1 milyar TL", inv:"501.821 yatırımcı",
       ret:{daily:null, monthly:null, yearly:null, y5:null}, note:"Son 80 ayın ortalama aylık getirisi %0,83 (en iyi ay %4,12). Kaynaktaki tek bir ayda görülen -%99,99 değeri muhtemel bir veri hatası, dikkatli yorumlanmalı."},
     {code:"YLB", name:"Yapı Kredi Portföy Para Piyasası Fonu", kurum:"Yapı Kredi Portföy", cat:"Para Piyasası Fonu", size:"95,4 milyar TL", inv:"360.890 yatırımcı",
-      ret:{daily:null, monthly:null, yearly:null, y5:null}, note:"Son 80 ayın ortalama aylık getirisi %2,16 (en iyi ay %4,07, en kötü ay %0,07); kaynak sayfada 1Y/5Y verisi yayınlanmamış."}
+      ret:{daily:null, monthly:null, yearly:null, y5:null}, note:"Son 80 ayın ortalama aylık getirisi %2,16 (en iyi ay %4,07, en kötü ay %0,07); kaynak sayfada 1Y/5Y verisi yayınlanmamış."},
+    {code:"HPV", name:"Ziraat Portföy Halkbank Kısa Vadeli Kira Sertifikaları Katılım Fonu", kurum:"Ziraat Portföy", cat:"Katılım Para Piyasası Fonu", size:null, inv:"338.774 yatırımcı",
+      ret:null, note:"Büyüklük verisi bu turda bulunamadı."}
   ];
 
   var divFundsCash = [
-    {code:"YLY", name:"Yapı Kredi Portföy Kilyos Kar Payı Ödeyen Hisse Senedi Serbest Fon", kurum:"Yapı Kredi Portföy", cat:"Serbest Fon", freq:"Yılda ~1,75-2 kez", yield:5.38},
-    {code:"FBC", name:"Kar Payı Ödeyen Katılım Fonu (Foneria/One Portföy)", kurum:"One Portföy", cat:"Katılım Fonu", freq:"Yılda 2 kez", yield:3.17},
+    {code:"YLY", name:"Yapı Kredi Portföy Kilyos Kar Payı Ödeyen Hisse Senedi Serbest Fon", kurum:"Yapı Kredi Portföy", cat:"Serbest Fon", freq:"Yılda ~1,75 kez", yield:5.38},
+    {code:"FBC", name:"Kar Payı Ödeyen Katılım Fonu (One Portföy)", kurum:"One Portföy", cat:"Katılım Fonu", freq:"Yılda 2 kez", yield:3.17},
     {code:"KPH", name:"İş Portföy Kar Payı Ödeyen Hisse Senedi Fonu", kurum:"İş Portföy", cat:"Hisse Senedi Fonu", freq:"Yılda 2 kez", yield:2.65},
-    {code:"NKP", name:"Neo Portföy Kar Payı Ödeyen Değişken Fon", kurum:"Neo Portföy", cat:"Değişken Fon", freq:"Yılda 3 kez", yield:1.85},
     {code:"OPI", name:"Osmanlı Portföy Kar Payı Ödeyen Hisse Senedi Fonu", kurum:"Osmanlı Portföy", cat:"Hisse Senedi Fonu", freq:"Yılda 2 kez", yield:2.09},
+    {code:"NKP", name:"Neo Portföy Kar Payı Ödeyen Değişken Fon", kurum:"Neo Portföy", cat:"Değişken Fon", freq:"Yılda 3 kez", yield:1.85},
     {code:"GKG", name:"Garanti Portföy Kar Payı Ödeyen Hisse Senedi Fonu", kurum:"Garanti Portföy", cat:"Hisse Senedi Fonu", freq:"Yılda 1,5 kez", yield:1.77},
     {code:"AYA", name:"Ata Portföy Kar Payı Ödeyen Hisse Senedi Fonu", kurum:"Ata Portföy", cat:"Hisse Senedi Fonu", freq:"Yılda 2,8 kez", yield:1.45},
     {code:"KPA", name:"Kuveyt Türk Portföy Kar Payı Ödeyen Katılım Hisse Senedi Fonu", kurum:"Kuveyt Türk Portföy", cat:"Katılım Fonu", freq:"Yılda 3,5 kez", yield:1.22},
-    {code:"GSP", name:"Azimut PYŞ Kar Payı Ödeyen Hisse Senedi Fonu", kurum:"Azimut Portföy", cat:"Hisse Senedi Fonu", freq:"Yılda 2 kez", yield:1.03},
+    {code:"GSP", name:"Azimut Portföy Kar Payı Ödeyen Hisse Senedi Fonu", kurum:"Azimut Portföy", cat:"Hisse Senedi Fonu", freq:"Yılda 2 kez", yield:1.03},
     {code:"OPTGY", name:"Osmanlı Portföy Katılım 30 Endeksi Hisse Senedi Yoğun BYF", kurum:"Osmanlı Portföy", cat:"Endeks Fonu (BYF)", freq:"Yılda 5,5 kez", yield:0.93},
     {code:"OPT25", name:"Osmanlı Portföy BIST Temettü 25 Endeksi Hisse Senedi Yoğun BYF", kurum:"Osmanlı Portföy", cat:"Endeks Fonu (BYF)", freq:"Yılda 5,33 kez", yield:0.17}
   ];
   var divFundsReinvest = [
     {code:"ALC", name:"Ak Portföy Kar Payı Ödeyen Şirketler Hisse Senedi Fonu", kurum:"Ak Portföy", cat:"Hisse Senedi Fonu", perf:58.02},
     {code:"GTM", name:"Garanti Portföy Temettü Ödeyen Şirketler Hisse Senedi Fonu", kurum:"Garanti Portföy", cat:"Hisse Senedi Fonu", perf:50.37},
-    {code:"DPT", name:"Deniz Portföy BIST Temettü 25 Endeksi Hisse Senedi Fonu", kurum:"Deniz Portföy", cat:"Endeks Fonu (BYF)", perf:45.35},
+    {code:"DPT", name:"Deniz Portföy BIST Temettü 25 Endeksi Hisse Senedi Fonu", kurum:"Deniz Portföy", cat:"Endeks Fonu", perf:45.35},
     {code:"FBZ", name:"Fiba Portföy Kar Payı Ödeyen Serbest Fon", kurum:"Fiba Portföy", cat:"Serbest Fon", perf:24.66}
   ];
 
@@ -790,42 +780,43 @@
   }));
 
   var kap = [
-    {c:"REEDR", t:"Reeder Teknoloji", d:"2025 TSRS uyumlu sürdürülebilirlik raporu ile 1Y2026 net satış 778,1 mn TL, net zarar 514,2 mn TL açıklandı.", when:"18 Eylül 2026"},
-    {c:"EMVAR", t:"Emlak Varlık Kiralama", d:"100 milyon TL tutarındaki kira sertifikası itfası tamamlandı, yatırımcılara 114,79 mn TL ödendi.", when:"18 Eylül 2026"},
-    {c:"MERKO", t:"Merko Gıda", d:"AG Girişim Holding, 50.000 pay alarak MERKO'daki payını %17,76'ya çıkardı.", when:"18 Eylül 2026"},
-    {c:"GYO", t:"Ziraat / Halk / Vakıf GYO", d:"İstanbul Kartal'da karma kullanımlı bir proje için ortak girişim kuruldu; kâr/zarar payı eşit paylaşılacak.", when:"18 Eylül 2026"},
-    {c:"MAVI", t:"Mavi Giyim", d:"Geri alım programı kapsamında sermayenin %1,86'sına denk gelen pay geri alındı.", when:"18 Eylül 2026"},
-    {c:"PCILT", t:"PC İletişim ve Medya", d:"18 Eylül'de ortalama 29,74 TL'den 70.000 pay geri alındı.", when:"19 Eylül 2026"}
+    {c:"EMVAR", t:"Emlak Varlık Kiralama", d:"100 milyon TL nominal değerli kira sertifikası 18 Eylül 2026'da itfa edildi.", when:"18 Eylül 2026"},
+    {c:"REEDR", t:"Reeder Teknoloji", d:"Altı aylık dönem finansal sonuçları açıklandı (778,14 milyon TL net satış).", when:"18 Eylül 2026"},
+    {c:"MERKO", t:"Merko Gıda", d:"AG Girişim Holding tarafından Merko Gıda payı alım işlemi gerçekleştirildi.", when:"18 Eylül 2026"},
+    {c:"BALAT", t:"Balatacılar Balatacılık", d:"18 Eylül 2026'da 66,00-66,85 TL fiyat aralığından hisse geri alımı yapıldı.", when:"18 Eylül 2026"},
+    {c:"METRO", t:"Metro Yatırım Ortaklığı", d:"Pay geri alım programı kapsamında işlem yapıldı.", when:"18 Eylül 2026"},
+    {c:"ATLAS", t:"Atlas Menkul Kıymetler", d:"18 Eylül 2026'da 5,12-6,00 TL fiyat aralığından 622.155 adet pay geri alındı.", when:"18 Eylül 2026"},
+    {c:"ARMDA", t:"Armada Gıda", d:"Hisse geri alım işlemi tamamlandı.", when:"18 Eylül 2026"},
+    {c:"MAVI", t:"Mavi Giyim", d:"Ortalama 36,72 TL fiyattan 300.000 TL nominal değerli pay geri alındı.", when:"18 Eylül 2026"}
   ];
 
   var commodities = [
-    {lbl:"Gram Altın", price:"6.865,89 TL", chg:0.94, trend:"yukselis", note:"Küresel merkez bankalarının, özellikle Çin Merkez Bankası'nın rekor altın alımları fiyatları desteklemeye devam ediyor."},
-    {lbl:"Ons Altın", price:"$4.378,66", chg:0.85, trend:"yukselis", note:"Goldman Sachs, altın için önümüzdeki yıllara yönelik yeni rekor tahminlerini güncelledi."},
-    {lbl:"Gümüş (Ons)", price:"$66,26", chg:1.63, trend:"yukselis", note:"Gümüşte yükseliş hızlandı; bir yıllık getiri %58'i aştı."},
-    {lbl:"Brent Petrol", price:"$103,19", chg:-1.56, trend:"dususte", note:"Brent, gün içinde %1,56 değer kaybederek geriledi."}
+    {lbl:"Gram Altın", price:"6.865,89 TL", chg:0.90, trend:"yukselis", note:"Fed'in 16 Eylül'de politika faizini 25 baz puan artırmasının ardından kısa süreli gerileyen altın, hafta sonunda dolardaki zayıflama ve petrol fiyatlarındaki düşüşle haftayı ~%0,9 yükselişle kapattı."},
+    {lbl:"Ons Altın", price:"$4.378,63", chg:0.85, trend:"yukselis", note:"Önceki kapanış 4.341,70$ idi; Fed sonrası kısa gerilemenin ardından toparlanma sürüyor."},
+    {lbl:"Gümüş (Ons)", price:"$66,26", chg:1.63, trend:"yukselis", note:"Önceki kapanış 65,20$; haftalık %2,73 artış. Zaman damgası tam doğrulanamadı, ikinci bir kaynakla teyit edilemedi."},
+    {lbl:"Brent Petrol", price:"$103,87", chg:-0.91, trend:"dususte", note:"Petroldeki gerileme geçen hafta altına destek verdi; arz beklentileri ve dolar hareketleri etkili (iki kaynak arasında ~$0,7 fark var, zaman damgalı bloomberght verisi esas alındı)."}
   ];
   var commodityNews = [
-    {title:"Çin'in altın alımında yeni rekor", url:"https://www.platinonline.com/altin/altin-icin-kritik-hamle-cinin-altin-aliminda-yeni-rekor-1099075", src:"Platin Online", date:"Eylül 2026"},
-    {title:"Goldman Sachs'tan altın için çarpıcı tahmin: Yeni rekorlar kapıda", url:"https://www.borsaningundemi.com/haber/goldman-sachstan-altin-icin-carpici-tahmin-yeni-rekorlar-kapida-1907427", src:"BorsaninGündemi.com", date:"Eylül 2026"},
-    {title:"Gümüşte yükseliş hızlandı: Ons 66 doları aştı, bir yıllık getiri %58'i geçti", url:"https://www.dunya.com/foto-galeri/ekonomi/gumuste-yukselis-hizlandi-ons-66-dolari-asti-bir-yillik-getiri-yuzde-58i-gecti-galeri-840619", src:"Dünya Gazetesi", date:"Eylül 2026"}
+    {title:"Emtia piyasalarında Fed etkisi! Altın ve gümüşü yükseltti", url:"https://www.borsaningundemi.com/haber/emtia-piyasalarinda-fed-etkisi-altin-ve-gumusu-yukseltti-1908889", src:"BorsaninGündemi.com", date:"Eylül 2026"},
+    {title:"Altın haftayı yükselişle kapattı, petroldeki gerileme destek verdi", url:"https://www.trtv.net/2026/09/19/altin-haftayi-yukselisle-kapatti-fed-faiz-karari/", src:"TRT V", date:"19 Eylül 2026"}
   ];
 
   var btcTiles = [
-    {lbl:"Bitcoin (USD)", price:"$81.053", chg:4.56, trend:"yukselis", note:"Son 24 saatte %4,56 yükseldi."},
-    {lbl:"Bitcoin (TRY)", price:"₺3.909.000", chg:4.56, trend:"yukselis", note:"Türk Lirası bazında güncel değer."},
-    {lbl:"7 Günlük Değişim", price:"%5,04", chg:5.04, trend:"yukselis", note:"Haftalık bazda pozitif seyir sürüyor."}
+    {lbl:"Bitcoin (USD)", price:"$80.304", chg:-0.96, trend:"dususte", note:"Son 24 saatte %0,96 geriledi; ancak 7 günlük görünüm pozitif (+%3,83) — kısa vadeli karışık bir sinyal."},
+    {lbl:"Bitcoin (TRY)", price:"₺3.875.789", chg:-0.96, trend:"dususte", note:"Türk Lirası bazında güncel değer."},
+    {lbl:"7 Günlük Değişim", price:"%3,83", chg:3.83, trend:"yukselis", note:"Haftalık bazda pozitif seyir sürüyor; Salı ~75.000$'dan Cuma ~81.000$ bölgesine yükseliş yaşandı."}
   ];
   var btcNews = [
-    {title:"Bitcoin, ETF girişlerinin desteğiyle 80 bin doların üzerine çıktı", url:"https://coin-turk.com/bitcoin-etf-girislerinin-destegiyle-80-bin-dolarin-uzerine-cikti", src:"Coin-Türk", date:"Eylül 2026"},
-    {title:"Bitcoin'de 83 bin ila 86 bin dolar aralığı kritik direnç olarak öne çıktı", url:"https://coin-turk.com/bitcoinde-83-bin-ila-86-bin-dolar-araligi-kritik-direnc-olarak-one-cikti", src:"Coin-Türk", date:"Eylül 2026"}
+    {title:"Bitcoin bugün ne kadar? Kripto piyasasında yükseliş hızlandı", url:"https://www.gazetekritik.com/ekonomi/bitcoin-bugun-ne-kadar-kripto-piyasasinda-yukselis-hizlandi/414711", src:"GazeteKritik", date:"18 Eylül 2026"},
+    {title:"Bitcoin haftalık özet: Fiyat 80 bin doların üstüne çıktı", url:"https://ekonomipolitikasi.com.tr/bitcoin-haftalik-ozet-fiyat-80-bin-dolarin-ustune-cikti/", src:"Ekonomi Politikası", date:"19 Eylül 2026"}
   ];
 
   var picks = [
-    {t:"GARAN", txt:"En dengeli seçim: F/K 4,6x ile ucuz, fiyatı yükseliş trendinde, %3,80 temettü veriyor ve takipteki kredi portföyünü satarak bilançosunu güçlendiriyor. Goldman Sachs'ın banka hisselerine dönük yapıcı görüşüyle de örtüşüyor."},
-    {t:"ISCTR", txt:"GARAN'a benzer profil: F/K 4,9x, yükseliş trendinde ve %3,18 temettü. Grup içi çeşitliliği ve düşük PD/DD'si (0,7x) nedeniyle değer yatırımcısı için makul bir alternatif."},
-    {t:"TUPRS", txt:"Grup içi en yüksek temettü verimine sahip (%7,7) ve fiyatı hem 20 hem 52 günlük ortalamanın üzerinde. F/K'sı 'ucuz' değil ama rafineri marjlarının tarihsel olarak dayanıklı olması ve düzenli nakit dağıtımı bunu bir 'gelir hissesi' adayı yapıyor."},
-    {t:"VAKBN", txt:"F/K'nın en düşük olduğu bankalardan biri (4,7x) ve defter değerinin altında işlem görüyor (PD/DD 0,9x). Teknik görünüm net değil, temettü verisi de bulunamadı — daha sabırlı, saf değer odaklı bir izleme adayı."},
-    {t:"THYAO", txt:"Endeksin en ucuz hissesi (F/K 3,0x, PD/DD 0,4x) ve Swen Lorenz gibi yabancı yorumcuların uzun süredir işaret ettiği bir isim. Ancak şu an teknik olarak zayıf (fiyat her iki ortalamanın da altında) — 'çok ucuz ama teknik olarak dip arıyor', temkinle izlenmeli."}
+    {t:"GARAN", txt:"En dengeli seçim: F/K 4,5x ile ucuz, fiyatı yükseliş trendinde, %3,98 temettü veriyor ve takipteki kredi portföyünü satarak bilançosunu güçlendiriyor. Goldman Sachs'ın banka hisselerine dönük yapıcı görüşüyle de örtüşüyor."},
+    {t:"ISCTR", txt:"GARAN'a benzer profil: F/K 4,9x, yükseliş trendinde ve %4,17 temettü — grup içindeki en yüksek temettü verimine sahip bankalardan biri. Düşük PD/DD'si (0,7x) nedeniyle değer yatırımcısı için makul bir alternatif."},
+    {t:"TOASO", txt:"Endeksteki en yüksek temettü verimine sahip (%6,45) ve fiyatı hem 20 hem 52 günlük ortalamanın üzerinde (yükseliş trendi). F/K'sı (9,7x) 'ucuz' değil, medyana yakın 'nötr' bir seviyede — düzenli nakit dağıtımıyla bir 'gelir hissesi' adayı."},
+    {t:"VAKBN", txt:"F/K'nın en düşük olduğu bankalardan biri (4,7x) ve defter değerinin altında işlem görüyor (PD/DD 0,9x). Teknik görünüm karışık (fiyat 20 günlük ortalamanın altında, 52 günlüğün üzerinde), temettü verisi de bulunamadı — daha sabırlı, saf değer odaklı bir izleme adayı."},
+    {t:"THYAO", txt:"Endeksin en ucuz hissesi (F/K 3,0x, PD/DD 0,4x) ve Swen Lorenz gibi yabancı yorumcuların uzun süredir işaret ettiği bir isim; bu turda %1,02 temettü verimi de bulundu. Ancak şu an teknik olarak zayıf (fiyat her iki ortalamanın da altında) — 'çok ucuz ama teknik olarak dip arıyor', temkinle izlenmeli."}
   ];
 
   function fmtNum(v, d){ if(v===null||v===undefined) return "—"; return v.toLocaleString("tr-TR",{minimumFractionDigits:d===undefined?2:d, maximumFractionDigits:d===undefined?2:d}); }
@@ -844,11 +835,13 @@
   });
 
   var median = 0;
+  var peCount = 0;
   (function(){
     var withPe = stocks.filter(function(s){return s.pe!==null;}).slice().sort(function(a,b){return a.pe-b.pe;});
     var mid = withPe[Math.floor((withPe.length-1)/2)].pe;
     var mid2 = withPe[Math.ceil((withPe.length-1)/2)].pe;
     median = (mid+mid2)/2;
+    peCount = withPe.length;
   })();
 
   // ---- BIST stats (clickable) ----
@@ -874,7 +867,7 @@
     el.innerHTML =
       '<button class="stat clickable" id="stat-up" data-key="up" aria-expanded="false"><div class="lbl">Yükselen</div><div class="val good">'+upList.length+'</div><div class="sub">30 hisse içinde</div></button>' +
       '<button class="stat clickable" id="stat-down" data-key="down" aria-expanded="false"><div class="lbl">Düşen</div><div class="val bad">'+downList.length+'</div><div class="sub">30 hisse içinde</div></button>' +
-      '<div class="stat"><div class="lbl">Medyan F/K</div><div class="val">'+median.toFixed(1)+'x</div><div class="sub">F/K verisi olan 26 hisse</div></div>' +
+      '<div class="stat"><div class="lbl">Medyan F/K</div><div class="val">'+median.toFixed(1)+'x</div><div class="sub">F/K verisi olan '+peCount+' hisse</div></div>' +
       '<button class="stat clickable" id="stat-ucuz" data-key="ucuz" aria-expanded="false"><div class="lbl">Ucuz Kalmış</div><div class="val good">'+counts.ucuz+'</div><div class="sub">medyana göre iskontolu</div></button>' +
       '<button class="stat clickable" id="stat-pahali" data-key="pahali" aria-expanded="false"><div class="lbl">Pahalı Kalmış</div><div class="val bad">'+counts.pahali+'</div><div class="sub">medyana göre primli</div></button>' +
       '<button class="stat clickable" id="stat-trendUp" data-key="trendUp" aria-expanded="false"><div class="lbl">Trend: Yükseliş</div><div class="val good">'+trendUp.length+'</div><div class="sub">MA20/MA52 üzerinde</div></button>' +
@@ -1311,5 +1304,5 @@
 })();
 </script>
 
-</body>
-</html>
+
+</body></html>
