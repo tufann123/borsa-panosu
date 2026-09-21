@@ -316,31 +316,12 @@
   ul.news .src{color:var(--ink-muted); font-size:11.5px; margin-top:4px; display:block;}
 
   /* --- commentary --- */
-  .comment-card{border:1px solid var(--border); border-radius:12px; padding:13px 15px; background:var(--surface-2);}
-  .comment-card + .comment-card{margin-top:10px;}
-  .comment-card .who{display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap; margin-bottom:6px;}
-  .comment-card .who b{font-size:13.5px;}
-  .comment-card .who .role{font-size:11.5px; color:var(--ink-muted);}
-  .comment-card p{margin:0; font-size:13px; color:var(--ink-2); line-height:1.55;}
-  .comment-card a{color:var(--accent-strong); font-weight:600; text-decoration:none; font-size:12px;}
-  .comment-card a:hover{text-decoration:underline;}
   .stance{font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:2px 8px; border-radius:999px;}
   .stance.pos{background:var(--good-tint); color:var(--good);}
   .stance.neu{background:var(--neutral-tint); color:var(--neutral-chip);}
   .stance.mix{background:var(--gold-tint); color:var(--gold);}
 
   /* --- picks --- */
-  .pick{display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--border);}
-  .pick:last-child{border-bottom:0;}
-  .pick .tk{font-family:"IBM Plex Mono"; font-weight:700; font-size:14px; background:var(--accent-tint); color:var(--accent-strong); border-radius:8px; padding:6px 10px; height:fit-content; flex:none;}
-  .pick p{margin:0; font-size:13px; color:var(--ink-2); line-height:1.55;}
-  .pick p b{color:var(--ink);}
-  .pick-ref{display:flex; gap:14px; flex-wrap:wrap; margin-top:8px; padding:8px 10px; background:var(--surface-2); border-radius:9px; font-size:11.5px;}
-  .pick-ref div{display:flex; flex-direction:column; gap:1px;}
-  .pick-ref .k{color:var(--ink-muted); text-transform:uppercase; letter-spacing:.04em; font-size:10px;}
-  .pick-ref b{font-family:"IBM Plex Mono"; font-size:13px; color:var(--ink);}
-  .pick-ref .up{color:var(--good);}
-  .disclaimer{font-size:12px; color:var(--ink-muted); background:var(--surface-2); border:1px dashed var(--border); border-radius:10px; padding:10px 12px; margin-top:14px;}
 
   /* --- funds --- */
   .fund-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px;}
@@ -414,11 +395,17 @@
         <p>BIST 30 değerleme taraması · TEFAS fonları · emtia · bitcoin</p>
       </div>
       <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-        <div class="updated"><span class="dot"></span><span id="updatedText">20 Eylül 2026, 12:30 (İstanbul) itibarıyla · BIST/fon verileri 18 Eylül Cuma kapanışına ait (hafta sonu borsa kapalı)</span></div>
+        <div class="updated"><span class="dot"></span><span id="updatedText">Bu sayfa Claude kullanılmadan, tamamen GitHub Actions ile otomatik güncellenir — her alt sistemin son güncelleme zamanı aşağıdadır</span></div>
         <button class="refresh-btn" id="refreshBtn" type="button"><span class="spin">⟳</span> Güncelle</button>
       </div>
     </div>
-    <div id="refreshMsg"></div><div style="margin-top:4px;"><span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 21:16 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span></div>
+    <div id="refreshMsg"></div>
+    <div class="auto-status" style="margin-top:4px;display:flex;flex-direction:column;gap:2px;">
+      <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);"></span>
+      <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);"></span>
+      <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);"></span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);"></span>
+    </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
       <button role="tab" aria-selected="false" data-tab="fon"><span class="ic">🏦</span>Türk Fonları</button>
@@ -453,25 +440,6 @@
         </ul>
       </div>
 
-      <div class="card">
-        <h2>Yabancı medya ve bağımsız yorumcular ne diyor?</h2>
-        <p class="lede">Türk medyası dışından, BIST/Türkiye hisseleri üzerine görüş bildiren üç isim — bir yatırım bankası, bağımsız bir gelişen piyasalar stratejisti ve bağımsız bir değer yatırımı bülteni.</p>
-        <div class="comment-card">
-          <div class="who"><b>Goldman Sachs</b> <span class="stance mix">Karışık / 2027'ye Olumlu</span></div>
-          <p>Şubat 2026'da Bloomberg'e yansıyan notta Goldman Sachs, düşen enflasyon ve faiz indirimlerinin katalizör olacağını belirterek Türk banka hisseleri için "2027'de risk/getiri dengesinin yukarı yönlü olduğunu" yazdı — bu tabloda GARAN, AKBNK, ISCTR, VAKBN, YKBNK'yı ilgilendiriyor. Ancak 2026 pozisyonlanmasını "daha dengeli" buluyor; son ralli sonrası değerlemelerin bir kısmının zaten fiyatlandığını ekliyor.</p>
-          <a href="https://www.bloomberg.com/news/articles/2026-02-23/goldman-sachs-says-turkish-bank-stocks-can-go-higher-in-2027" target="_blank" rel="noopener">Bloomberg üzerinden habere bakın →</a>
-        </div>
-        <div class="comment-card">
-          <div class="who"><b>Timothy Ash</b> <span class="role">Bağımsız gelişen piyasalar stratejisti</span> <span class="stance neu">Temkinli İyimser</span></div>
-          <p>Şimşek programı altında enflasyonun %75'ten %61,8'e gerilemesini, cari açığın daralmasını ve rezervlerin 150 milyar doları aşmasını "gerçek ilerleme" olarak nitelendiriyor. Hisse bazlı öneri vermiyor, ama sıkı para politikasından erken vazgeçilirse "daha yüksek ve kalıcı enflasyona geri dönüleceği" konusunda uyarıyor — bu da bankacılık ve F/K'sı düşük hisselerdeki toparlanmanın kırılgan olabileceği anlamına geliyor.</p>
-          <a href="https://timothyash.substack.com/p/turkey-at-a-turning-point" target="_blank" rel="noopener">Timothy Ash'in yazısını okuyun →</a>
-        </div>
-        <div class="comment-card">
-          <div class="who"><b>Swen Lorenz</b> <span class="role">Undervalued Shares (bağımsız bülten)</span> <span class="stance pos">Yapısal Olarak Ucuz</span></div>
-          <p>Türk borsasını "ucuz, opak ve pek popüler olmayan" bir piyasa olarak tanımlamış ve tarihi F/K ortalamasının (10-12x) çok altında, ~5x seviyesinde işlem gördüğünü yazmış; örnek olarak THYAO, Şişecam, Koç Holding, Anadolu Efes ve BİM'i anmış (tavsiye değil, örnek olarak). Bugünkü tabloyla kıyaslayınca ilginç bir tablo çıkıyor: THYAO hâlâ endeksin en ucuz hissesi (F/K 3,0x) iken, KCHOL ve BIMAS artık göreli olarak "pahalı" grubunda — yani tez, isimden isime çok farklı gerçekleşmiş.</p>
-          <a href="https://www.undervalued-shares.com/weekly-dispatches/turkey-taking-stock-in-times-of-change/" target="_blank" rel="noopener">Undervalued Shares yazısına bakın →</a>
-        </div>
-      </div>
 
       <div class="card">
         <h2>F/K oranına göre görünüm <span class="hint">(F/K = Fiyat/Kazanç oranı: hissenin fiyatının, şirketin hisse başına yıllık kârına bölünmesiyle bulunur)</span></h2>
@@ -571,12 +539,6 @@
         <div class="pill-row" id="divUpPills"></div>
       </div>
 
-      <div class="card">
-        <h2>Claude'un değerlendirmesi</h2>
-        <p class="lede">Bu sayfadaki verilere (göreli F/K, PD/DD, teknik trend, temettü, haber akışı) dayanarak kendi seçimim olsaydı öne çıkaracağım isimler — bu bir yatırım tavsiyesi değildir, yalnızca aynı verilerin sentezidir; kendi araştırmanızı yapın ve gerekirse bir yatırım danışmanına danışın. Her kart altında ayrıca "referans alım bölgesi" (güncel fiyat + teknik trend) ve basit bir F/K bazlı "referans hedef" (hissenin F/K'sı medyana dönerse ulaşılabilecek fiyat) gösteriliyor — bu bir fiyat tahmini değil, sayfadaki verilerden türetilen basit bir matematiksel senaryodur.</p>
-        <div id="picksList"></div>
-        <div class="disclaimer">Bu değerlendirme yatırım danışmanlığı kapsamında değildir; genel bilgi amaçlıdır ve kişisel finansal durumunuza göre hazırlanmamıştır. "Referans hedef" rakamı yalnızca hissenin F/K oranının BIST30 medyanına dönmesi varsayımına dayanan basit bir hesaplamadır; kârlılığın değişmesi, piyasa koşulları veya şirkete özgü gelişmeler bu senaryoyu tamamen geçersiz kılabilir — gerçek bir fiyat hedefi veya alım tavsiyesi değildir. Yatırım kararları öncesinde profesyonel destek almanız önerilir.</div>
-      </div>
 
       <div class="card">
         <h2>Güncel KAP bildirim akışı</h2>
@@ -654,8 +616,9 @@
   </main>
 
   <footer class="foot">
-    <strong>Kaynaklar:</strong> Hisse fiyat/günlük değişim verileri Getmidas (canlı borsa, 15 dk gecikmeli) ve TradingView'dan; F/K ve PD/DD İş Yatırım "şirket kartı" sayfalarından; teknik trend (20/52 günlük ortalama) Mynet Finans günlük teknik analizlerinden; temettü verimleri Getmidas ve Fintables'tan; temettü ödeme sıklığı (son 5 yıl) paraajansi.com.tr'den; sektör sınıflandırması ve sektör-içi karşılaştırma genel/yaklaşık bir gruplandırma olup Claude tarafından derlenmiştir; TEFAS fon büyüklük/yatırımcı verileri EkoTürk ve KulisBorsa üzerinden TEFAS kaynaklı; fon getirileri FVT.com.tr'den; temettü veren fonlar TemettüFonları.com, Getmidas ve KAP'tan; altın/gümüş/petrol Haberturk, BloombergHT ve Doviz.com'dan; Bitcoin fiyatı günlük taramada Doviz.com'dan, "Güncelle" butonuyla anlık çekilen Bitcoin/altın/gümüş değerleri ise sırasıyla CoinGecko, gold-api.com ve open.er-api.com (USD/TRY kuru) public API'lerinden; yabancı yorum bölümü Bloomberg, Timothy Ash (bağımsız stratejist) ve Undervalued Shares bültenine dayanıyor; haberler BorsaninGündemi, Mynet Finans, Bigpara/Hürriyet, Rota Borsa, Politikam, Borsa Gündem, Finansopia, Paratic, Hibya, GazeteKritik, Ekonomi Politikası ve KAP bildirim akışından (Getmidas KAP haberleri) derlenmiştir. Fiyatlar gecikmeli olabilir, yatırım tavsiyesi değildir. F/K bazlı "ucuz/pahalı" etiketi, sektör karşılaştırmasındaki "★ en mantıklı" işareti, "F/K bazlı referans hedef" ve "Claude'un değerlendirmesi" bölümü yalnızca BIST30 içi göreli bir kıyaslama ve verilerin öznel/matematiksel bir sentezidir; profesyonel yatırım danışmanlığının yerini tutmaz ve fiyat tahmini değildir.<br>
-    Bu pano her gün otomatik olarak yenilenir; sayfadaki "Güncelle" butonu Bitcoin, Gram Altın, Ons Altın ve Gümüş (Ons) fiyatlarını CoinGecko/gold-api.com/open.er-api.com üzerinden anlık tazeler (bu sayfa statik/bağımsız bir web sayfası olduğundan BIST hisseleri, TEFAS fonları ve Brent petrol için ücretsiz/CORS izinli anlık bir kaynak bulunmuyor, bu üçü yalnızca günlük otomatik taramada yenilenir). Sayfa, herkesin doğrudan tarayıcıdan açabileceği bağımsız bir web sayfası olarak yayınlanmıştır.
+    <strong>Bu sayfa tamamen otomatiktir, Claude/AI kullanılmaz:</strong> Fiyatlar ve F/K, PD/DD, temettü verimi, teknik trend, emtia/Bitcoin ve haberler/KAP, GitHub'ın kendi altyapısında (GitHub Actions) ücretsiz çalışan script'lerle düzenli aralıklarla otomatik güncellenir — hiçbir alan yapay zeka tarafından özetlenmez veya yorumlanmaz, hepsi ham/gerçek kaynak verisidir.<br>
+    <strong>Kaynaklar:</strong> Hisse fiyat/günlük değişim ve teknik trend (20/52 günlük ortalama) Yahoo Finance'in herkese açık chart verisinden (saatlik, hafta içi borsa saatlerinde); F/K ve PD/DD ile temettü verimi İş Yatırım "şirket kartı" sayfalarının "Cari Değerler" ve "Temettü Tahmin" tablolarından (günlük); "ucuz/nötr/pahalı" etiketi bu F/K verilerinin güncel medyanına göre basit bir matematik formülle deterministik olarak hesaplanır (bkz. aşağıdaki not); sektör sınıflandırması ilk kurulumda yapılmış genel/yaklaşık bir gruplandırmadır, BIST30 bileşimi değiştiğinde elle gözden geçirilir; TEFAS fon verileri ve temettü ödeme sıklığı (son 5 yıl) şu an otomatik güncellenmiyor, en son elle girilen değerleri gösterir; emtia (Gram/Ons Altın, Gümüş) gold-api.com ve open.er-api.com'dan (USD/TRY), Brent Petrol Yahoo Finance'ten (BZ=F), Bitcoin CoinGecko'dan birkaç saatte bir otomatik çekilir; genel piyasa haberleri ve hisseye özel haber eşleşmesi Anadolu Ajansı Ekonomi RSS akışından (başlık+link+tarih, özetsiz/hamdir), KAP bildirim akışı Midas'ın KAP Haberleri sayfasından birkaç saatte bir otomatik çekilir. Fiyatlar gecikmeli olabilir, yatırım tavsiyesi değildir. F/K bazlı "ucuz/pahalı" etiketi, sektör karşılaştırmasındaki "★ en mantıklı" işareti ve "F/K bazlı referans hedef" yalnızca BIST30 içi göreli bir matematiksel kıyaslamadır; profesyonel yatırım danışmanlığının yerini tutmaz ve fiyat tahmini değildir.<br>
+    Sayfadaki "Güncelle" butonu Bitcoin, Gram Altın, Ons Altın ve Gümüş (Ons) fiyatlarını CoinGecko/gold-api.com/open.er-api.com üzerinden anlık tazeler; bu, arka plandaki otomatik güncellemelere ek, isteğe bağlı bir kısayoldur. Sayfa, herkesin doğrudan tarayıcıdan açabileceği bağımsız bir web sayfası olarak yayınlanmıştır.
   </footer>
 </div>
 
@@ -824,14 +787,6 @@
   var btcNews = [
     {title:"Bitcoin bugün ne kadar? Kripto piyasasında yükseliş hızlandı", url:"https://www.gazetekritik.com/ekonomi/bitcoin-bugun-ne-kadar-kripto-piyasasinda-yukselis-hizlandi/414711", src:"GazeteKritik", date:"18 Eylül 2026"},
     {title:"Bitcoin haftalık özet: Fiyat 80 bin doların üstüne çıktı", url:"https://ekonomipolitikasi.com.tr/bitcoin-haftalik-ozet-fiyat-80-bin-dolarin-ustune-cikti/", src:"Ekonomi Politikası", date:"19 Eylül 2026"}
-  ];
-
-  var picks = [
-    {t:"GARAN", txt:"En dengeli seçim: F/K 4,5x ile ucuz, fiyatı yükseliş trendinde, %3,98 temettü veriyor ve takipteki kredi portföyünü satarak bilançosunu güçlendiriyor. Goldman Sachs'ın banka hisselerine dönük yapıcı görüşüyle de örtüşüyor."},
-    {t:"ISCTR", txt:"GARAN'a benzer profil: F/K 4,9x, yükseliş trendinde ve %4,17 temettü — grup içindeki en yüksek temettü verimine sahip bankalardan biri. Düşük PD/DD'si (0,7x) nedeniyle değer yatırımcısı için makul bir alternatif."},
-    {t:"TOASO", txt:"Endeksteki en yüksek temettü verimine sahip (%6,45) ve fiyatı hem 20 hem 52 günlük ortalamanın üzerinde (yükseliş trendi). F/K'sı (9,7x) 'ucuz' değil, medyana yakın 'nötr' bir seviyede — düzenli nakit dağıtımıyla bir 'gelir hissesi' adayı."},
-    {t:"VAKBN", txt:"F/K'nın en düşük olduğu bankalardan biri (4,7x) ve defter değerinin altında işlem görüyor (PD/DD 0,9x). Teknik görünüm karışık (fiyat 20 günlük ortalamanın altında, 52 günlüğün üzerinde), temettü verisi de bulunamadı — daha sabırlı, saf değer odaklı bir izleme adayı."},
-    {t:"THYAO", txt:"Endeksin en ucuz hissesi (F/K 3,0x, PD/DD 0,4x) ve Swen Lorenz gibi yabancı yorumcuların uzun süredir işaret ettiği bir isim; bu turda %1,02 temettü verimi de bulundu. Ancak şu an teknik olarak zayıf (fiyat her iki ortalamanın da altında) — 'çok ucuz ama teknik olarak dip arıyor', temkinle izlenmeli."}
   ];
 
   function fmtNum(v, d){ if(v===null||v===undefined) return "—"; return v.toLocaleString("tr-TR",{minimumFractionDigits:d===undefined?2:d, maximumFractionDigits:d===undefined?2:d}); }
@@ -1142,27 +1097,14 @@
     }).join('') : '<span style="font-size:12.5px;color:var(--ink-muted);">Bu kritere uyan hisse bulunamadı.</span>';
   })();
 
-  // ---- Claude's picks ----
   // basit, şeffaf bir "referans hedef" hesaplaması: hissenin F/K'sı BIST30 medyanına dönerse (kâr sabit kalırsa) ulaşabileceği fiyat.
   // bu bir tahmin/tavsiye değildir, yalnızca aynı sayfadaki F/K verisinden türetilen bir mean-reversion senaryosudur.
+  // Not: bu deger artik hisse detay panelinde ("F/K Bazli Referans Hedef") otomatik gosteriliyor; oznel/yorumlu
+  // "Claude'un degerlendirmesi" karti kaldirildi (bkz. buildDetail()).
   function refTarget(s){
     if(s.p===null || s.pe===null || s.pe<=0 || !median) return null;
     return s.p * (median / s.pe);
   }
-  document.getElementById('picksList').innerHTML = picks.map(function(p){
-    var s = stocks.filter(function(x){ return x.t===p.t; })[0];
-    var refHtml = "";
-    if(s){
-      var tgt = refTarget(s);
-      refHtml = '<div class="pick-ref">'+
-        '<div><span class="k">Güncel Fiyat</span><b>'+(s.p!==null?fmtNum(s.p,2)+" TL":"—")+'</b></div>'+
-        '<div><span class="k">Referans Alım Bölgesi</span><b>'+(s.p!==null?fmtNum(s.p,2)+" TL civarı":"—")+'</b></div>'+
-        '<div><span class="k">Teknik Trend</span><b>'+trendArrow[trendOf(s)]+' '+trendLabel[trendOf(s)]+'</b></div>'+
-        '<div><span class="k">F/K Bazlı Referans Hedef</span><b class="up">'+(tgt!==null?fmtNum(tgt,2)+" TL (medyan F/K'ya dönerse)":"F/K verisi yetersiz")+'</b></div>'+
-        '</div>';
-    }
-    return '<div class="pick"><div><div class="tk">'+p.t+'</div></div><div style="flex:1;"><p>'+p.txt+'</p>'+refHtml+'</div></div>';
-  }).join('');
 
   // ---- commodities ----
   function renderCommodities(){
@@ -1318,6 +1260,5 @@
 
 })();
 </script>
-
 
 </body></html>
