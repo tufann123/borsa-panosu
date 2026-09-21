@@ -1,0 +1,32 @@
+name: Gunluk temel veri guncellemesi (F/K, PD/DD, temettu, trend)
+
+on:
+  schedule:
+    # 15:30 UTC = 18:30 Istanbul (BIST kapanisindan sonra), hafta ici
+    - cron: "30 15 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: F/K, PD/DD, temettu, teknik trend guncelle
+        run: python refresh_fundamentals.py
+      - name: Degisiklik varsa commit+push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "Degisiklik yok, commit atlanacak."
+          else
+            git commit -m "Gunluk temel veri guncellemesi (otomatik)"
+            git push
+          fi
