@@ -403,7 +403,7 @@
     <div class="auto-status" style="margin-top:4px;display:flex;flex-direction:column;gap:2px;">
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);"></span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);"></span>
-      <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 21.09 22:27 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
+      <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 22.09 02:03 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
       <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 21.09 22:27 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
@@ -770,10 +770,10 @@
   ];
 
   var commodities = [
-    {lbl:"Gram Altın", price:"6.819,80 TL", chg:0.00, trend:"notr", note:"Ons altın (gold-api.com) × USD/TRY (open.er-api.com) ile 21.09 22:27 (İstanbul) itibarıyla hesaplandı, önceki otomatik güncellemeye göre %0,00 yükseldi."},
-    {lbl:"Ons Altın", price:"$4.347,20", chg:0.00, trend:"notr", note:"gold-api.com üzerinden 21.09 22:27 (İstanbul) itibarıyla otomatik çekildi, önceki otomatik güncellemeye göre %0,00 yükseldi."},
-    {lbl:"Gümüş (Ons)", price:"$66,18", chg:0.00, trend:"notr", note:"gold-api.com üzerinden 21.09 22:27 (İstanbul) itibarıyla otomatik çekildi, önceki otomatik güncellemeye göre %0,00 yükseldi."},
-    {lbl:"Brent Petrol", price:"$96,45", chg:-2.86, trend:"dususte", note:"Yahoo Finance (BZ=F, Brent Crude Oil futures) üzerinden 21.09 22:27 (İstanbul) itibarıyla otomatik çekildi, önceki kapanışa göre %2,86 geriledi."}
+    {lbl:"Gram Altın", price:"6.845,84 TL", chg:0.38, trend:"yukselis", note:"Ons altın (gold-api.com) × USD/TRY (open.er-api.com) ile 22.09 02:03 (İstanbul) itibarıyla hesaplandı, önceki otomatik güncellemeye göre %0,38 yükseldi."},
+    {lbl:"Ons Altın", price:"$4.363,80", chg:0.38, trend:"yukselis", note:"gold-api.com üzerinden 22.09 02:03 (İstanbul) itibarıyla otomatik çekildi, önceki otomatik güncellemeye göre %0,38 yükseldi."},
+    {lbl:"Gümüş (Ons)", price:"$66,52", chg:0.52, trend:"yukselis", note:"gold-api.com üzerinden 22.09 02:03 (İstanbul) itibarıyla otomatik çekildi, önceki otomatik güncellemeye göre %0,52 yükseldi."},
+    {lbl:"Brent Petrol", price:"$96,03", chg:-0.22, trend:"dususte", note:"Yahoo Finance (BZ=F, Brent Crude Oil futures) üzerinden 22.09 02:03 (İstanbul) itibarıyla otomatik çekildi, önceki kapanışa göre %0,22 geriledi."}
   ];
   var commodityNews = [
     {title:"Emtia piyasalarında Fed etkisi! Altın ve gümüşü yükseltti", url:"https://www.borsaningundemi.com/haber/emtia-piyasalarinda-fed-etkisi-altin-ve-gumusu-yukseltti-1908889", src:"BorsaninGündemi.com", date:"Eylül 2026"},
@@ -781,9 +781,9 @@
   ];
 
   var btcTiles = [
-    {lbl:"Bitcoin (USD)", price:"$86.250", chg:6.41, trend:"yukselis", note:"CoinGecko üzerinden 21.09 22:27 (İstanbul) itibarıyla otomatik çekildi (USD)."},
-    {lbl:"Bitcoin (TRY)", price:"₺4.209.098", chg:6.41, trend:"yukselis", note:"CoinGecko üzerinden 21.09 22:27 (İstanbul) itibarıyla otomatik çekildi (TRY)."},
-    {lbl:"7 Günlük Değişim", price:"%8,89", chg:8.89, trend:"yukselis", note:"CoinGecko üzerinden 21.09 22:27 (İstanbul) itibarıyla otomatik çekildi (7 günlük değişim)."}
+    {lbl:"Bitcoin (USD)", price:"$86.409", chg:6.46, trend:"yukselis", note:"CoinGecko üzerinden 22.09 02:03 (İstanbul) itibarıyla otomatik çekildi (USD)."},
+    {lbl:"Bitcoin (TRY)", price:"₺4.218.237", chg:6.46, trend:"yukselis", note:"CoinGecko üzerinden 22.09 02:03 (İstanbul) itibarıyla otomatik çekildi (TRY)."},
+    {lbl:"7 Günlük Değişim", price:"%10,02", chg:10.02, trend:"yukselis", note:"CoinGecko üzerinden 22.09 02:03 (İstanbul) itibarıyla otomatik çekildi (7 günlük değişim)."}
   ];
   var btcNews = [
     {title:"Bitcoin bugün ne kadar? Kripto piyasasında yükseliş hızlandı", url:"https://www.gazetekritik.com/ekonomi/bitcoin-bugun-ne-kadar-kripto-piyasasinda-yukselis-hizlandi/414711", src:"GazeteKritik", date:"18 Eylül 2026"},
