@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);"></span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);"></span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 21.09 22:27 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);"></span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 21.09 22:27 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -758,14 +758,15 @@
   }));
 
   var kap = [
-    {c:"EMVAR", t:"Emlak Varlık Kiralama", d:"100 milyon TL nominal değerli kira sertifikası 18 Eylül 2026'da itfa edildi.", when:"18 Eylül 2026"},
-    {c:"REEDR", t:"Reeder Teknoloji", d:"Altı aylık dönem finansal sonuçları açıklandı (778,14 milyon TL net satış).", when:"18 Eylül 2026"},
-    {c:"MERKO", t:"Merko Gıda", d:"AG Girişim Holding tarafından Merko Gıda payı alım işlemi gerçekleştirildi.", when:"18 Eylül 2026"},
-    {c:"BALAT", t:"Balatacılar Balatacılık", d:"18 Eylül 2026'da 66,00-66,85 TL fiyat aralığından hisse geri alımı yapıldı.", when:"18 Eylül 2026"},
-    {c:"METRO", t:"Metro Yatırım Ortaklığı", d:"Pay geri alım programı kapsamında işlem yapıldı.", when:"18 Eylül 2026"},
-    {c:"ATLAS", t:"Atlas Menkul Kıymetler", d:"18 Eylül 2026'da 5,12-6,00 TL fiyat aralığından 622.155 adet pay geri alındı.", when:"18 Eylül 2026"},
-    {c:"ARMDA", t:"Armada Gıda", d:"Hisse geri alım işlemi tamamlandı.", when:"18 Eylül 2026"},
-    {c:"MAVI", t:"Mavi Giyim", d:"Ortalama 36,72 TL fiyattan 300.000 TL nominal değerli pay geri alındı.", when:"18 Eylül 2026"}
+    {c:"KAP", t:"Gür-Sel Turizm", d:"21 Eylül 2026'da 42.941 adet payı geri aldı. Şirketin elinde bulunan toplam pay sayısı 105.000 adede ulaştı.", when:"39 Dakika Önce"},
+    {c:"KAP", t:"Pasifik Teknoloji'nin bağlı ortaklığı TİTRA Teknoloji tarafından geliştirilen DUMRUL Mini İnsansız Helikopter Sistemi", d:"Portekiz'de 31 Ağustos - 25 Eylül 2026 tarihleri arasında gerçekleştirilen REPMUS 2026 uluslararası tatbikatına katılıyor.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Merko Gıda'nın imtiyazlı pay sahibi AG Girişim Holding", d:"21 Eylül 2026'da ortalama 1,00 TL fiyattan 50.000 adet pay aldı. İşlem sonrası şirketin sermayesindeki payı %17,77 oldu.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Metro Yatırım Ortaklığı", d:"21 Eylül 2026'da 8,15-9,30 TL fiyat aralığından 513.709 adet payı geri aldı. İşlem sonrası şirketin elinde bulunan pay sayısı 1 milyon adede ulaştı.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Atlas Menkul Kıymetler", d:"21 Eylül 2026'da 5,89-6,74 TL fiyat aralığından 377.845 adet payını geri aldı. İşlem sonrası şirketin elinde bulunan pay sayısı 1 milyon adede ulaştı.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Metro Yatırım Ortaklığı", d:"21 Eylül 2026'da 6,53-6,76 TL fiyat aralığından 500.000 TL nominal tutarlı METRO payı aldı. İşlem sonrası şirketin METRO sermayesindeki payı %1,05'ten %1,15'e yükseldi.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Atlas Menkul Kıymetler", d:"21 Eylül 2026'da Metro Ticari'nin 500.000 TL nominal değerli payını 6,50-6,74 TL fiyat aralığından aldı. İşlem sonrası şirketin Metro Ticari sermayesindeki payı %1,14 oldu.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Egeyapi Avrupa GYO", d:"21 Eylül 2026'da 14,69 TL fiyattan 2.500.000 adet payı geri aldı. Şirketin geri aldığı payların sermayeye oranı %1,85'e ulaştı.", when:"2 Saat Önce"}
+  
   ];
 
   var commodities = [
