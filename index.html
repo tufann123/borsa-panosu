@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 15:22 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 22.09 22:11 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (10.5x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 23.09 12:09 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 23.09 11:08 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 23.09 16:59 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -658,7 +658,7 @@
     {t:"THYAO", n:"Türk Hava Yolları", sector:"Ulaştırma", p:299.75, chg:0.59, pe:3.1, pb:0.4, val:"ucuz", trend:"notr", div:0.00, divCount5y:2, news:[]},
     {t:"TOASO", n:"Tofaş", sector:"Otomotiv", p:280.25, chg:-1.23, pe:10.1, pb:2.2, val:"notr", trend:"yukselis", div:6.89, divCount5y:5, news:[]},
     {t:"TRALT", n:"Türk Altın İşletmeleri", sector:"Sanayi, Metal & Madencilik", p:51.20, chg:2.30, pe:29.4, pb:3.0, val:"pahali", trend:"dususte", div:1.00, divCount5y:2, news:[]},
-    {t:"TTKOM", n:"Türk Telekom", sector:"Telekomünikasyon", p:54.05, chg:-0.09, pe:6.2, pb:0.7, val:"ucuz", trend:"notr", div:0.00, news:[]},
+    {t:"TTKOM", n:"Türk Telekom", sector:"Telekomünikasyon", p:54.05, chg:-0.09, pe:6.2, pb:0.7, val:"ucuz", trend:"notr", div:0.00, news:[{title:"Türk Telekom, yatırımlarıyla sürdürülebilir geleceğin tasarlanmasına küresel ölçekte katkı sunuyor", url:"https://www.aa.com.tr/tr/ekonomi/turk-telekom-yatirimlariyla-surdurulebilir-gelecegin-tasarlanmasina-kuresel-olcekte-katki-sunuyor/4066242", src:"Anadolu Ajansı", date:"23 Eylül 2026"}]},
     {t:"TUPRS", n:"Tüpraş", sector:"Enerji & Kimya", p:411.50, chg:3.65, pe:10.5, pb:1.7, val:"notr", trend:"notr", div:5.64, divCount5y:6,
       news:[{title:"Tüpraş'tan (TUPRS) yatırımcı bilgilendirme sunumu", url:"https://rotaborsa.com/tuprastan-tuprs-yatirimci-bilgilendirme-sunumu-7/", src:"Rota Borsa", date:"2 Eylül 2026"}]},
     {t:"VAKBN", n:"VakıfBank", sector:"Bankacılık", p:34.52, chg:1.41, pe:4.8, pb:1.0, val:"ucuz", trend:"yukselis", div:0.00, news:[]},
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"Ufuk Yatırım Yönetim ve Gayrimenkul Yönetim Kurulu Başkanı Enver Çevik", d:"fon krizi soruşturması kapsamında İstanbul Cumhuriyet Başsavcılığı'nca ifadesi alındıktan sonra serbest bırakıldı.", when:"18 Dakika Önce"},
-    {c:"KAP", t:"LYDYE", d:"LYDHO ve UFUK'un Yönetim Kurulu Başkanı Enver Çevik'in fon krizi soruşturmasında ifadesi alındı. Şirketler manipülatif işlem yapmadığını açıkladı; Çevik serbest bırakıldı.", when:"18 Dakika Önce"},
-    {c:"KAP", t:"Lydia Holding", d:"Lydia Yeşil Enerji ve Ufuk Yatırım'ın Yönetim Kurulu Başkanı Enver Çevik, fon krizi soruşturması kapsamında ifade verdi ve serbest bırakıldı. Şirketler manipülatif işlem veya piyasa bozucu eylemin tarafı olmadığını bildirdi.", when:"19 Dakika Önce"},
-    {c:"KAP", t:"Wellington Management", d:"müşteri hesapları adına 18 Eylül 2026'da Ülker Bisküvi'nin 1,27 milyon adet payını 88,53 TL fiyattan satın aldı. İşlem sonrası şirketin oy haklarındaki payı %4,81'den %5,15'e yükseldi.", when:"27 Dakika Önce"},
-    {c:"KAP", t:"Reysaş Taşımacılık'ın 2 milyar TL nominal değerli tahvilinin 1. kupon ödemesi", d:"dönemsel %23,2065 faiz oranıyla 464,13 milyon TL olarak 23 Eylül 2026'da gerçekleştirildi.", when:"1 Saat Önce"},
-    {c:"KAP", t:"Zorlu Enerji", d:"nitelikli yatırımcılara satılmak üzere 49,19 milyon TL nominal değerli, 121 gün vadeli ve %47 yıllık sabit faizli finansman bonosu ihraç etti.", when:"1 Saat Önce"},
-    {c:"KAP", t:"Zorlu Enerji", d:"nitelikli yatırımcılara satılmak üzere 85,7 milyon TL nominal değerli, 365 gün vadeli ve yıllık %46,50 sabit kuponlu tahvil ihracını 23 Eylül 2026'da tamamladı.", when:"1 Saat Önce"},
-    {c:"KAP", t:"Cevahir Taahhüt İnşaat ve Ticaret", d:"TKFEN paylarında alım satım işlemi gerçekleştirdi.", when:"1 Saat Önce"}
+    {c:"KAP", t:"Zorlu Enerji'nin 234", d:"33 milyon TL nominal değerli tahvilinin 6. kupon dönemine ilişkin faiz oranı %3,8932 olarak belirlendi.", when:"32 Dakika Önce"},
+    {c:"KAP", t:"Pınar Süt", d:"nitelikli yatırımcılara satılmak üzere 182 gün vadeli, 50 milyon TL nominal değerli sabit faizli finansman bonosu ihraç etti. Satış işlemi 23 Eylül 2026'da tamamlandı.", when:"45 Dakika Önce"},
+    {c:"KAP", t:"Astra Portföy Yönetimi tarafından kurulan yatırım fonlarının KCAER hisselerindeki payı 18 Eylül 2026 itibarıyla %8", d:"06'ya yükseldi.", when:"49 Dakika Önce"},
+    {c:"KAP", t:"Net Holding", d:"azami 25 milyon TL nominal değerli pay ve 1,2 milyar TL fon tutarıyla yeni pay geri alım programı başlattı. Programın süresi 2 yıl olarak belirlendi.", when:"56 Dakika Önce"},
+    {c:"KAP", t:"Pasifik Holding'in bağlı ortaklığı Aden Pellet", d:"Giresun Limanı üzerinden 125 konteyner ile toplam 3.375 ton odun peleti İtalya, Slovenya, Birleşik Krallık ve diğer AB ülkelerine ihraç etti.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Net Holding'in pay geri alım programı sonlandırıldı. 19 Kasım 2024 – 22 Eylül 2026 tarihleri arasında 17", d:"99 milyon TL nominal bedelli pay geri alındı.", when:"1 Saat Önce"},
+    {c:"KAP", t:"ATAKEY Patates", d:"23 Eylül 2026'da ortalama 36,95 TL fiyattan 80.000 TL nominal değerli payı geri aldı. Geri alınan payların sermayeye oranı %0,49'a ulaştı.", when:"1 Saat Önce"},
+    {c:"KAP", t:"", d:"Türkiye Kalkınma ve Yatırım Bankası'nın 100 milyon dolar nominal değerli sürdürülebilir tahvilinin 23 Eylül 2026 tarihli kupon ve kısmi anapara ödemesi gerçekleştirildi.", when:"1 Saat Önce"}
   
   ];
 
