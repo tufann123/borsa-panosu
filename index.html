@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 20:24 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 22.09 22:11 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (10.5x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 23.09 06:51 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 23.09 05:38 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 23.09 11:08 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -628,7 +628,7 @@
     {t:"AEFES", n:"Anadolu Efes", sector:"Gıda & İçecek", p:18.83, chg:-1.93, pe:11.1, pb:0.9, val:"notr", trend:"notr", div:1.73, divCount5y:5, news:[]},
     {t:"AKBNK", n:"Akbank", sector:"Bankacılık", p:73.10, chg:0.90, pe:5.7, pb:1.2, val:"ucuz", trend:"yukselis", div:3.11, divCount5y:5, news:[]},
     {t:"ASELS", n:"Aselsan", sector:"Savunma & Teknoloji", p:374.50, chg:-0.93, pe:null, pb:5.6, val:"na", trend:"dususte", div:0.11, divCount5y:5,
-      news:[{title:"Aselsan'dan (ASELS) 56 milyon dolarlık stratejik yatırım", url:"https://paratic.com/aselsandan-asels-56-milyon-dolarlik-stratejik-yatirim/", src:"Paratic", date:"18 Eylül 2026"}]},
+      news:[{title:"ASELSAN ile ROKETSAN arasında 1,2 milyar avroluk sözleşme imzalandı", url:"https://www.aa.com.tr/tr/ekonomi/aselsan-ile-roketsan-arasinda-1-2-milyar-avroluk-sozlesme-imzalandi/4065836", src:"Anadolu Ajansı", date:"23 Eylül 2026"}]},
     {t:"ASTOR", n:"Astor Enerji", sector:"Enerji & Kimya", p:258.25, chg:-1.34, pe:23.0, pb:5.9, val:"pahali", trend:"dususte", div:null,
       news:[{title:"ASTOR hisselerinde sert düşüş: Astor Enerji %9,83 geriledi", url:"https://www.politikam.com/astor-enerji-astor-hisseleri-neden-dusuyor-16-eylul-2026", src:"Politikam", date:"16 Eylül 2026"}]},
     {t:"BIMAS", n:"BİM Birleşik Mağazalar", sector:"Perakende", p:430.25, chg:-0.64, pe:17.1, pb:2.5, val:"pahali", trend:"yukselis", div:0.60, divCount5y:7,
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"Uşak Seramik", d:"22 Eylül 2026 tarihli tahvil itfa ve kupon ödemesini teknik/operasyonel aksaklık nedeniyle gerçekleştiremedi. Ödemenin 23 Eylül'de yapılması için çalışmalar sürüyor.", when:"6 Saat Önce"},
-    {c:"KAP", t:"PC İletişim ve Medya", d:"ortalama 30,84 TL fiyattan 58.910 adet payı geri aldı.", when:"7 Saat Önce"},
-    {c:"KAP", t:"Emlak Konut GYO", d:"azami 375,45 milyon adet pay ve 1 milyar TL fon tutarıyla 36 ay süreli pay geri alım programı başlattı.", when:"7 Saat Önce"},
-    {c:"KAP", t:"ANELE'nin Katar Lusail Plaza Towers projesine ait 36", d:"54 milyon QAR'lık teminat mektupları nakde çevrildi. 7 milyon dolar özkaynaklardan, kalan kısım hakim hissedar Rıdvan Çelikel'in teminatlarından karşılanacak.", when:"7 Saat Önce"},
-    {c:"KAP", t:"Van Gıda", d:"eski yönetim kurulu üyeleri ve Metro Ticari hakkında güveni kötüye kullanma, piyasa dolandırıcılığı ve yanlış bilgi verme suçlamasıyla İstanbul Cumhuriyet Başsavcılığı'na suç duyurusunda bulundu.", when:"8 Saat Önce"},
-    {c:"KAP", t:"Meysu Gıda", d:"22 Eylül 2026'da 595.000 adet payını 8,42 TL fiyattan geri aldı.", when:"9 Saat Önce"},
-    {c:"KAP", t:"Katılım Emeklilik'in kurucusu olduğu emeklilik yatırım fonlarının Smartiks Yazılım paylarındaki oranı 11 Eylül 2026 itibariyle %3", d:"23 olarak gerçekleşti.", when:"9 Saat Önce"},
-    {c:"KAP", t:"", d:"Katılım Emeklilik'in kurucusu olduğu emeklilik yatırım fonlarının Lokman Hekim hisselerindeki payı 11 Eylül 2026 itibariyle şirketin fiili dolaşımdaki paylarının %3'üne ulaştı.", when:"10 Saat Önce"}
+    {c:"KAP", t:"Ufuk Yatırım Yönetim ve Gayrimenkul Yönetim Kurulu Başkanı Enver Çevik", d:"fon krizi soruşturması kapsamında İstanbul Cumhuriyet Başsavcılığı'nca ifadesi alındıktan sonra serbest bırakıldı.", when:"18 Dakika Önce"},
+    {c:"KAP", t:"LYDYE", d:"LYDHO ve UFUK'un Yönetim Kurulu Başkanı Enver Çevik'in fon krizi soruşturmasında ifadesi alındı. Şirketler manipülatif işlem yapmadığını açıkladı; Çevik serbest bırakıldı.", when:"18 Dakika Önce"},
+    {c:"KAP", t:"Lydia Holding", d:"Lydia Yeşil Enerji ve Ufuk Yatırım'ın Yönetim Kurulu Başkanı Enver Çevik, fon krizi soruşturması kapsamında ifade verdi ve serbest bırakıldı. Şirketler manipülatif işlem veya piyasa bozucu eylemin tarafı olmadığını bildirdi.", when:"19 Dakika Önce"},
+    {c:"KAP", t:"Wellington Management", d:"müşteri hesapları adına 18 Eylül 2026'da Ülker Bisküvi'nin 1,27 milyon adet payını 88,53 TL fiyattan satın aldı. İşlem sonrası şirketin oy haklarındaki payı %4,81'den %5,15'e yükseldi.", when:"27 Dakika Önce"},
+    {c:"KAP", t:"Reysaş Taşımacılık'ın 2 milyar TL nominal değerli tahvilinin 1. kupon ödemesi", d:"dönemsel %23,2065 faiz oranıyla 464,13 milyon TL olarak 23 Eylül 2026'da gerçekleştirildi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Zorlu Enerji", d:"nitelikli yatırımcılara satılmak üzere 49,19 milyon TL nominal değerli, 121 gün vadeli ve %47 yıllık sabit faizli finansman bonosu ihraç etti.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Zorlu Enerji", d:"nitelikli yatırımcılara satılmak üzere 85,7 milyon TL nominal değerli, 365 gün vadeli ve yıllık %46,50 sabit kuponlu tahvil ihracını 23 Eylül 2026'da tamamladı.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Cevahir Taahhüt İnşaat ve Ticaret", d:"TKFEN paylarında alım satım işlemi gerçekleştirdi.", when:"1 Saat Önce"}
   
   ];
 
