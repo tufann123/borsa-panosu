@@ -401,7 +401,7 @@
     </div>
     <div id="refreshMsg"></div>
     <div class="auto-status" style="margin-top:4px;display:flex;flex-direction:column;gap:2px;">
-      <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 23:53 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
+      <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 16:29 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 29.09 00:27 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (10.3x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 29.09 15:21 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
       <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 29.09 12:20 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
@@ -625,44 +625,44 @@
 <script>
 (function(){
   var stocks = [
-    {t:"AEFES", n:"Anadolu Efes", sector:"Gıda & İçecek", p:18.06, chg:-4.09, pe:10.7, pb:0.9, val:"notr", trend:"notr", div:1.77, divCount5y:5, news:[]},
-    {t:"AKBNK", n:"Akbank", sector:"Bankacılık", p:70.10, chg:-1.13, pe:5.5, pb:1.1, val:"ucuz", trend:"notr", div:3.11, divCount5y:5, news:[]},
-    {t:"ASELS", n:"Aselsan", sector:"Savunma & Teknoloji", p:367.25, chg:-1.34, pe:null, pb:5.5, val:"na", trend:"dususte", div:0.12, divCount5y:5,
+    {t:"AEFES", n:"Anadolu Efes", sector:"Gıda & İçecek", p:18.10, chg:0.22, pe:10.7, pb:0.9, val:"notr", trend:"notr", div:1.77, divCount5y:5, news:[]},
+    {t:"AKBNK", n:"Akbank", sector:"Bankacılık", p:70.35, chg:0.36, pe:5.5, pb:1.1, val:"ucuz", trend:"notr", div:3.11, divCount5y:5, news:[]},
+    {t:"ASELS", n:"Aselsan", sector:"Savunma & Teknoloji", p:341.75, chg:-6.94, pe:null, pb:5.5, val:"na", trend:"dususte", div:0.12, divCount5y:5,
       news:[{title:"ASELSAN ile ROKETSAN arasında 1,2 milyar avroluk sözleşme imzalandı", url:"https://www.aa.com.tr/tr/ekonomi/aselsan-ile-roketsan-arasinda-1-2-milyar-avroluk-sozlesme-imzalandi/4065836", src:"Anadolu Ajansı", date:"23 Eylül 2026"}]},
-    {t:"ASTOR", n:"Astor Enerji", sector:"Enerji & Kimya", p:235.20, chg:-9.97, pe:21.0, pb:5.4, val:"pahali", trend:"dususte", div:0.84,
+    {t:"ASTOR", n:"Astor Enerji", sector:"Enerji & Kimya", p:211.70, chg:-9.99, pe:21.0, pb:5.4, val:"pahali", trend:"dususte", div:0.84,
       news:[{title:"ASTOR hisselerinde sert düşüş: Astor Enerji %9,83 geriledi", url:"https://www.politikam.com/astor-enerji-astor-hisseleri-neden-dusuyor-16-eylul-2026", src:"Politikam", date:"16 Eylül 2026"}]},
-    {t:"BIMAS", n:"BİM Birleşik Mağazalar", sector:"Perakende", p:426.50, chg:0.41, pe:17.3, pb:2.5, val:"pahali", trend:"yukselis", div:1.71, divCount5y:7,
+    {t:"BIMAS", n:"BİM Birleşik Mağazalar", sector:"Perakende", p:422.00, chg:-1.06, pe:17.3, pb:2.5, val:"pahali", trend:"yukselis", div:1.71, divCount5y:7,
       news:[{title:"BİM (BIMAS) yatırımcılarına temettü duyurusu", url:"https://rotaborsa.com/bim-bimas-yatirimcilarina-temettu-duyurusu/", src:"Rota Borsa", date:"18 Eylül 2026"}]},
-    {t:"DSTKF", n:"Destek Finans Faktoring", sector:"Finansal Hizmetler (Diğer)", p:1057.00, chg:-9.97, pe:null, pb:23.8, val:"na", trend:"dususte", div:null, news:[]},
-    {t:"EKGYO", n:"Emlak Konut GYO", sector:"Gayrimenkul & İnşaat", p:18.92, chg:-1.71, pe:null, pb:0.5, val:"na", trend:"dususte", div:2.79, divCount5y:5, news:[]},
-    {t:"ENKAI", n:"Enka İnşaat", sector:"Gayrimenkul & İnşaat", p:85.40, chg:-1.21, pe:11.3, pb:1.3, val:"notr", trend:"dususte", div:3.28, divCount5y:11, news:[]},
-    {t:"EREGL", n:"Ereğli Demir Çelik", sector:"Sanayi, Metal & Madencilik", p:37.48, chg:-0.69, pe:33.6, pb:0.8, val:"pahali", trend:"dususte", div:1.34, divCount5y:5, news:[]},
-    {t:"FROTO", n:"Ford Otosan", sector:"Otomotiv", p:74.95, chg:-2.41, pe:7.9, pb:1.5, val:"notr", trend:"dususte", div:3.32, divCount5y:8, news:[]},
-    {t:"GARAN", n:"Garanti BBVA", sector:"Bankacılık", p:129.40, chg:-0.31, pe:4.5, pb:1.1, val:"ucuz", trend:"notr", div:3.88, divCount5y:5,
+    {t:"DSTKF", n:"Destek Finans Faktoring", sector:"Finansal Hizmetler (Diğer)", p:951.50, chg:-9.98, pe:null, pb:23.8, val:"na", trend:"dususte", div:null, news:[]},
+    {t:"EKGYO", n:"Emlak Konut GYO", sector:"Gayrimenkul & İnşaat", p:18.72, chg:-1.06, pe:null, pb:0.5, val:"na", trend:"dususte", div:2.79, divCount5y:5, news:[]},
+    {t:"ENKAI", n:"Enka İnşaat", sector:"Gayrimenkul & İnşaat", p:85.35, chg:-0.06, pe:11.3, pb:1.3, val:"notr", trend:"dususte", div:3.28, divCount5y:11, news:[]},
+    {t:"EREGL", n:"Ereğli Demir Çelik", sector:"Sanayi, Metal & Madencilik", p:37.04, chg:-1.17, pe:33.6, pb:0.8, val:"pahali", trend:"dususte", div:1.34, divCount5y:5, news:[]},
+    {t:"FROTO", n:"Ford Otosan", sector:"Otomotiv", p:74.45, chg:-0.67, pe:7.9, pb:1.5, val:"notr", trend:"dususte", div:3.32, divCount5y:8, news:[]},
+    {t:"GARAN", n:"Garanti BBVA", sector:"Bankacılık", p:129.40, chg:0.00, pe:4.5, pb:1.1, val:"ucuz", trend:"notr", div:3.88, divCount5y:5,
       news:[{title:"Garanti Bankası'ndan (GARAN) 449 milyon liralık satış", url:"https://www.finansopia.com/kap-bildirimleri/garanti-bankasindan-garan-449-milyon-liralik-satis/", src:"Finansopia", date:"15 Eylül 2026"}]},
-    {t:"GUBRF", n:"Gübre Fabrikaları", sector:"Enerji & Kimya", p:442.25, chg:-3.44, pe:18.6, pb:3.8, val:"pahali", trend:"notr", div:null,
+    {t:"GUBRF", n:"Gübre Fabrikaları", sector:"Enerji & Kimya", p:419.00, chg:-5.26, pe:18.6, pb:3.8, val:"pahali", trend:"notr", div:null,
       news:[{title:"Gübre Fabrikaları'nın temettü teklifi 30 Eylül'de genel kurulda oylanacak", url:"https://www.borsagundem.com.tr/gubre-fabrikalarinin-temettu-teklifi-30-eylulde-genel-kurulda-oylanacak", src:"Borsa Gündem", date:"3 Eylül 2026"}]},
-    {t:"ISCTR", n:"Türkiye İş Bankası (C)", sector:"Bankacılık", p:12.96, chg:-0.84, pe:4.8, pb:0.7, val:"ucuz", trend:"notr", div:4.10, divCount5y:5, news:[]},
-    {t:"KCHOL", n:"Koç Holding", sector:"Holding", p:214.00, chg:-1.15, pe:14.3, pb:0.7, val:"pahali", trend:"notr", div:3.60, divCount5y:5, news:[]},
-    {t:"KRDMD", n:"Kardemir (D)", sector:"Sanayi, Metal & Madencilik", p:47.16, chg:0.43, pe:12.4, pb:0.5, val:"notr", trend:"yukselis", div:-0.94, news:[]},
-    {t:"MGROS", n:"Migros Ticaret", sector:"Perakende", p:532.00, chg:1.62, pe:14.0, pb:1.0, val:"pahali", trend:"dususte", div:0.67, divCount5y:5, news:[]},
-    {t:"PETKM", n:"Petkim", sector:"Enerji & Kimya", p:20.20, chg:-4.08, pe:null, pb:0.7, val:"na", trend:"notr", div:0.00, news:[]},
-    {t:"PGSUS", n:"Pegasus Hava Taşımacılığı", sector:"Ulaştırma", p:143.70, chg:-2.04, pe:null, pb:0.6, val:"na", trend:"dususte", div:0.00,
+    {t:"ISCTR", n:"Türkiye İş Bankası (C)", sector:"Bankacılık", p:12.98, chg:0.15, pe:4.8, pb:0.7, val:"ucuz", trend:"notr", div:4.10, divCount5y:5, news:[]},
+    {t:"KCHOL", n:"Koç Holding", sector:"Holding", p:214.30, chg:0.14, pe:14.3, pb:0.7, val:"pahali", trend:"notr", div:3.60, divCount5y:5, news:[]},
+    {t:"KRDMD", n:"Kardemir (D)", sector:"Sanayi, Metal & Madencilik", p:45.60, chg:-3.31, pe:12.4, pb:0.5, val:"notr", trend:"yukselis", div:-0.94, news:[]},
+    {t:"MGROS", n:"Migros Ticaret", sector:"Perakende", p:524.50, chg:-1.41, pe:14.0, pb:1.0, val:"pahali", trend:"dususte", div:0.67, divCount5y:5, news:[]},
+    {t:"PETKM", n:"Petkim", sector:"Enerji & Kimya", p:19.52, chg:-3.37, pe:null, pb:0.7, val:"na", trend:"notr", div:0.00, news:[]},
+    {t:"PGSUS", n:"Pegasus Hava Taşımacılığı", sector:"Ulaştırma", p:142.70, chg:-0.70, pe:null, pb:0.6, val:"na", trend:"dususte", div:0.00,
       news:[{title:"Pegasus (PGSUS) Ağustos ayı trafik sonuçlarını açıkladı", url:"https://rotaborsa.com/pegasus-pgsus-agustos-ayi-trafik-sonuclarini-acikladi-3/", src:"Rota Borsa", date:"14 Eylül 2026"}]},
-    {t:"SAHOL", n:"Sabancı Holding", sector:"Holding", p:86.90, chg:-1.53, pe:8.8, pb:0.4, val:"notr", trend:"dususte", div:1.58, divCount5y:5, news:[]},
-    {t:"SASA", n:"Sasa Polyester", sector:"Enerji & Kimya", p:1.88, chg:-9.62, pe:null, pb:0.5, val:"na", trend:"dususte", div:null,
+    {t:"SAHOL", n:"Sabancı Holding", sector:"Holding", p:87.20, chg:0.35, pe:8.8, pb:0.4, val:"notr", trend:"dususte", div:1.58, divCount5y:5, news:[]},
+    {t:"SASA", n:"Sasa Polyester", sector:"Enerji & Kimya", p:1.89, chg:0.53, pe:null, pb:0.5, val:"na", trend:"dususte", div:null,
       news:[{title:"SASA Polyester'in ağustos satışları yüzde 30,2 arttı", url:"https://hibya.com/sasa-polyesterin-agustos-satislari-yuzde-302-artti-1017420", src:"Hibya Haber Ajansı", date:"1 Eylül 2026"}]},
-    {t:"SISE", n:"Şişecam", sector:"Sanayi, Metal & Madencilik", p:38.38, chg:-2.19, pe:10.0, pb:0.4, val:"notr", trend:"dususte", div:null, divCount5y:5, news:[]},
-    {t:"TAVHL", n:"TAV Havalimanları", sector:"Ulaştırma", p:267.75, chg:-1.83, pe:16.9, pb:1.2, val:"pahali", trend:"notr", div:1.31, divCount5y:1, news:[]},
-    {t:"TCELL", n:"Turkcell", sector:"Telekomünikasyon", p:98.35, chg:-1.60, pe:10.3, pb:0.7, val:"notr", trend:"notr", div:4.07, divCount5y:5, news:[]},
-    {t:"THYAO", n:"Türk Hava Yolları", sector:"Ulaştırma", p:287.00, chg:-1.29, pe:3.0, pb:0.4, val:"ucuz", trend:"dususte", div:0.00, divCount5y:2, news:[]},
-    {t:"TOASO", n:"Tofaş", sector:"Otomotiv", p:278.75, chg:-3.88, pe:10.0, pb:2.1, val:"notr", trend:"yukselis", div:6.89, divCount5y:5, news:[]},
-    {t:"TRALT", n:"Türk Altın İşletmeleri", sector:"Sanayi, Metal & Madencilik", p:46.66, chg:-6.38, pe:27.4, pb:2.8, val:"pahali", trend:"dususte", div:1.07, divCount5y:2, news:[]},
-    {t:"TTKOM", n:"Türk Telekom", sector:"Telekomünikasyon", p:53.55, chg:-2.01, pe:6.1, pb:0.7, val:"ucuz", trend:"yukselis", div:0.00, news:[{title:"Türk Telekomun grup şirketi Argela ile Stanford Araştırma Enstitüsünden stratejik işbirliği", url:"https://www.aa.com.tr/tr/ekonomi/turk-telekomun-grup-sirketi-argela-ile-stanford-arastirma-enstitusunden-stratejik-isbirligi/4067560", src:"Anadolu Ajansı", date:"24 Eylül 2026"}]},
-    {t:"TUPRS", n:"Tüpraş", sector:"Enerji & Kimya", p:398.25, chg:-1.91, pe:10.6, pb:1.7, val:"notr", trend:"yukselis", div:5.63, divCount5y:6,
+    {t:"SISE", n:"Şişecam", sector:"Sanayi, Metal & Madencilik", p:38.34, chg:-0.10, pe:10.0, pb:0.4, val:"notr", trend:"dususte", div:null, divCount5y:5, news:[]},
+    {t:"TAVHL", n:"TAV Havalimanları", sector:"Ulaştırma", p:268.25, chg:0.19, pe:16.9, pb:1.2, val:"pahali", trend:"notr", div:1.31, divCount5y:1, news:[]},
+    {t:"TCELL", n:"Turkcell", sector:"Telekomünikasyon", p:96.50, chg:-1.88, pe:10.3, pb:0.7, val:"notr", trend:"notr", div:4.07, divCount5y:5, news:[]},
+    {t:"THYAO", n:"Türk Hava Yolları", sector:"Ulaştırma", p:291.50, chg:1.57, pe:3.0, pb:0.4, val:"ucuz", trend:"dususte", div:0.00, divCount5y:2, news:[]},
+    {t:"TOASO", n:"Tofaş", sector:"Otomotiv", p:276.25, chg:-0.90, pe:10.0, pb:2.1, val:"notr", trend:"yukselis", div:6.89, divCount5y:5, news:[]},
+    {t:"TRALT", n:"Türk Altın İşletmeleri", sector:"Sanayi, Metal & Madencilik", p:45.76, chg:-1.93, pe:27.4, pb:2.8, val:"pahali", trend:"dususte", div:1.07, divCount5y:2, news:[]},
+    {t:"TTKOM", n:"Türk Telekom", sector:"Telekomünikasyon", p:52.65, chg:-1.68, pe:6.1, pb:0.7, val:"ucuz", trend:"yukselis", div:0.00, news:[{title:"Türk Telekomun grup şirketi Argela ile Stanford Araştırma Enstitüsünden stratejik işbirliği", url:"https://www.aa.com.tr/tr/ekonomi/turk-telekomun-grup-sirketi-argela-ile-stanford-arastirma-enstitusunden-stratejik-isbirligi/4067560", src:"Anadolu Ajansı", date:"24 Eylül 2026"}]},
+    {t:"TUPRS", n:"Tüpraş", sector:"Enerji & Kimya", p:384.50, chg:-3.45, pe:10.6, pb:1.7, val:"notr", trend:"yukselis", div:5.63, divCount5y:6,
       news:[{title:"Tüpraş'tan (TUPRS) yatırımcı bilgilendirme sunumu", url:"https://rotaborsa.com/tuprastan-tuprs-yatirimci-bilgilendirme-sunumu-7/", src:"Rota Borsa", date:"2 Eylül 2026"}]},
-    {t:"VAKBN", n:"VakıfBank", sector:"Bankacılık", p:33.82, chg:0.06, pe:4.8, pb:1.0, val:"ucuz", trend:"notr", div:0.00, news:[]},
-    {t:"YKBNK", n:"Yapı Kredi", sector:"Bankacılık", p:35.52, chg:-0.73, pe:5.4, pb:1.1, val:"ucuz", trend:"notr", div:0.00, divCount5y:4,
+    {t:"VAKBN", n:"VakıfBank", sector:"Bankacılık", p:33.50, chg:-0.95, pe:4.8, pb:1.0, val:"ucuz", trend:"notr", div:0.00, news:[]},
+    {t:"YKBNK", n:"Yapı Kredi", sector:"Bankacılık", p:35.96, chg:1.24, pe:5.4, pb:1.1, val:"ucuz", trend:"notr", div:0.00, divCount5y:4,
       news:[{title:"Rekabet Kurulu Yapı Kredi'nin (YKBNK) dev satışı için kararını açıkladı", url:"https://rotaborsa.com/rekabet-kurulu-yapi-kredinin-ykbnk-dev-satisi-icin-kararini-acikladi/", src:"Rota Borsa", date:"10 Eylül 2026"}]}
   ];
 
