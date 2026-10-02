@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 22:16 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 01.10 23:37 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (10.2x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 02.10 07:38 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 02.10 03:22 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 02.10 12:12 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 2/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -628,7 +628,7 @@
     {t:"AEFES", n:"Anadolu Efes", sector:"Gıda & İçecek", p:17.81, chg:0.74, pe:10.5, pb:0.8, val:"notr", trend:"dususte", div:1.78, divCount5y:5, news:[]},
     {t:"AKBNK", n:"Akbank", sector:"Bankacılık", p:67.55, chg:0.82, pe:5.3, pb:1.1, val:"ucuz", trend:"dususte", div:3.11, divCount5y:5, news:[]},
     {t:"ASELS", n:"Aselsan", sector:"Savunma & Teknoloji", p:370.00, chg:9.96, pe:null, pb:5.5, val:"na", trend:"dususte", div:0.12, divCount5y:5,
-      news:[{title:"ASELSAN ile Savunma Sanayii Başkanlığı arasında 1 milyar avroluk sözleşmeler imzalandı", url:"https://www.aa.com.tr/tr/ekonomi/aselsan-ile-savunma-sanayii-baskanligi-arasinda-1-milyar-avroluk-sozlesmeler-imzalandi/4074424", src:"Anadolu Ajansı", date:"01 Ekim 2026"}]},
+      news:[{title:"ASELSAN'dan 488,5 milyon avroluk hava savunma sistemi ihracat sözleşmesi", url:"https://www.aa.com.tr/tr/ekonomi/aselsandan-488-5-milyon-avroluk-hava-savunma-sistemi-ihracat-sozlesmesi/4075728", src:"Anadolu Ajansı", date:"02 Ekim 2026"}]},
     {t:"ASTOR", n:"Astor Enerji", sector:"Enerji & Kimya", p:209.60, chg:9.97, pe:18.7, pb:4.8, val:"pahali", trend:"dususte", div:1.05,
       news:[{title:"ASTOR hisselerinde sert düşüş: Astor Enerji %9,83 geriledi", url:"https://www.politikam.com/astor-enerji-astor-hisseleri-neden-dusuyor-16-eylul-2026", src:"Politikam", date:"16 Eylül 2026"}]},
     {t:"BIMAS", n:"BİM Birleşik Mağazalar", sector:"Perakende", p:408.00, chg:-2.51, pe:16.6, pb:2.4, val:"pahali", trend:"notr", div:1.73, divCount5y:7,
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"İzdemir Enerji", d:"1 Ekim 2026'da JCR Avrasya Derecelendirme tarafından kredi derecelendirmesi yapıldı.", when:"4 Saat Önce"},
-    {c:"KAP", t:"Etiler Gıda", d:"Temmuz-Eylül 2026 döneminde 1 yeni franchise sözleşmesi imzaladı. 30 Eylül itibarıyla şirketin 48 franchise, 1 yurtdışı franchise, 3 operasyonel şubesi ile 1 üretim tesisi ve 1 merkezi deposu bulunuyor.", when:"4 Saat Önce"},
-    {c:"KAP", t:"Etiler Gıda", d:"1 Ekim 2026'da pay geri alım işlemi gerçekleştirdi.", when:"4 Saat Önce"},
-    {c:"KAP", t:"Kafein Yazılım", d:"küresel bulut güvenliği şirketi Sysdig ile çözüm ortaklığı kurdu. İş birliği kapsamında Sysdig'in bulut tabanlı güvenlik çözümleri Kafein Yazılım'ın siber güvenlik portföyüne dahil edilecek ve müşterilere sunulacak.", when:"5 Saat Önce"},
-    {c:"KAP", t:"Ağaoğlu Avrasya GYO", d:"1 Ekim'de 8,45 TL – 9,46 TL fiyat aralığından 1.955.830 adet payı geri aldı. Şirketin sahip olduğu pay sayısı 2.329.436 adete ulaştı ve sermayedeki payı %0,332 oldu.", when:"6 Saat Önce"},
-    {c:"KAP", t:"MEGMT", d:"Tunceli Pertek'teki Güneş Enerjisi Santrali yatırımını 2026 son çeyreğine erteledi. Proje sonrası elektrik tüketiminin %85'i yenilenebilir enerjiden karşılanacak.", when:"6 Saat Önce"},
-    {c:"KAP", t:"ICUGS'nin lider sermayedarı Mustafa Mümtaz Özkaya", d:"27 Temmuz 2026 tarihli hisse devir sözleşmesi kapsamında Danista Finansal Danışmanlık'a ihtarname gönderdi. 5 iş günü içinde ödenmesi gereken 1,8 milyon dolarlık sermaye avansı 59 gündür ödenmedi.", when:"6 Saat Önce"},
-    {c:"KAP", t:"Dagi Giyim", d:"1 Ekim 2026'da gerçekleştirdiği pay geri alım işlemlerini bildirdi.", when:"6 Saat Önce"}
+    {c:"KAP", t:"Enda Enerji", d:"İzmir Urla'daki rüzgar santralinin kapasitesini artırmak için 10 milyon dolarlık yatırıma başladı. Yatırımla santralin elektriksel kurulu gücü %65 artışla 13 MWe'den 21,4 MWe'ye çıkacak ve Aralık ayında devreye alınması hedefleniyor.", when:"42 Dakika Önce"},
+    {c:"KAP", t:"Zorlu Enerji'nin 42", d:"77 milyon TL nominal değerli tahvilinin 3. kupon ödemesi, dönemsel %3,98 faiz oranıyla 1,70 milyon TL olarak 2 Ekim'de gerçekleştirildi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Girişim Elektrik", d:"Konya Selçuklu Belediyesi'nin 2,2 MW'lık güneş enerjisi santrali projesi ihalesini kazandı. İhale bedeli 1,6 milyon dolar olarak belirlendi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"", d:"QNB Bank'ın MTN programı kapsamında yurtdışında ihraç ettiği 50 milyon dolarlık özel sektör tahvili 2 Ekim 2026'da itfa edildi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Gen İlaç Yönetim Kurulu Üyesi Ali Göl'ün şahsi mal varlığı hakkında tedbir kararı alındığı bildirildi. Şirket", d:"icrada görevli olmayan üye hakkındaki sürecin şirketin faaliyetlerini etkilemediğini açıkladı.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Europower Enerji", d:"420–550 kV gerilim seviyesinde, 3150–4000 A ve 63 kA/1s kısa devre dayanım seviyesine sahip Pantograf Tip ve Dirsek Kırmalı Ayırıcı ürünlerinin kısa devre dayanım testlerini KEMA Labs Prag Laboratuvarı'nda başarıyla tamamladı.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Blume Metal Kimya", d:"1 Ekim'de 34,50 – 34,60 TL fiyat aralığından 5.534 adet payı geri aldı. Şirketin sahip olduğu toplam pay sayısı 472.830 adete ulaştı.", when:"2 Saat Önce"},
+    {c:"KAP", t:"ASELSAN", d:"yurt dışındaki bir son kullanıcı ile Hava Savunma Sistemlerinin ihracatına ilişkin 488,5 milyon avro tutarında satış sözleşmesi imzaladı.", when:"2 Saat Önce"}
   
   ];
 
