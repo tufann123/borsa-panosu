@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 18:21 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 06.10 01:16 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (10.2x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 06.10 11:42 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 06.10 07:05 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 06.10 15:30 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -628,7 +628,7 @@
     {t:"AEFES", n:"Anadolu Efes", sector:"Gıda & İçecek", p:18.08, chg:0.22, pe:10.6, pb:0.9, val:"notr", trend:"dususte", div:1.77, divCount5y:5, news:[]},
     {t:"AKBNK", n:"Akbank", sector:"Bankacılık", p:68.95, chg:2.76, pe:5.4, pb:1.1, val:"ucuz", trend:"dususte", div:3.11, divCount5y:5, news:[]},
     {t:"ASELS", n:"Aselsan", sector:"Savunma & Teknoloji", p:371.50, chg:2.41, pe:null, pb:5.4, val:"na", trend:"dususte", div:0.12, divCount5y:5,
-      news:[{title:"ASELSAN ile Savunma Sanayii Başkanlığı arasında 2,46 milyar avroluk sözleşme", url:"https://www.aa.com.tr/tr/ekonomi/aselsan-ile-savunma-sanayii-baskanligi-arasinda-2-46-milyar-avroluk-sozlesme/4077993", src:"Anadolu Ajansı", date:"05 Ekim 2026"}]},
+      news:[{title:"ASELSAN'dan 157,9 milyon dolarlık sözleşme", url:"https://www.aa.com.tr/tr/ekonomi/aselsandan-157-9-milyon-dolarlik-sozlesme/4079198", src:"Anadolu Ajansı", date:"06 Ekim 2026"}]},
     {t:"ASTOR", n:"Astor Enerji", sector:"Enerji & Kimya", p:198.00, chg:-10.00, pe:17.6, pb:4.5, val:"pahali", trend:"dususte", div:1.11,
       news:[{title:"ASTOR hisselerinde sert düşüş: Astor Enerji %9,83 geriledi", url:"https://www.politikam.com/astor-enerji-astor-hisseleri-neden-dusuyor-16-eylul-2026", src:"Politikam", date:"16 Eylül 2026"}]},
     {t:"BIMAS", n:"BİM Birleşik Mağazalar", sector:"Perakende", p:413.50, chg:-0.12, pe:16.8, pb:2.5, val:"pahali", trend:"notr", div:1.72, divCount5y:7,
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"Migros Ticaret", d:"Eylül 2026'da 5'i Migros M, 2'si Migros MM ve 6'sı Macrocenter formatında olmak üzere toplam 13 mağaza açacak.", when:"9 Saat Önce"},
-    {c:"KAP", t:"Metropal Kurumsal Hizmetler", d:"5 Ekim'de ortalama 99,98 TL fiyattan 40.000 adet payı geri aldı. Şirketin geri alım programı kapsamında toplam geri alınan pay sayısı 70.000 adede ulaştı.", when:"10 Saat Önce"},
-    {c:"KAP", t:"Ağaoğlu Avrasya GYO", d:"5 Ekim'de 9,00 TL – 9,13 TL fiyat aralığından 750.000 adet payı geri aldı. İşlem sonrası şirketin elindeki pay sayısı 5.229.436 adete, sermayedeki payı %0,75'e yükseldi.", when:"10 Saat Önce"},
-    {c:"KAP", t:"LDR Turizm", d:"5 Ekim'de ortalama 7,40 TL fiyattan 500.000 adet payı geri aldı. Şirketin sahip olduğu toplam pay sayısı 18,5 milyon adete ulaştı.", when:"11 Saat Önce"},
-    {c:"KAP", t:"Tatlıpınar Enerji", d:"5 Ekim'de 4,76 TL – 4,82 TL fiyat aralığından 456.517 adet payı geri aldı. Şirketin sahip olduğu pay sayısı 1.601.188 adete, sermayedeki payı %0,142'ye yükseldi.", when:"11 Saat Önce"},
-    {c:"KAP", t:"İzdemir Enerji", d:"5 Ekim'de ortalama 3,95 TL fiyattan 3 milyon TL nominal değerinde pay geri aldı. Program kapsamında geri alınan toplam pay tutarı 24,22 milyon TL'ye ulaştı.", when:"11 Saat Önce"},
-    {c:"KAP", t:"PC İletişim ve Medya", d:"5 Ekim 2026'da ortalama 31,97 TL fiyattan 70.000 adet payı geri aldı.", when:"11 Saat Önce"},
-    {c:"KAP", t:"Albayrak Hazır Beton", d:"ortalama 24,63 TL fiyattan 50.000 adet payı geri aldı. Şirketin sahip olduğu toplam pay sayısı 612.000 adede ulaştı.", when:"11 Saat Önce"}
+    {c:"KAP", t:"ULUUN", d:"1 Temmuz – 30 Eylül 2026'da finansal varlıklarının ortalama %10,45'ini SPK tarafından tasfiye sürecindeki yatırım fonlarında değerlendirdi. Şirket, soruşturma kapsamındaki hisse senetlerinde doğrudan işlem yapmadı.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Çelik Halat'ın ortağı Aslan Lena Yatırım", d:"şirketteki 13,6 milyon adet payını pay başına 22 TL'den toplam 299,2 milyon TL bedelle sattı. İşlem sonrası Aslan Lena'nın Çelik Halat'taki payı %50,43'ten %46,90'a geriledi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"QNB Bank'ın 2", d:"5 milyar TL nominal değerli, 182 gün vadeli finansman bonosu 6 Ekim 2026'da itfa edildi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Rönesans GYO", d:"7 Ekim'de hisse başına net 7,82 TL temettü ödemesi yapacak. Ödemeler hesaplara 9 Ekim'da geçecek.", when:"2 Saat Önce"},
+    {c:"KAP", t:"KT Sukuk Varlık Kiralama tarafından ihraç edilen kira sertifikasının 6 Ekim 2026'da itfası gerçekleştirildi. 166 milyon TL nominal değerli sertifika için yatırımcılara toplam 191", d:"29 milyon TL ödeme yapıldı.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Zorlu Enerji'nin 117", d:"32 milyon TL nominal değerli tahvilinin 6. kupon ödemesi, dönemsel %4,0685 faiz oranıyla 4,77 milyon TL olarak bugün gerçekleştirildi.", when:"2 Saat Önce"},
+    {c:"KAP", t:"", d:"Garanti Bankası'nın 30 Eylül 2025'te ihraç ettiği 15 milyon euro tutarındaki MTN borçlanma aracının itfası 5 Ekim 2026'da gerçekleştirildi.", when:"3 Saat Önce"},
+    {c:"KAP", t:"Ali İhsan Arslan", d:"6 Ekim 2026'da Çelik Halat ve Tel Sanayi'nin 3,2 milyon TL nominal değerli payını 22 TL fiyattan virman yoluyla satın aldı. İşlem sonrası şirketteki payı %0,83 oldu.", when:"3 Saat Önce"}
   
   ];
 
