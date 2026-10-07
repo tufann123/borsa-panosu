@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 22:10 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 06.10 23:32 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (10.3x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 07.10 07:55 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 07.10 03:16 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 07.10 12:35 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -628,7 +628,7 @@
     {t:"AEFES", n:"Anadolu Efes", sector:"Gıda & İçecek", p:18.67, chg:3.26, pe:11.0, pb:0.9, val:"notr", trend:"dususte", div:1.77, divCount5y:5, news:[]},
     {t:"AKBNK", n:"Akbank", sector:"Bankacılık", p:69.50, chg:0.80, pe:5.4, pb:1.1, val:"ucuz", trend:"dususte", div:3.11, divCount5y:5, news:[]},
     {t:"ASELS", n:"Aselsan", sector:"Savunma & Teknoloji", p:376.00, chg:1.21, pe:null, pb:5.6, val:"na", trend:"yukselis", div:0.11, divCount5y:5,
-      news:[{title:"ASELSAN'dan 157,9 milyon dolarlık sözleşme", url:"https://www.aa.com.tr/tr/ekonomi/aselsandan-157-9-milyon-dolarlik-sozlesme/4079198", src:"Anadolu Ajansı", date:"06 Ekim 2026"}]},
+      news:[{title:"ASELSAN'dan 195 milyon dolarlık sözleşme", url:"https://www.aa.com.tr/tr/ekonomi/aselsandan-195-milyon-dolarlik-sozlesme/4080428", src:"Anadolu Ajansı", date:"07 Ekim 2026"}]},
     {t:"ASTOR", n:"Astor Enerji", sector:"Enerji & Kimya", p:194.60, chg:-1.72, pe:17.3, pb:4.4, val:"pahali", trend:"dususte", div:1.13,
       news:[{title:"ASTOR hisselerinde sert düşüş: Astor Enerji %9,83 geriledi", url:"https://www.politikam.com/astor-enerji-astor-hisseleri-neden-dusuyor-16-eylul-2026", src:"Politikam", date:"16 Eylül 2026"}]},
     {t:"BIMAS", n:"BİM Birleşik Mağazalar", sector:"Perakende", p:409.25, chg:-1.03, pe:16.6, pb:2.4, val:"pahali", trend:"notr", div:1.73, divCount5y:7,
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"TGS Dış Ticaret", d:"6 Ekim'de ortalama 133,71 TL fiyattan 46.290 adet TGSAS payı geri aldı. Geri alınan toplam pay adedi 99.139'a ulaştı.", when:"4 Saat Önce"},
-    {c:"KAP", t:"Kalyon Güneş", d:"100.000 USD sermayeli \"Kalyon Solar Technologies USA Inc.\" unvanlı şirketin Delaware'deki kuruluşunu 6 Ekim 2026'da tamamladı. Kalyon Güneş'in şirketteki payı %51 oldu.", when:"4 Saat Önce"},
-    {c:"KAP", t:"Akfen GYO", d:"Kocaeli'deki arsası üzerinde geliştirilmesi planlanan lojistik depo için küresel bir e-ticaret şirketinin Türkiye operasyonlarını yürüten şirketiyle 6 Ekim 2026'da münhasırlık sözleşmesi imzaladı.", when:"5 Saat Önce"},
-    {c:"KAP", t:"IC Enterra Yenilenebilir Enerji", d:"350,55 milyon TL'lik bedelli sermaye artırımından elde edilen fonun 30 Haziran 2026 itibarıyla 331,37 milyon TL'sini kullandı; kullanılmayan 21,03 milyon TL TL cinsinden enstrümanlarla değerlendiriliyor.", when:"6 Saat Önce"},
-    {c:"KAP", t:"Kervan Gıda", d:"8 Ekim'de hisse başına net 0,01 TL temettü ödemesi yapacak. Ödemeler hesaplara 12 Ekim'de geçecek.", when:"7 Saat Önce"},
-    {c:"KAP", t:"Söke Değirmencilik", d:"6 Ekim 2026'da 6,76 TL – 7,12 TL fiyat aralığından 1.700.000 adet payı geri aldı.", when:"7 Saat Önce"},
-    {c:"KAP", t:"Ulusoy Un", d:"6 Ekim'de 6,47 TL – 6,63 TL fiyat aralığından toplam 1.050.000 adet payı geri aldı.", when:"7 Saat Önce"},
-    {c:"KAP", t:"Ekim Turizm", d:"6 Ekim 2026'da 793.622 adet payı geri aldı. Alınan toplam pay sayısı 9.052.495 adete ulaşarak şirket sermayesinin %1,09'una karşılık geldi.", when:"7 Saat Önce"}
+    {c:"KAP", t:"Osmanlı Yatırım'ın 150 milyon TL nominal değerli finansman bonosunun 1. kupon ödemesi", d:"dönemsel %10,9162 faiz oranıyla 16,37 milyon TL olarak 7 Ekim 2026'da gerçekleştirildi.", when:"33 Dakika Önce"},
+    {c:"KAP", t:"Osmanlı Yatırım'ın 300 milyon TL nominal değerli finansman bonosunun 1. kupon ödemesi", d:"dönemsel %10,6669 faiz oranıyla 32 milyon TL olarak 7 Ekim'de gerçekleştirildi.", when:"35 Dakika Önce"},
+    {c:"KAP", t:"Smart Güneş'in 250 milyon TL nominal değerli", d:"180 gün vadeli finansman bonosu 7 Ekim 2026'da itfa edildi. İkinci kupon ödemesi dönemsel %11,156 faiz oranıyla 27,89 milyon TL, anapara ödemesi ise 250 milyon TL olarak gerçekleştirildi.", when:"44 Dakika Önce"},
+    {c:"KAP", t:"Türkiye Sigorta", d:"30 Eylül 2026 itibarıyla tasfiyeye konu 131 fon arasında bakiyesi bulunmadığını açıkladı. Şirketin bilançosunda 141.401.116,58 adet TURSG payı dışında başka bir hisse senedi yer almıyor.", when:"54 Dakika Önce"},
+    {c:"KAP", t:"QNB Finansal Kiralama", d:"182 gün vadeli 651 milyon TL nominal değerli finansman bonosu ihraç etti. Satışı 6 Ekim 2026'da tamamlanan bononun vade tarihi 7 Nisan 2027.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Koray GYO'nun 230 milyon TL nominal değerli", d:"117 gün vadeli finansman bonosunun anapara ve kupon ödemesi bugün gerçekleştirildi. Dönemsel faiz oranı %14,7452 olan bonoya ilişkin kupon ödemesi 33,91 milyon TL oldu.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Gürmat Elektrik'in Mayıs 2026'da gerçekleştirdiği 380 milyon dolar tutarındaki 9 yıl vadeli proje tahvili ihracı", d:"Global Banking & Markets tarafından \"Yılın Proje Finansmanı İşlemi\" ödülüne layık görüldü.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Dünya Katılım Bankası", d:"Ekim ayında Beylikdüzü şubesini açtı.", when:"2 Saat Önce"}
   
   ];
 
