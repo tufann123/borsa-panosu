@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 23:15 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 07.10 23:47 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (10.5x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 08.10 11:32 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 08.10 03:37 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 08.10 12:45 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -628,7 +628,7 @@
     {t:"AEFES", n:"Anadolu Efes", sector:"Gıda & İçecek", p:18.15, chg:-2.79, pe:10.7, pb:0.9, val:"notr", trend:"dususte", div:1.77, divCount5y:5, news:[]},
     {t:"AKBNK", n:"Akbank", sector:"Bankacılık", p:69.25, chg:-0.36, pe:5.4, pb:1.1, val:"ucuz", trend:"dususte", div:3.11, divCount5y:5, news:[]},
     {t:"ASELS", n:"Aselsan", sector:"Savunma & Teknoloji", p:348.75, chg:-7.25, pe:38.6, pb:5.2, val:"pahali", trend:"dususte", div:0.12, divCount5y:5,
-      news:[{title:"ASELSAN'dan 195 milyon dolarlık sözleşme", url:"https://www.aa.com.tr/tr/ekonomi/aselsandan-195-milyon-dolarlik-sozlesme/4080428", src:"Anadolu Ajansı", date:"07 Ekim 2026"}]},
+      news:[{title:"ASELSAN'dan 125 milyon dolarlık satış sözleşmesi", url:"https://www.aa.com.tr/tr/ekonomi/aselsandan-125-milyon-dolarlik-satis-sozlesmesi/4081837", src:"Anadolu Ajansı", date:"08 Ekim 2026"}]},
     {t:"ASTOR", n:"Astor Enerji", sector:"Enerji & Kimya", p:184.90, chg:-4.98, pe:16.5, pb:4.2, val:"pahali", trend:"dususte", div:1.19,
       news:[{title:"ASTOR hisselerinde sert düşüş: Astor Enerji %9,83 geriledi", url:"https://www.politikam.com/astor-enerji-astor-hisseleri-neden-dusuyor-16-eylul-2026", src:"Politikam", date:"16 Eylül 2026"}]},
     {t:"BIMAS", n:"BİM Birleşik Mağazalar", sector:"Perakende", p:394.25, chg:-3.67, pe:16.0, pb:2.4, val:"pahali", trend:"dususte", div:1.75, divCount5y:7,
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"Aksigorta'nın Ocak-Eylül 2026 döneminde brüt yazılan prim üretimi %38 artışla 32", d:"61 milyar TL oldu.", when:"4 Saat Önce"},
-    {c:"KAP", t:"EBEBK", d:"1 Kasım itibarıyla İç Denetim ve Risk Yönetimi Direktörlüğü'ne Abidder Emin Şimşek'i atadı. İş Geliştirme Direktörlüğü kapatılarak Kuzey Irak operasyonları Genel Müdür'e bağlandı.", when:"5 Saat Önce"},
-    {c:"KAP", t:"Ebebek'in Eylül 2026'da Türkiye'deki mağaza ve e-ticaret kanallarından sattığı toplam ürün adedi yıllık %21", d:"4 artışla 11,76 milyona ulaştı. Eylül 2026'da sona eren 9 aylık dönemde toplam satış adedi ise %21,6 artışla 94,31 milyona yükseldi.", when:"5 Saat Önce"},
-    {c:"KAP", t:"Şekerbank", d:"Hollanda Kalkınma Bankası liderliğinde kalkınma odaklı uluslararası finans kuruluşlarının katılımıyla yaklaşık 170 milyon Dolar tutarında, 5 yıl vadeli sendikasyon kredisi anlaşması imzaladı.", when:"5 Saat Önce"},
-    {c:"KAP", t:"Etiler Gıda", d:"7 Ekim 2026 tarihinde pay geri alım işlemi gerçekleştirdi.", when:"6 Saat Önce"},
-    {c:"KAP", t:"Kuzugrup GYO", d:"7 Ekim'de ortalama 17,66 TL fiyattan 112.000 adet payı geri aldı.", when:"6 Saat Önce"},
-    {c:"KAP", t:"Ekim", d:"5 Ağustos 2026 vadeli paylardan ortalama 18,55 TL fiyattan 50.000 adet geri aldı.", when:"7 Saat Önce"},
-    {c:"KAP", t:"Söke Değirmencilik", d:"7 Ekim 2026 tarihinde pay geri alım işlemi gerçekleştirdi.", when:"7 Saat Önce"}
+    {c:"KAP", t:"Halk Varlık Kiralama tarafından ihraç edilen 1", d:"08 milyar TL nominal değerli, 125 gün vadeli kira sertifikasının itfası 8 Ekim 2026'da gerçekleştirildi. Yatırımcılara dönemsel %14,04 getiri oranıyla toplam 151,64 milyon TL getiri ödemesi yapıldı.", when:"21 Dakika Önce"},
+    {c:"KAP", t:"LDR Turizm'in 100 milyon TL nominal değerli tahvilinin 3. kupon ödemesi", d:"dönemsel %11,0315 faiz oranıyla 11,03 milyon TL olarak 8 Ekim 2026'da gerçekleştirildi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Vakıflar Bankası'nın nitelikli yatırımcıya satılan 1", d:"20 milyar TL nominal değerli, 91 gün vadeli finansman bonosu 8 Ekim 2026'da itfa edildi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Işıklar Holding", d:"7 Ekim 2026'da 200.000 adet Çemaş payını 622.660 TL'ye Borsa İstanbul'dan satın aldı. Alım sonrası Işıklar Holding'in Çemaş'taki pay oranı %11,45'ten %11,47'ye yükseldi.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Garanti Faktoring", d:"8 Ekim 2026 vade başlangıç tarihli, 8 Nisan 2027 vadeli, 529 milyon TL nominal değerli, 182 gün vadeli finansman bonosu ihracını tamamladı.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Creditwest Faktoring'in 70 milyon TL nominal değerli finansman bonosunun 2. kupon ödemesi", d:"dönemsel %10,9691 faiz oranıyla 7,68 milyon TL olarak bugün gerçekleştirildi. Anapara ödemesi de bugün tamamlandı.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Meysu Gida", d:"7 Ekim'de 8,05 TL – 8,27 TL fiyat aralığından toplam 859.169 adet payı geri aldı.", when:"3 Saat Önce"},
+    {c:"KAP", t:"Kartonsan", d:"7 Ekim'de pay başına 90,20 TL – 90,40 TL fiyat aralığından 15.000 adet B Grubu payı geri aldı.", when:"3 Saat Önce"}
   
   ];
 
