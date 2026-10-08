@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 17:08 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 07.10 23:47 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (10.5x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 08.10 20:15 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 08.10 12:45 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 08.10 21:14 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 2/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -655,7 +655,7 @@
     {t:"SISE", n:"Şişecam", sector:"Sanayi, Metal & Madencilik", p:37.82, chg:0.69, pe:9.8, pb:0.4, val:"notr", trend:"dususte", div:null, divCount5y:5, news:[]},
     {t:"TAVHL", n:"TAV Havalimanları", sector:"Ulaştırma", p:274.25, chg:-0.36, pe:17.3, pb:1.2, val:"pahali", trend:"yukselis", div:1.31, divCount5y:1, news:[]},
     {t:"TCELL", n:"Turkcell", sector:"Telekomünikasyon", p:100.50, chg:1.11, pe:10.4, pb:0.7, val:"notr", trend:"dususte", div:4.02, divCount5y:5, news:[]},
-    {t:"THYAO", n:"Türk Hava Yolları", sector:"Ulaştırma", p:284.25, chg:-0.70, pe:3.0, pb:0.4, val:"ucuz", trend:"dususte", div:0.00, divCount5y:2, news:[]},
+    {t:"THYAO", n:"Türk Hava Yolları", sector:"Ulaştırma", p:284.25, chg:-0.70, pe:3.0, pb:0.4, val:"ucuz", trend:"dususte", div:0.00, divCount5y:2, news:[{title:"THY eylül ayında 9 milyon yolcu taşıdı", url:"https://www.aa.com.tr/tr/ekonomi/thy-eylul-ayinda-9-milyon-yolcu-tasidi/4082519", src:"Anadolu Ajansı", date:"08 Ekim 2026"}]},
     {t:"TOASO", n:"Tofaş", sector:"Otomotiv", p:265.00, chg:0.95, pe:9.4, pb:2.0, val:"notr", trend:"dususte", div:6.89, divCount5y:5, news:[]},
     {t:"TRALT", n:"Türk Altın İşletmeleri", sector:"Sanayi, Metal & Madencilik", p:42.08, chg:1.79, pe:24.3, pb:2.5, val:"pahali", trend:"dususte", div:1.14, divCount5y:2, news:[]},
     {t:"TTKOM", n:"Türk Telekom", sector:"Telekomünikasyon", p:52.40, chg:0.48, pe:6.0, pb:0.7, val:"ucuz", trend:"dususte", div:0.00, news:[{title:"Türk Telekomun grup şirketi Argela ile Stanford Araştırma Enstitüsünden stratejik işbirliği", url:"https://www.aa.com.tr/tr/ekonomi/turk-telekomun-grup-sirketi-argela-ile-stanford-arastirma-enstitusunden-stratejik-isbirligi/4067560", src:"Anadolu Ajansı", date:"24 Eylül 2026"}]},
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"Halk Varlık Kiralama tarafından ihraç edilen 1", d:"08 milyar TL nominal değerli, 125 gün vadeli kira sertifikasının itfası 8 Ekim 2026'da gerçekleştirildi. Yatırımcılara dönemsel %14,04 getiri oranıyla toplam 151,64 milyon TL getiri ödemesi yapıldı.", when:"21 Dakika Önce"},
-    {c:"KAP", t:"LDR Turizm'in 100 milyon TL nominal değerli tahvilinin 3. kupon ödemesi", d:"dönemsel %11,0315 faiz oranıyla 11,03 milyon TL olarak 8 Ekim 2026'da gerçekleştirildi.", when:"1 Saat Önce"},
-    {c:"KAP", t:"Vakıflar Bankası'nın nitelikli yatırımcıya satılan 1", d:"20 milyar TL nominal değerli, 91 gün vadeli finansman bonosu 8 Ekim 2026'da itfa edildi.", when:"1 Saat Önce"},
-    {c:"KAP", t:"Işıklar Holding", d:"7 Ekim 2026'da 200.000 adet Çemaş payını 622.660 TL'ye Borsa İstanbul'dan satın aldı. Alım sonrası Işıklar Holding'in Çemaş'taki pay oranı %11,45'ten %11,47'ye yükseldi.", when:"2 Saat Önce"},
-    {c:"KAP", t:"Garanti Faktoring", d:"8 Ekim 2026 vade başlangıç tarihli, 8 Nisan 2027 vadeli, 529 milyon TL nominal değerli, 182 gün vadeli finansman bonosu ihracını tamamladı.", when:"2 Saat Önce"},
-    {c:"KAP", t:"Creditwest Faktoring'in 70 milyon TL nominal değerli finansman bonosunun 2. kupon ödemesi", d:"dönemsel %10,9691 faiz oranıyla 7,68 milyon TL olarak bugün gerçekleştirildi. Anapara ödemesi de bugün tamamlandı.", when:"2 Saat Önce"},
-    {c:"KAP", t:"Meysu Gida", d:"7 Ekim'de 8,05 TL – 8,27 TL fiyat aralığından toplam 859.169 adet payı geri aldı.", when:"3 Saat Önce"},
-    {c:"KAP", t:"Kartonsan", d:"7 Ekim'de pay başına 90,20 TL – 90,40 TL fiyat aralığından 15.000 adet B Grubu payı geri aldı.", when:"3 Saat Önce"}
+    {c:"KAP", t:"", d:"SEYKM aleyhine görülen 10.000 TL'lik tazminat davasında davacıya ticari kayıtların tercümesi için 1 ay süre tanındı; duruşma 17 Aralık 2026'ya ertelendi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"PC İletişim", d:"8 Ekim'de ortalama 30,51 TL fiyattan 58.620 lot PCILT payını geri aldı.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Martı GYO'nun gayrimenkul portföy değeri", d:"Eylül 2026 sonu itibarıyla 2,69 milyar TL artışla 20,77 milyar TL'ye yükseldi. Mart-Eylül 2026 döneminde portföy değeri %14,89 oranında artış gösterdi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Söke Değirmencilik", d:"8 Ekim 2026'da 7,09 TL – 7,69 TL fiyat aralığından 695.684 adet payı geri aldı.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Uluun'un C Grubu paylarına 7 Ekim 2026 vadeli", d:"6,77 TL – 6,82 TL fiyat aralığından toplam 225.000 adet alım emri girildi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Ağaoğlu GYO", d:"8 Ekim'de 8,41 TL – 8,44 TL fiyat aralığından 120.000 adet payı geri aldı. Şirketin sahip olduğu pay adedi 5.529.436'ya ulaşırken sermayedeki payı %0,788 oldu.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Etiler Gıda", d:"8 Ekim 2026 tarihinde pay geri alım işlemi gerçekleştirdi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Bor Şeker", d:"8 Ekim'de 5,36 TL fiyattan 80.019 adet payı geri aldı. Şirketin sahip olduğu toplam pay sayısı 7.976.909 adete ulaştı.", when:"2 Saat Önce"}
   
   ];
 
