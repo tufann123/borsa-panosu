@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 23:18 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 08.10 23:48 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (10.7x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 09.10 08:08 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 09.10 03:53 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 2/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 09.10 12:50 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"Metropal Kurumsal Hizmetler", d:"8 Ekim'de gerçekleştirdiği geri alım işleminde pay başına fiyatın 112 TL değil, 102 TL olduğunu açıkladı.", when:"5 Saat Önce"},
-    {c:"KAP", t:"", d:"Destek Finans Faktoring'e İstanbul 3. Sulh Ceza Hâkimliği'nin 7 Ekim 2026 tarihli kararıyla Tasarruf Mevduatı Sigorta Fonu kayyım olarak atandı.", when:"6 Saat Önce"},
-    {c:"KAP", t:"Meysu Gida", d:"ticaret unvanının terkini davasında açılan ihtiyati tedbir talebinin reddine ilişkin ara kararın istinaf süreci Kayseri Bölge Adliye Mahkemesi 5. Hukuk Dairesi kararıyla kesin olarak lehine sonuçlandı.", when:"6 Saat Önce"},
-    {c:"KAP", t:"Akiş GYO", d:"Ekim 2026'da Borsa İstanbul'dan 1.394.000 TL nominal değerli kendi payını satın aldı. Geri alım programı kapsamında sahip olunan toplam pay nominal değeri 12,59 milyon TL'ye ulaştı.", when:"6 Saat Önce"},
-    {c:"KAP", t:"Grsel ortaklarından biri", d:"23 Eylül – 8 Ekim 2026 tarihleri arasında ortalama 266,88 TL fiyattan toplam 8.000 adet Grsel payı aldı.", when:"6 Saat Önce"},
-    {c:"KAP", t:"", d:"SEYKM aleyhine görülen 10.000 TL'lik tazminat davasında davacıya ticari kayıtların tercümesi için 1 ay süre tanındı; duruşma 17 Aralık 2026'ya ertelendi.", when:"7 Saat Önce"},
-    {c:"KAP", t:"PC İletişim", d:"8 Ekim'de ortalama 30,51 TL fiyattan 58.620 lot PCILT payını geri aldı.", when:"7 Saat Önce"},
-    {c:"KAP", t:"Martı GYO'nun gayrimenkul portföy değeri", d:"Eylül 2026 sonu itibarıyla 2,69 milyar TL artışla 20,77 milyar TL'ye yükseldi. Mart-Eylül 2026 döneminde portföy değeri %14,89 oranında artış gösterdi.", when:"7 Saat Önce"}
+    {c:"KAP", t:"Şirket ortağı Mustafa Mertcan", d:"9 Ekim 2026'da DOF Robotik paylarından 50.000 adeti 72,75 TL ağırlıklı ortalama fiyattan satın aldı.", when:"18 Dakika Önce"},
+    {c:"KAP", t:"Girişim Elektrik", d:"TEİAŞ'ın H.889 referanslı Korkuteli-Varsak EİH Yenileme ihalesi kapsamında sözleşme daveti aldı. İhale bedeli 497,77 milyon TL.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Halk Bankası", d:"3 milyar TL ihraç tavanıyla yurtiçinde nitelikli yatırımcılara ihraç edilen sermaye benzeri tahvilin kupon ödemesini gerçekleştirdi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Derlüks Yatırım Holding'in 30 milyon TL nominal değerli", d:"119 gün vadeli finansman bonosu bugün itfa edildi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Turkcell", d:"9 Ekim 2026'da 500 milyon TL nominal değerli, 91 gün vadeli finansman bonosu ihraç etti. Bono, yıllık basit %37,00 faiz oranıyla nitelikli yatırımcılara satıldı; vade tarihi 8 Ocak 2027.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Ulusal Faktoring'in 200 milyon TL nominal değerli değişken faizli tahvilinin dördüncü kupon ve anapara ödemesi bugün gerçekleştirildi. Dördüncü kupon ödemesi dönemsel %13", d:"7337 faiz oranıyla 27,47 milyon TL olarak yapıldı.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Flap'ın yöneticisi Gürkan Gençler", d:"şirket paylarında alım satım işlemi gerçekleştirdi.", when:"3 Saat Önce"},
+    {c:"KAP", t:"Bereket Varlık tarafından ihraç edilen 2 milyar TL nominal değerli", d:"98 gün vadeli kira sertifikasının itfası 9 Ekim 2026'da gerçekleştirildi. Yatırımcılara anapara ve dönemsel getiri dahil toplam 2 milyar 217,48 milyon TL ödeme yapıldı.", when:"3 Saat Önce"}
   
   ];
 
