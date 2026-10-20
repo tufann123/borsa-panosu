@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 20:36 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 19.10 23:59 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan).</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 20.10 17:47 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 20.10 16:59 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 20.10 21:50 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"Bastas Baskent Cimento", d:"21 Ekim 2026'da hisse başına net 0,90 TL temettü ödemesi yapacak.", when:"11 Dakika Önce"},
-    {c:"KAP", t:"Brisa Bridgestone'un 1 milyar TL nominal değerli tahvilinin 2. kupon ödemesi 21 Ekim 2026'da gerçekleştirilecek. Dönemsel faiz oranı %10", d:"0373 olarak belirlendi, ödeme tutarı 100,37 milyon TL oldu.", when:"16 Dakika Önce"},
-    {c:"KAP", t:"Yapı ve Kredi Bankası", d:"Global Medium Term Note programı kapsamında İngiltere'de 10 milyon USD tutarında, 30 Ekim 2029 vadeli özel sektör tahvili ihraç etti.", when:"29 Dakika Önce"},
-    {c:"KAP", t:"Vakif Finansal Kiralama", d:"10 milyar TL ihraç tavanıyla kira sertifikası ihracı için SPK'ya başvurulmasına karar verdi.", when:"31 Dakika Önce"},
-    {c:"KAP", t:"Koray GYO tarafından ihraç edilen 70 milyon TL nominal değerli finansman bonosu erken itfa edildi. 19 Ekim'de 21", d:"5 milyon TL, 20 Ekim'de ise 48,5 milyon TL'lik kısım geri alınarak ihraç tamamen sonlandırıldı.", when:"33 Dakika Önce"},
-    {c:"KAP", t:"Metropal Kurumsal Hizmetler", d:"23 Ekim'de hisse başına net 2,18 TL temettü ödemesi yapacak. Ödemeler hesaplara 27 Ekim'de geçecek.", when:"1 Saat Önce"},
-    {c:"KAP", t:"", d:"Hedef Portföy kuruculuğundaki yatırım fonlarının tasfiye sürecinde Orzaks İlaç paylarının tamamının satışı 19 Ekim 2026 itibarıyla tamamlandı.", when:"2 Saat Önce"},
-    {c:"KAP", t:"Yükselen Çelik", d:"%100 bedelli sermaye artırımı için SPK'ya başvurdu. Şirket sermayesi 500 milyon TL'den 1 milyar TL'ye çıkartılacak.", when:"2 Saat Önce"}
+    {c:"KAP", t:"CVK Maden", d:"20 Ekim'de ortalama 11,91 TL fiyattan 750.000 adet payı geri aldı. Geri alınan payların toplam nominal değeri 13,37 milyon TL'ye ulaştı.", when:"41 Dakika Önce"},
+    {c:"KAP", t:"Kervan Gıda", d:"%100 bağlı ortaklığı Uçantay Gıda'yı devralma suretiyle kolaylaştırılmış usulde birleşme işlemini 20 Ekim 2026'da tescil ettirdi. Birleşme nedeniyle Kervan Gıda'nın 2,16 milyar TL olan çıkarılmış sermayesi değişmedi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Ağaoğlu GYO", d:"pay geri alım bildirimi yayımladı.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Söke Değirmencilik", d:"20 Ekim 2026 tarihinde geri alım programı çerçevesinde pay geri alım işlemi gerçekleştirdi.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Beta Enerji", d:"azami 2 milyon lot pay ve 250 milyon TL fon ayrılarak pay geri alım programı başlattı. Program 6 ay süreyle geçerli olacak.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Ulusoy Un", d:"20 Ekim 2026'da 6,43 TL – 6,49 TL fiyat aralığından 786.223 adet payı geri aldı.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Haver Farma", d:"GY Varlık Kiralama aracılığıyla 1 milyar TL nominal ihraç tavanıyla yurt içinde Türk Lirası cinsinden kira sertifikası ihraç edecek. Satış ve aracılık işlemleri için Gedik Yatırım yetkilendirildi.", when:"2 Saat Önce"},
+    {c:"KAP", t:"", d:"SKYLP'nin 28 Eylül 2026 vadeli BPP borcu ödenemedi; SPK kararıyla Hedef Portföy fonları tasfiye sürecine alındı. Borcun ortakların mali desteğiyle ödenmesi planlanıyor.", when:"2 Saat Önce"}
   
   ];
 
