@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 15:35 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 21.10 22:30 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (9.9x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 22.10 12:14 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 22.10 11:09 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir). Alınamayan: KAP (Midas).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 22.10 17:15 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"BG Holding", d:"Balsu paylarında alım satım işlemi gerçekleştirdi.", when:"52 Dakika Önce"},
-    {c:"KAP", t:"HRKET", d:"Birleşik Arap Emirlikleri'ndeki Dragados Projesi kapsamında Eversendai Offshore ile 3,4 milyon USD değerinde 2 yıllık mobil ve paletli vinç hizmetleri sözleşmesi imzaladı.", when:"1 Saat Önce"},
-    {c:"KAP", t:"HRKET", d:"Katar'ın Ras Laffan bölgesindeki LNG tesislerinin yenilenmesi kapsamında ağır kaldırma hizmetleri için 2,1 milyon USD değerinde sözleşme imzaladı. Proje 3 ay sürecek.", when:"1 Saat Önce"},
-    {c:"KAP", t:"HRKET", d:"Katar NFPS Comp-5 Offshore projesi kapsamında Umman'ın Duqm Limanı'nda ekipman tahmil-tahliye ve Mina Limanı'na taşıma hizmeti için 2.815.000 USD'lik sözleşme imzaladı. Proje 1 ay sürecek.", when:"1 Saat Önce"},
-    {c:"KAP", t:"Doğanlar Yatırım Holding", d:"20 Ekim 2026'da Biotrend Çevre ve Enerji Yatırımları paylarından 621.443 TL nominal tutarlı alış yaptı. İşlem sonrası şirket sermayesindeki payı %46,90'a yükseldi.", when:"1 Saat Önce"},
-    {c:"KAP", t:"Gen İlaç", d:"Kazakistan'da düzenlenen ibuprofen ihalesini kazandı. İntrafen ürünü kapsamındaki anlaşmanın şirket satışlarına toplam katkısı 1.188.681 USD olacak.", when:"1 Saat Önce"},
-    {c:"KAP", t:"DCTTR", d:"Yunan tedarikçileriyle NYB fiyatları üzerinden alıcı opsiyonlu 2026/2027 sezonu pamuk alım anlaşması imzaladı. ~6,3 mn USD değerindeki pamuklar Ara.26-Mar.27'de teslim alınacak.", when:"1 Saat Önce"},
-    {c:"KAP", t:"Akfen GYO", d:"pay geri alım programı dahilindeki azami pay sayısını artırdı.", when:"1 Saat Önce"}
+    {c:"KAP", t:"Zorlu Enerji", d:"iştirak Electrip Global'deki %41,28 oranındaki paylarını 22 Ekim 2026'da 147,62 milyon dolara Wren House Infrastructure ve Kuwait Investment Authority'ye devretti. Satışın ardından Zorlu Enerji'nin Electrip'teki pay sahipliği sona erdi.", when:"11 Dakika Önce"},
+    {c:"KAP", t:"Fonet Bilgi Teknolojileri", d:"Hatay İl Sağlık Müdürlüğü'nün 36 aylık SBYS ve YBBYS Hizmet Alımı ihalesine 216,68 milyon TL teklif vererek birinci oldu.", when:"16 Dakika Önce"},
+    {c:"KAP", t:"Girişim Elektrik", d:"TEİAŞ tarafından düzenlenen 154 kV'luk enerji iletim hattı ihalesinde birinci oldu. İhale bedeli 284,7 milyon TL.", when:"19 Dakika Önce"},
+    {c:"KAP", t:"Metropal Kurumsal Hizmetler", d:"23 Ekim 2026'da hisse başına net 2,18 TL temettü ödemesi yapacak.", when:"27 Dakika Önce"},
+    {c:"KAP", t:"Meditera Tıbbi Malzeme", d:"22 Ekim 2026'da sonuçlanan Tekirdağ İl Sağlık Müdürlüğü'nün kemoterapi ilaç hazırlama ve uygulama hizmet alımı ihalesini 19,00 milyon TL teklif bedeli ile kazandı.", when:"28 Dakika Önce"},
+    {c:"KAP", t:"Bilici Yatırım", d:"22 Ekim 2026'da ortalama 1,71 TL fiyattan 624.880 adet payı geri aldı.", when:"40 Dakika Önce"},
+    {c:"KAP", t:"Yeşil Yatırım Holding iştiraki Yeşil Dönüşüm İnşaat tarafından Nurdağı'ndaki yeniden yapılanma projelerinde kullanılan RENCO kompozit yapı teknolojisi", d:"TIME dergisinin 2026 Yılının En İyi İcatları listesine seçildi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Türkiye Halk Bankası", d:"nitelikli yatırımcılara satılmak üzere ihraç edilen 3,19 milyar TL nominal değerli, 70 gün vadeli finansman bonosunun satışını tamamladı. Yıllık basit faiz oranı %34,50 olan bononun takası 22 Ekim 2026'da gerçekleştirildi.", when:"1 Saat Önce"}
   
   ];
 
