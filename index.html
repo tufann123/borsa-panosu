@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 15:14 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 22.10 22:26 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (9.7x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 23.10 12:10 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 23.10 11:07 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 23.10 16:58 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -628,7 +628,7 @@
     {t:"AEFES", n:"Anadolu Efes", sector:"Gıda & İçecek", p:15.67, chg:-3.69, pe:9.6, pb:0.8, val:"notr", trend:"dususte", div:1.77, divCount5y:5, news:[]},
     {t:"AKBNK", n:"Akbank", sector:"Bankacılık", p:61.50, chg:-4.80, pe:5.0, pb:1.0, val:"ucuz", trend:"dususte", div:3.11, divCount5y:5, news:[]},
     {t:"ASELS", n:"Aselsan", sector:"Savunma & Teknoloji", p:325.00, chg:-3.92, pe:37.4, pb:5.0, val:"pahali", trend:"dususte", div:0.13, divCount5y:5,
-      news:[{title:"ASELSAN'dan 125 milyon dolarlık satış sözleşmesi", url:"https://www.aa.com.tr/tr/ekonomi/aselsandan-125-milyon-dolarlik-satis-sozlesmesi/4081837", src:"Anadolu Ajansı", date:"08 Ekim 2026"}]},
+      news:[{title:"ASELSAN'dan 442,5 milyon dolarlık ihracat sözleşmesi", url:"https://www.aa.com.tr/tr/ekonomi/aselsandan-442-5-milyon-dolarlik-ihracat-sozlesmesi/4098227", src:"Anadolu Ajansı", date:"23 Ekim 2026"}]},
     {t:"ASTOR", n:"Astor Enerji", sector:"Enerji & Kimya", p:142.60, chg:-4.93, pe:13.4, pb:3.4, val:"pahali", trend:"dususte", div:1.14,
       news:[{title:"ASTOR hisselerinde sert düşüş: Astor Enerji %9,83 geriledi", url:"https://www.politikam.com/astor-enerji-astor-hisseleri-neden-dusuyor-16-eylul-2026", src:"Politikam", date:"16 Eylül 2026"}]},
     {t:"BIMAS", n:"BİM Birleşik Mağazalar", sector:"Perakende", p:366.00, chg:-0.81, pe:15.0, pb:2.2, val:"pahali", trend:"dususte", div:1.80, divCount5y:7,
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"Ulusal Faktoring'in 100 milyon TL nominal değerli değişken faizli borçlanma aracının 1. kupon ödemesi", d:"dönemsel %11,0857 faiz oranıyla 11,08 milyon TL olarak bugün gerçekleştirildi.", when:"4 Dakika Önce"},
-    {c:"KAP", t:"Mopaş Marketçilik ortaklarından Hacı Mustafa Narman", d:"22 Ekim 2026'da ortalama 14,97 TL fiyattan 250.000 adet pay aldı.", when:"1 Saat Önce"},
-    {c:"KAP", t:"Değer Varlık Kiralama tarafından ihraç edilen Ebebek Mağazacılık'a ait 275 milyon TL nominal değerli", d:"119 gün vadeli kira sertifikasının satışı 22 Ekim'de tamamlandı. Yıllık basit getiri oranı %39,50 olan sertifikanın vadesi 19 Şubat 2027'de dolacak.", when:"1 Saat Önce"},
-    {c:"KAP", t:"Sümer Varlık'ın 150 milyon TL nominal değerli finansman bonosunun 4. kupon ödemesi %10", d:"83 dönemsel faiz oranıyla 16,24 milyon TL olarak 23 Ekim 2026'da gerçekleştirildi; anapara ödemesiyle birlikte bono itfa edildi.", when:"1 Saat Önce"},
-    {c:"KAP", t:"ENDAE", d:"2026 yılı Ocak–Eylül döneminde toplam elektrik üretimini yıllık bazda %59 artışla 420,02 GWh'ye taşıdı. HES %192 artışla 209,01 GWh, RES %7 artışla 178,60 GWh, JES %28 artışla 32,41 GWh üretti.", when:"1 Saat Önce"},
-    {c:"KAP", t:"SSAAT Yönetim Kurulu Başkanı R. Kaya", d:"21-22 Ekim 2026'da 21,90-23,66 TL aralığından 12,72 mn TL bedelle pay alımı gerçekleştirdi. Kaya'nın pay oranı %27,95'e ulaştı.", when:"1 Saat Önce"},
-    {c:"KAP", t:"Enerji'nin 4 milyar TL nominal değerli finansman bonosunun 2. kupon faiz oranı dönemsel %10", d:"02 olarak belirlendi. 23 Ekim'de ödenecek kupon tutarı 400,76 milyon TL olarak hesaplandı.", when:"1 Saat Önce"},
-    {c:"KAP", t:"Enerjisa Enerji'nin 3", d:"11 milyar TL nominal değerli tahvilinin 1. kupon faiz oranı dönemsel %10,14 olarak belirlendi; ödeme tutarı 315,47 milyon TL oldu.", when:"1 Saat Önce"}
+    {c:"KAP", t:"26 Ekim'de Osmanli Menkul hisse başına net 0", d:"04 TL, Servet GYO ise 0,07 TL temettü ödemesi yapacak.", when:"11 Dakika Önce"},
+    {c:"KAP", t:"JCR Avrasya Rating", d:"Zorlu Enerji'nin uzun vadeli ulusal kredi notunu 'BBB+ (tr)'den 'BB (tr)'ye indirdi; görünüm 'Durağan'dan 'Negatif'e çevrildi.", when:"15 Dakika Önce"},
+    {c:"KAP", t:"Enerjisa Enerji'nin 4 milyar TL nominal değerli finansman bonosunun 2. kupon ödemesi", d:"dönemsel %10,019 faiz oranıyla 400,76 milyon TL olarak 23 Ekim'de tamamlandı.", when:"38 Dakika Önce"},
+    {c:"KAP", t:"Enerjisa Enerji'nin 3", d:"11 milyar TL nominal değerli tahvilinin 1. kupon ödemesi, dönemsel %10,1436 faiz oranıyla 315,47 milyon TL olarak 23 Ekim 2026'da gerçekleştirildi.", when:"39 Dakika Önce"},
+    {c:"KAP", t:"JCR Avrasya", d:"Best Brands Grup'un uzun vadeli ulusal kredi notunu 'A- (tr)' olarak teyit etti.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Netaş Bilişim Teknolojileri", d:"bankacılık sektöründeki bir müşteriyle veri merkezi ve şube ağ altyapısı kapsamında toplam 6,33 milyon dolar değerinde 2 ayrı sözleşme imzaladı.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Metropal Kurumsal Hizmetler", d:"2,5 milyon TL sermayeli Metropolcard Teknoloji Merkezi unvanlı şirketin kuruluşunu 23 Ekim 2026'da tamamladı.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Altınay Savunma", d:"Ekim ayında Kocaeli'nin Dilovası ilçesinde yeni şube açtı.", when:"1 Saat Önce"}
   
   ];
 
