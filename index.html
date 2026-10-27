@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 21:26 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 27.10 23:12 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (9.6x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 27.10 20:39 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 27.10 20:07 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 28.10 00:38 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -628,7 +628,7 @@
     {t:"AEFES", n:"Anadolu Efes", sector:"Gıda & İçecek", p:16.26, chg:2.85, pe:9.6, pb:0.8, val:"notr", trend:"dususte", div:1.77, divCount5y:5, news:[]},
     {t:"AKBNK", n:"Akbank", sector:"Bankacılık", p:64.30, chg:-1.08, pe:5.0, pb:1.0, val:"ucuz", trend:"dususte", div:3.11, divCount5y:5, news:[]},
     {t:"ASELS", n:"Aselsan", sector:"Savunma & Teknoloji", p:340.75, chg:1.72, pe:37.7, pb:5.1, val:"pahali", trend:"dususte", div:0.13, divCount5y:5,
-      news:[{title:"ASELSAN'dan 442,5 milyon dolarlık ihracat sözleşmesi", url:"https://www.aa.com.tr/tr/ekonomi/aselsandan-442-5-milyon-dolarlik-ihracat-sozlesmesi/4098227", src:"Anadolu Ajansı", date:"23 Ekim 2026"}]},
+      news:[{title:"ASELSAN'ın 9 aylık cirosu 151,5 milyar lira oldu", url:"https://www.aa.com.tr/tr/ekonomi/aselsanin-9-aylik-cirosu-151-5-milyar-lira-oldu/4102950", src:"Anadolu Ajansı", date:"27 Ekim 2026"}]},
     {t:"ASTOR", n:"Astor Enerji", sector:"Enerji & Kimya", p:172.40, chg:9.95, pe:15.4, pb:3.9, val:"pahali", trend:"dususte", div:1.14,
       news:[{title:"ASTOR hisselerinde sert düşüş: Astor Enerji %9,83 geriledi", url:"https://www.politikam.com/astor-enerji-astor-hisseleri-neden-dusuyor-16-eylul-2026", src:"Politikam", date:"16 Eylül 2026"}]},
     {t:"BIMAS", n:"BİM Birleşik Mağazalar", sector:"Perakende", p:363.00, chg:-3.07, pe:14.8, pb:2.2, val:"pahali", trend:"dususte", div:1.81, divCount5y:7,
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"Anel Elektrik'in finansal kuruluşlarla yürütülen borç yeniden yapılandırma süreci", d:"finans kuruluşlarının mutabakatıyla 30 Kasım 2026 tarihine kadar uzatıldı.", when:"11 Dakika Önce"},
-    {c:"KAP", t:"Ekim Turizm", d:"27 Ekim 2026'da ortalama 14,47 TL fiyattan 672.406 adet payı geri aldı.", when:"16 Dakika Önce"},
-    {c:"KAP", t:"Metro Yatırım Ortaklığı", d:"27 Ekim 2026'da Metro Ticari ve Mali Yatırımlar Holding paylarını 7,52–7,60 TL fiyat aralığından 750.000 TL nominal tutarda sattı. İşlem sonrası şirketin sermayesindeki payı %1,01'e geriledi.", when:"17 Dakika Önce"},
-    {c:"KAP", t:"Atlas Menkul Kıymetler", d:"27 Ekim 2026'da Metro paylarını 7,50–7,53 TL fiyat aralığından 900.000 TL nominal tutarla sattı. İşlem sonrası Metro'daki pay oranı %0,98'e geriledi.", when:"19 Dakika Önce"},
-    {c:"KAP", t:"Söke Değirmencilik", d:"27 Ekim 2026'da 7,38 TL – 7,60 TL fiyat aralığından 214.514 adet payı geri aldı.", when:"21 Dakika Önce"},
-    {c:"KAP", t:"Mogan Enerji", d:"bağlı ortaklıkları Eolos Rüzgar, Olgu Enerji ve Pokut Elektrik'in sermayelerini sırasıyla 587,40 milyon TL, 2,21 milyar TL ve 515,70 milyon TL'ye çıkarmak için sermaye artırım kararı aldı.", when:"25 Dakika Önce"},
-    {c:"KAP", t:"Şirket", d:"19 Ekim 2026'da ortalama 6,41 TL fiyattan 304.994 adet payı geri aldı.", when:"29 Dakika Önce"},
-    {c:"KAP", t:"Konfrut Çukurova", d:"Tarsus'ta kuracağı narenciye işleme ve soğuk hava depolama tesisi için 580,23 milyon TL tutarında Yatırım Teşvik Belgesi aldı. Tesisin 2027 yılı Şubat ayında faaliyete geçmesi planlanıyor.", when:"40 Dakika Önce"}
+    {c:"KAP", t:"Europen Endüstri", d:"27 Ekim'de ortalama 2,26 TL fiyattan 1.000.000 adet payı geri aldı.", when:"1 Saat Önce"},
+    {c:"KAP", t:"PC İletişim", d:"27 Ekim'de Borsa İstanbul'da ortalama 28,56 TL fiyattan 35.560 lot PCILT payı geri aldı.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Kalyon Güneş", d:"27 Ekim'de ortalama 47,91 TL fiyattan 100.000 TL nominal değerli KLYPV payı geri aldı. Şirketin sahip olduğu toplam payların nominal değeri 4,32 milyon TL'ye, sermayeye oranı %0,94'e ulaştı.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Yayla Agro", d:"27 Ekim 2026'da ortalama 6,43 TL fiyattan 145.000 adet payı geri aldı. İşlemin toplam tutarı 932.150 TL oldu.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Metro Ticari", d:"27 Ekim'de 7,46 TL – 7,75 TL fiyat aralığından 1,5 milyon TL nominal tutarlı pay geri aldı.", when:"2 Saat Önce"},
+    {c:"KAP", t:"LDR Turizm", d:"27 Ekim 2026'da pay başına 7,96 TL fiyattan 254.460 adet payı geri aldı. Şirketin sahip olduğu pay sayısı 20.829.460 adete ulaştı.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Marmara Holding", d:"iştirakı Polisan Kansai Boya'daki %50 oranındaki paylarının tamamını 93 milyon dolar bedelle Kansai Paint'e devretti. Pay devri 27 Ekim 2026 itibarıyla tamamlandı.", when:"3 Saat Önce"},
+    {c:"KAP", t:"Akçansa'nın 2026 yılı üçüncü çeyreğinde net satışları %4", d:"4 artışla 8,68 milyar TL, net kârı ise 778,8 milyon TL oldu. İlk dokuz ayda net satışlar 23,12 milyar TL, net kâr ise 677,1 milyon TL olarak gerçekleşti.", when:"3 Saat Önce"}
   
   ];
 
