@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 17:55 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 04.11 00:14 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (9.0x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 04.11 20:49 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 04.11 13:14 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir). Alınamayan: KAP (Midas).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 04.11 22:10 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"Atakey Patates", d:"3 Kasım 2026'da ortalama 36,75 TL fiyattan 60.000 TL nominal değerli ATAKP payını geri aldı.", when:"5 Saat Önce"},
-    {c:"KAP", t:"Luxera GYO", d:"3 Kasım'da ortalama 5,27 TL fiyattan 75.000 TL nominal tutarlı payı geri aldı.", when:"5 Saat Önce"},
-    {c:"KAP", t:"Türk Prysmian Kablo", d:"Mısır'daki Shadwan 900 MW Rüzgar Enerjisi Projesi kapsamında Scatec ASA ile orta gerilim güç kabloları tedariki için sözleşme imzaladı. Sözleşme bedeli 10 milyon euro ile 11 milyon euro aralığında olacak.", when:"6 Saat Önce"},
-    {c:"KAP", t:"Lider Faktoring", d:"2026 yılı 3. çeyrek konsolide finansal sonuçlarını açıkladı. Şirketin dönem net kârı 898,69 milyon TL olarak gerçekleşti.", when:"6 Saat Önce"},
-    {c:"KAP", t:"Şirketin pay geri alım programı kapsamında 13 Ekim 2026 tarihinde gerçekleştirilen işlemlerde toplam 5.687.077 adet pay", d:"ortalama 7,98 TL fiyattan geri alındı.", when:"6 Saat Önce"},
-    {c:"KAP", t:"Bim", d:"250.000 TL sermayeli Dost Finansal Teknolojiler unvanlı şirketin kuruluşunu tamamladı.", when:"6 Saat Önce"},
-    {c:"KAP", t:"Ulusoy Un", d:"3 Kasım'da 5,91 TL – 5,97 TL fiyat aralığından 175.000 adet payı geri aldı.", when:"6 Saat Önce"},
-    {c:"KAP", t:"PC İletişim", d:"3 Kasım 2026'da ortalama 29,17 TL fiyattan 35.700 lot payı geri aldı.", when:"6 Saat Önce"}
+    {c:"KAP", t:"Anadolu Efes", d:"2026 yılının ilk dokuz ayında konsolide satış hacmini %6,5 artırarak 91,8 mhl'ye ulaştırdı; net satış gelirleri %2,8 artışla 251.648,3 milyon TL oldu. Konsolide net kâr ise 12.054,1 milyon TL olarak gerçekleşti.", when:"12 Dakika Önce"},
+    {c:"KAP", t:"Anadolu Efes", d:"2026 yılının ilk dokuz ayında 251,65 milyar TL hasılat ve 12,05 milyar TL net kâr açıkladı.", when:"16 Dakika Önce"},
+    {c:"KAP", t:"Şekerbank", d:"2026 yılının ilk dokuz ayına ait konsolide finansal sonuçlarını açıkladı. Bağımsız denetim kuruluşu DRT, serbest karşılık uygulaması gerekçesiyle şartlı sonuç bildirdi.", when:"25 Dakika Önce"},
+    {c:"KAP", t:"Şekerbank", d:"2026 yılı 3. çeyreğine ait konsolide olmayan finansal sonuçlarını açıkladı. Banka'nın 30 Eylül 2026 itibarıyla net dönemi karı şartlı bağımsız denetim görüşüyle sunuldu.", when:"25 Dakika Önce"},
+    {c:"KAP", t:"Türkiye Sigorta", d:"2026 yılı 3. çeyrek konsolide finansal sonuçlarını açıkladı.", when:"28 Dakika Önce"},
+    {c:"KAP", t:"Türkiye Sigorta", d:"2026 yılı 3. çeyreğine ait konsolide olmayan finansal tablolarını açıkladı. Nakit ve nakit benzeri varlıklar 16,36 milyar TL, finansal varlıklar ise 87,66 milyar TL olarak gerçekleşti.", when:"29 Dakika Önce"},
+    {c:"KAP", t:"Makina Takim'in 2026 yılı ilk dokuz ayında net satışları 749", d:"38 milyon TL, net kârı ise 28,55 milyon TL oldu.", when:"40 Dakika Önce"},
+    {c:"KAP", t:"Ekim Turizm", d:"4 Kasım 2026'da ortalama 15,12 TL fiyattan 333.000 adet payı geri aldı.", when:"1 Saat Önce"}
   
   ];
 
