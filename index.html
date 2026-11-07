@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 23:38 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 07.11 00:02 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (9.2x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 07.11 15:38 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 07.11 12:28 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 07.11 20:13 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 2/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -654,7 +654,7 @@
       news:[{title:"SASA Polyester'in ağustos satışları yüzde 30,2 arttı", url:"https://hibya.com/sasa-polyesterin-agustos-satislari-yuzde-302-artti-1017420", src:"Hibya Haber Ajansı", date:"1 Eylül 2026"}]},
     {t:"SISE", n:"Şişecam", sector:"Sanayi, Metal & Madencilik", p:34.24, chg:-3.33, pe:10.3, pb:0.4, val:"notr", trend:"dususte", div:null, divCount5y:5, news:[]},
     {t:"TAVHL", n:"TAV Havalimanları", sector:"Ulaştırma", p:294.50, chg:1.20, pe:11.8, pb:1.1, val:"notr", trend:"yukselis", div:1.31, divCount5y:1, news:[]},
-    {t:"TCELL", n:"Turkcell", sector:"Telekomünikasyon", p:90.00, chg:-1.96, pe:9.4, pb:0.6, val:"notr", trend:"dususte", div:4.44, divCount5y:5, news:[]},
+    {t:"TCELL", n:"Turkcell", sector:"Telekomünikasyon", p:90.00, chg:-1.96, pe:9.4, pb:0.6, val:"notr", trend:"dususte", div:4.44, divCount5y:5, news:[{title:"Turkcell COP31'de dijital ve yeşil dönüşüm vizyonunu paylaşacak", url:"https://www.aa.com.tr/tr/ekonomi/turkcell-cop31de-dijital-ve-yesil-donusum-vizyonunu-paylasacak/4115125", src:"Anadolu Ajansı", date:"07 Kasım 2026"}]},
     {t:"THYAO", n:"Türk Hava Yolları", sector:"Ulaştırma", p:299.25, chg:0.76, pe:2.8, pb:0.4, val:"ucuz", trend:"yukselis", div:0.00, divCount5y:2, news:[{title:"TMOK ile THY arasında sponsorluk anlaşması yapıldı", url:"https://www.aa.com.tr/tr/ekonomi/tmok-ile-thy-arasinda-sponsorluk-anlasmasi-yapildi/4108899", src:"Anadolu Ajansı", date:"02 Kasım 2026"}]},
     {t:"TOASO", n:"Tofaş", sector:"Otomotiv", p:243.00, chg:9.12, pe:6.9, pb:1.7, val:"notr", trend:"dususte", div:6.89, divCount5y:5, news:[]},
     {t:"TRALT", n:"Türk Altın İşletmeleri", sector:"Sanayi, Metal & Madencilik", p:38.14, chg:0.79, pe:22.4, pb:2.3, val:"pahali", trend:"dususte", div:1.14, divCount5y:2, news:[]},
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"EKGYO İstanbul Eyüpsultan 5. Levent ihalesinde en yüksek teklif İsra Group & Aydur İnşaat'tan geldi. Toplam gelir 11", d:"08 milyar TL, şirket payı 4,43 milyar TL oldu.", when:"11 Saat Önce"},
-    {c:"KAP", t:"Emlak Konut GYO", d:"2026 yılı 3. çeyrek konsolide finansal tablolarını açıkladı. Şirketin toplam varlıkları 494,62 milyar TL, toplam dönen varlıkları ise 460,96 milyar TL olarak gerçekleşti.", when:"11 Saat Önce"},
-    {c:"KAP", t:"Aksigorta'nın Ocak–Ekim 2026 döneminde brüt yazılan prim üretimi yıllık bazda %30 artışla 35", d:"64 milyar TL oldu. Ekim ayında aylık prim üretimi ise yıllık bazda %20 düşüşle 3,03 milyar TL olarak gerçekleşti.", when:"12 Saat Önce"},
-    {c:"KAP", t:"Mogan Enerji'nin 2026 yılı 3. çeyrek konsolide finansal sonuçlarına göre net zararı 7", d:"55 milyar TL olarak gerçekleşti.", when:"13 Saat Önce"},
-    {c:"KAP", t:"Borusan Yatırım", d:"Ocak-Eylül 2026 döneminde 186,41 milyon TL hasılat ve 614,81 milyon TL net kâr açıkladı.", when:"13 Saat Önce"},
-    {c:"KAP", t:"Sanko Pazarlama", d:"6 Kasım 2026'da 20,76 TL – 21,00 TL fiyat aralığından 75.259 adet payı geri aldı.", when:"14 Saat Önce"},
-    {c:"KAP", t:"REEDR", d:"2026'nın ilk dokuz ayına ait konsolide finansal sonuçlarını açıkladı. Raporda yalnızca bilanço kalemleri sunulurken gelir tablosu verileri yer almadı.", when:"14 Saat Önce"},
-    {c:"KAP", t:"Yayla Agro", d:"pay geri alım işlemlerine ilişkin güncelleme yaptı.", when:"14 Saat Önce"}
+    {c:"KAP", t:"EKGYO İstanbul Eyüpsultan 5. Levent ihalesinde en yüksek teklif İsra Group & Aydur İnşaat'tan geldi. Toplam gelir 11", d:"08 milyar TL, şirket payı 4,43 milyar TL oldu.", when:"19 Saat Önce"},
+    {c:"KAP", t:"Emlak Konut GYO", d:"2026 yılı 3. çeyrek konsolide finansal tablolarını açıkladı. Şirketin toplam varlıkları 494,62 milyar TL, toplam dönen varlıkları ise 460,96 milyar TL olarak gerçekleşti.", when:"19 Saat Önce"},
+    {c:"KAP", t:"Aksigorta'nın Ocak–Ekim 2026 döneminde brüt yazılan prim üretimi yıllık bazda %30 artışla 35", d:"64 milyar TL oldu. Ekim ayında aylık prim üretimi ise yıllık bazda %20 düşüşle 3,03 milyar TL olarak gerçekleşti.", when:"20 Saat Önce"},
+    {c:"KAP", t:"Mogan Enerji'nin 2026 yılı 3. çeyrek konsolide finansal sonuçlarına göre net zararı 7", d:"55 milyar TL olarak gerçekleşti.", when:"21 Saat Önce"},
+    {c:"KAP", t:"Borusan Yatırım", d:"Ocak-Eylül 2026 döneminde 186,41 milyon TL hasılat ve 614,81 milyon TL net kâr açıkladı.", when:"21 Saat Önce"},
+    {c:"KAP", t:"Sanko Pazarlama", d:"6 Kasım 2026'da 20,76 TL – 21,00 TL fiyat aralığından 75.259 adet payı geri aldı.", when:"21 Saat Önce"},
+    {c:"KAP", t:"REEDR", d:"2026'nın ilk dokuz ayına ait konsolide finansal sonuçlarını açıkladı. Raporda yalnızca bilanço kalemleri sunulurken gelir tablosu verileri yer almadı.", when:"22 Saat Önce"},
+    {c:"KAP", t:"Yayla Agro", d:"pay geri alım işlemlerine ilişkin güncelleme yaptı.", when:"22 Saat Önce"}
   
   ];
 
