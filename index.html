@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 23:38 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 07.11 00:02 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (9.2x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 07.11 08:46 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 07.11 03:32 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 07.11 12:28 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -658,7 +658,7 @@
     {t:"THYAO", n:"Türk Hava Yolları", sector:"Ulaştırma", p:299.25, chg:0.76, pe:2.8, pb:0.4, val:"ucuz", trend:"yukselis", div:0.00, divCount5y:2, news:[{title:"TMOK ile THY arasında sponsorluk anlaşması yapıldı", url:"https://www.aa.com.tr/tr/ekonomi/tmok-ile-thy-arasinda-sponsorluk-anlasmasi-yapildi/4108899", src:"Anadolu Ajansı", date:"02 Kasım 2026"}]},
     {t:"TOASO", n:"Tofaş", sector:"Otomotiv", p:243.00, chg:9.12, pe:6.9, pb:1.7, val:"notr", trend:"dususte", div:6.89, divCount5y:5, news:[]},
     {t:"TRALT", n:"Türk Altın İşletmeleri", sector:"Sanayi, Metal & Madencilik", p:38.14, chg:0.79, pe:22.4, pb:2.3, val:"pahali", trend:"dususte", div:1.14, divCount5y:2, news:[]},
-    {t:"TTKOM", n:"Türk Telekom", sector:"Telekomünikasyon", p:48.16, chg:-2.27, pe:6.3, pb:0.6, val:"ucuz", trend:"dususte", div:0.00, news:[{title:"Türk Telekom'dan üçüncü çeyrekte gelir ve yatırımda güçlü büyüme", url:"https://www.aa.com.tr/tr/ekonomi/turk-telekomdan-ucuncu-ceyrekte-gelir-ve-yatirimda-guclu-buyume/4112699", src:"Anadolu Ajansı", date:"05 Kasım 2026"}]},
+    {t:"TTKOM", n:"Türk Telekom", sector:"Telekomünikasyon", p:48.16, chg:-2.27, pe:6.3, pb:0.6, val:"ucuz", trend:"dususte", div:0.00, news:[{title:"Türk Telekom'un patent başvurularındaki başarısı ödüllendirildi", url:"https://www.aa.com.tr/tr/ekonomi/turk-telekomun-patent-basvurularindaki-basarisi-odullendirildi/4115035", src:"Anadolu Ajansı", date:"07 Kasım 2026"}]},
     {t:"TUPRS", n:"Tüpraş", sector:"Enerji & Kimya", p:337.50, chg:1.73, pe:8.9, pb:1.4, val:"notr", trend:"dususte", div:5.70, divCount5y:6,
       news:[{title:"Tüpraş'tan (TUPRS) yatırımcı bilgilendirme sunumu", url:"https://rotaborsa.com/tuprastan-tuprs-yatirimci-bilgilendirme-sunumu-7/", src:"Rota Borsa", date:"2 Eylül 2026"}]},
     {t:"VAKBN", n:"VakıfBank", sector:"Bankacılık", p:33.06, chg:3.96, pe:4.5, pb:0.9, val:"ucuz", trend:"dususte", div:0.00, news:[{title:"\"COP31'e Doğru: VakıfBank Geleceğe Değer Paneli ve Ürün Lansmanı\" programı gerçekleştirildi", url:"https://www.aa.com.tr/tr/ekonomi/cop31e-dogru-vakifbank-gelecege-deger-paneli-ve-urun-lansmani-programi-gerceklestirildi/4109900", src:"Anadolu Ajansı", date:"03 Kasım 2026"}]},
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"EKGYO İstanbul Eyüpsultan 5. Levent ihalesinde en yüksek teklif İsra Group & Aydur İnşaat'tan geldi. Toplam gelir 11", d:"08 milyar TL, şirket payı 4,43 milyar TL oldu.", when:"2 Saat Önce"},
-    {c:"KAP", t:"Emlak Konut GYO", d:"2026 yılı 3. çeyrek konsolide finansal tablolarını açıkladı. Şirketin toplam varlıkları 494,62 milyar TL, toplam dönen varlıkları ise 460,96 milyar TL olarak gerçekleşti.", when:"2 Saat Önce"},
-    {c:"KAP", t:"Aksigorta'nın Ocak–Ekim 2026 döneminde brüt yazılan prim üretimi yıllık bazda %30 artışla 35", d:"64 milyar TL oldu. Ekim ayında aylık prim üretimi ise yıllık bazda %20 düşüşle 3,03 milyar TL olarak gerçekleşti.", when:"3 Saat Önce"},
-    {c:"KAP", t:"Mogan Enerji'nin 2026 yılı 3. çeyrek konsolide finansal sonuçlarına göre net zararı 7", d:"55 milyar TL olarak gerçekleşti.", when:"4 Saat Önce"},
-    {c:"KAP", t:"Borusan Yatırım", d:"Ocak-Eylül 2026 döneminde 186,41 milyon TL hasılat ve 614,81 milyon TL net kâr açıkladı.", when:"4 Saat Önce"},
-    {c:"KAP", t:"Sanko Pazarlama", d:"6 Kasım 2026'da 20,76 TL – 21,00 TL fiyat aralığından 75.259 adet payı geri aldı.", when:"5 Saat Önce"},
-    {c:"KAP", t:"REEDR", d:"2026'nın ilk dokuz ayına ait konsolide finansal sonuçlarını açıkladı. Raporda yalnızca bilanço kalemleri sunulurken gelir tablosu verileri yer almadı.", when:"5 Saat Önce"},
-    {c:"KAP", t:"Yayla Agro", d:"pay geri alım işlemlerine ilişkin güncelleme yaptı.", when:"5 Saat Önce"}
+    {c:"KAP", t:"EKGYO İstanbul Eyüpsultan 5. Levent ihalesinde en yüksek teklif İsra Group & Aydur İnşaat'tan geldi. Toplam gelir 11", d:"08 milyar TL, şirket payı 4,43 milyar TL oldu.", when:"11 Saat Önce"},
+    {c:"KAP", t:"Emlak Konut GYO", d:"2026 yılı 3. çeyrek konsolide finansal tablolarını açıkladı. Şirketin toplam varlıkları 494,62 milyar TL, toplam dönen varlıkları ise 460,96 milyar TL olarak gerçekleşti.", when:"11 Saat Önce"},
+    {c:"KAP", t:"Aksigorta'nın Ocak–Ekim 2026 döneminde brüt yazılan prim üretimi yıllık bazda %30 artışla 35", d:"64 milyar TL oldu. Ekim ayında aylık prim üretimi ise yıllık bazda %20 düşüşle 3,03 milyar TL olarak gerçekleşti.", when:"12 Saat Önce"},
+    {c:"KAP", t:"Mogan Enerji'nin 2026 yılı 3. çeyrek konsolide finansal sonuçlarına göre net zararı 7", d:"55 milyar TL olarak gerçekleşti.", when:"13 Saat Önce"},
+    {c:"KAP", t:"Borusan Yatırım", d:"Ocak-Eylül 2026 döneminde 186,41 milyon TL hasılat ve 614,81 milyon TL net kâr açıkladı.", when:"13 Saat Önce"},
+    {c:"KAP", t:"Sanko Pazarlama", d:"6 Kasım 2026'da 20,76 TL – 21,00 TL fiyat aralığından 75.259 adet payı geri aldı.", when:"14 Saat Önce"},
+    {c:"KAP", t:"REEDR", d:"2026'nın ilk dokuz ayına ait konsolide finansal sonuçlarını açıkladı. Raporda yalnızca bilanço kalemleri sunulurken gelir tablosu verileri yer almadı.", when:"14 Saat Önce"},
+    {c:"KAP", t:"Yayla Agro", d:"pay geri alım işlemlerine ilişkin güncelleme yaptı.", when:"14 Saat Önce"}
   
   ];
 
