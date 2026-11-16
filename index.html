@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 00:08 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 14.11 00:32 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (9.7x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 16.11 08:24 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 16.11 03:33 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 16.11 13:25 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -663,7 +663,7 @@
       news:[{title:"Tüpraş'tan (TUPRS) yatırımcı bilgilendirme sunumu", url:"https://rotaborsa.com/tuprastan-tuprs-yatirimci-bilgilendirme-sunumu-7/", src:"Rota Borsa", date:"2 Eylül 2026"}]},
     {t:"VAKBN", n:"VakıfBank", sector:"Bankacılık", p:33.24, chg:-1.13, pe:4.5, pb:0.9, val:"ucuz", trend:"yukselis", div:0.00, news:[{title:"\"COP31'e Doğru: VakıfBank Geleceğe Değer Paneli ve Ürün Lansmanı\" programı gerçekleştirildi", url:"https://www.aa.com.tr/tr/ekonomi/cop31e-dogru-vakifbank-gelecege-deger-paneli-ve-urun-lansmani-programi-gerceklestirildi/4109900", src:"Anadolu Ajansı", date:"03 Kasım 2026"}]},
     {t:"YKBNK", n:"Yapı Kredi", sector:"Bankacılık", p:37.78, chg:-0.32, pe:6.3, pb:1.1, val:"ucuz", trend:"yukselis", div:0.00, divCount5y:4,
-      news:[{title:"Rekabet Kurulu Yapı Kredi'nin (YKBNK) dev satışı için kararını açıkladı", url:"https://rotaborsa.com/rekabet-kurulu-yapi-kredinin-ykbnk-dev-satisi-icin-kararini-acikladi/", src:"Rota Borsa", date:"10 Eylül 2026"}]}
+      news:[{title:"Yapı Kredi'den 2030'a kadar 1,5 trilyon liralık sürdürülebilir finansman sağlama hedefi", url:"https://www.aa.com.tr/tr/ekonomi/yapi-krediden-2030a-kadar-1-5-trilyon-liralik-surdurulebilir-finansman-saglama-hedefi/4126194", src:"Anadolu Ajansı", date:"16 Kasım 2026"}]}
   ];
 
   // sırayla gösterilecek sektör grupları (yaklaşık/genel bir sınıflandırmadır; kesin BIST sektör endeksleriyle birebir örtüşmeyebilir)
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"Atakey Patates", d:"13 Kasım 2026'da ortalama 39,38 TL fiyattan 50.000 TL nominal değerli payı geri aldı. Geri alınan payların toplam nominal değeri 1,84 milyon TL'ye, sermayeye oranı ise %1,32'ye ulaştı.", when:"2 Gün Önce"},
-    {c:"KAP", t:"Kalyon Güneş", d:"13 Kasım'da ortalama 49,75 TL fiyattan 50.000 TL nominal değerli KLYPV payı geri aldı.", when:"2 Gün Önce"},
-    {c:"KAP", t:"Beta Enerji", d:"halka arzdan elde edilen 2,02 milyar TL fonun 30 Eylül 2026 itibarıyla 1,35 milyar TL'sini kullandı; büyüme yatırımları için ayrılan 906,78 milyon TL'nin 666,69 milyon TL'si henüz kullanılmadı.", when:"2 Gün Önce"},
-    {c:"KAP", t:"Metgün Enerji", d:"13 Kasım'da 20,70 TL – 20,90 TL fiyat aralığından 435.703 adet payı geri aldı.", when:"2 Gün Önce"},
-    {c:"KAP", t:"Dagi Giyim", d:"13 Kasım 2026'da pay geri alım işlemi gerçekleştirdi.", when:"2 Gün Önce"},
-    {c:"KAP", t:"Alarko Carrier", d:"7 Ağustos 2026'da imzalanan faaliyet ayrıştırma sözleşmesine ilişkin Rekabet Kurumu onayını aldı.", when:"2 Gün Önce"},
-    {c:"KAP", t:"Alarko Holding", d:"Alarko Carrier'ın %42,03'ünü temsil eden payları Carrier HVACR Investment B.V.'den satın alma işlemi için Rekabet Kurumu onayını aldı. İşlem tamamlandığında Alarko Holding'in Alarko Carrier'daki payı %84,06'ya yükselecek.", when:"2 Gün Önce"},
-    {c:"KAP", t:"Zorlu Enerji'nin yurt dışı tahvillerine ilişkin muvafakat talebi sürecinde değişiklikler yapıldı; Geç Muvafakat Ücreti nominal tutarın %0", d:"40'ına yükseltildi.", when:"2 Gün Önce"}
+    {c:"KAP", t:"Brisa Bridgestone'un 1", d:"5 milyar TL nominal değerli tahvilinin 3. kupon ödemesi, dönemsel %8,1028 faiz oranıyla 121,54 milyon TL olarak 16 Kasım 2026'da gerçekleştirildi.", when:"19 Dakika Önce"},
+    {c:"KAP", t:"Netcad Yazılım", d:"Mali ve İdari İşler Direktörü Nergiz Çamli'nin emekliliği nedeniyle bu göreve Gözde Şekercioğlu'nu atadı.", when:"1 Saat Önce"},
+    {c:"KAP", t:"", d:"Aselsan ile Roketsan arasında Füze Veri Bağı ve Arayıcı Başlık Sistemlerinin tedariki kapsamında toplam 1.281.101.744 Avro değerinde sözleşmeler imzalandı.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Yapı Kredi'nin nitelikli yatırımcılara ihraç edilen 2", d:"74 milyar TL nominal değerli tahvili 16 Kasım 2026'da itfa edildi. Dönemsel %39,93 faiz oranıyla yatırımcılara 1,09 milyar TL faiz ödemesi yapıldı.", when:"2 Saat Önce"},
+    {c:"KAP", t:"Gülermak Emlak", d:"Pusula Portföy'ün ayni tasfiyesi kapsamında 8,79 milyon TL nominal değerli pay devraldı; şirketin Gülermak Ağır Sanayi sermayesindeki payı %47,64'ten %50,37'ye yükseldi.", when:"3 Saat Önce"},
+    {c:"KAP", t:"Kalekim", d:"%50 pay sahibi olduğu Kenya iştiraki Kalekim East Africa'nın 52 milyon KES tutarındaki sermaye artırımına 200.000 USD ödeyerek katıldı.", when:"3 Saat Önce"},
+    {c:"KAP", t:"Mia Teknoloji'nin bağlı ortaklığı Tripy Mobility", d:"Türkiye'nin önde gelen telekomünikasyon şirketlerinden biriyle imzalanan 10 yıllık çerçeve sözleşme kapsamında KDV dahil 17,2 milyon USD tutarında sipariş aldı.", when:"3 Saat Önce"},
+    {c:"KAP", t:"Hitit Bilgisayar", d:"Mısır merkezli Sky Vision Airlines ile 5 yıllık sözleşme kapsamında yolcu hizmetleri, operasyonel planlama ve mobil uygulamaları kapsayan Crane markalı çözümler için iş anlaşması imzaladı.", when:"3 Saat Önce"}
   
   ];
 
