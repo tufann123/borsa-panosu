@@ -404,7 +404,7 @@
       <span id="priceAutoText" style="font-size:11px;color:var(--ink-muted);">BIST fiyatları GitHub Actions ile 18:48 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). F/K, haberler, KAP ve diğer alanlar son Claude taramasındaki gibidir.</span>
       <span id="fundAutoText" style="font-size:11px;color:var(--ink-muted);">F/K, PD/DD, temettü verimi ve teknik trend GitHub Actions ile 20.11 01:47 (İstanbul) itibarıyla otomatik güncellendi (30/30 hisse, Claude kullanılmadan). "Ucuz/pahalı" etiketi güncel medyan F/K'ya (9.3x) göre yeniden hesaplandı.</span>
       <span id="commodityAutoText" style="font-size:11px;color:var(--ink-muted);">Emtia ve Bitcoin GitHub Actions ile 20.11 15:35 (İstanbul) itibarıyla otomatik güncellendi (Ons Altın, Gümüş, Gram Altın, Brent Petrol, Bitcoin, Claude kullanılmadan).</span>
-      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 20.11 13:46 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 0/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
+      <span id="newsAutoText" style="font-size:11px;color:var(--ink-muted);">Haberler ve KAP bildirimleri GitHub Actions ile 20.11 22:28 (İstanbul) itibarıyla otomatik güncellendi (AA Ekonomi (30 haber), KAP (21 bildirim); 1/30 hisseye özel haber eşleşti; Claude kullanılmadan, özet/yorum içermez, ham başlık ve linklerdir).</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Bölümler">
       <button role="tab" aria-selected="true" data-tab="bist"><span class="ic">📈</span>BIST 30</button>
@@ -658,7 +658,7 @@
     {t:"THYAO", n:"Türk Hava Yolları", sector:"Ulaştırma", p:329.00, chg:0.23, pe:3.1, pb:0.4, val:"ucuz", trend:"yukselis", div:0.00, divCount5y:2, news:[{title:"TMOK ile THY arasında sponsorluk anlaşması yapıldı", url:"https://www.aa.com.tr/tr/ekonomi/tmok-ile-thy-arasinda-sponsorluk-anlasmasi-yapildi/4108899", src:"Anadolu Ajansı", date:"02 Kasım 2026"}]},
     {t:"TOASO", n:"Tofaş", sector:"Otomotiv", p:246.50, chg:-1.12, pe:7.1, pb:1.7, val:"notr", trend:"notr", div:6.89, divCount5y:5, news:[]},
     {t:"TRALT", n:"Türk Altın İşletmeleri", sector:"Sanayi, Metal & Madencilik", p:35.30, chg:-0.95, pe:24.5, pb:2.1, val:"pahali", trend:"dususte", div:1.14, divCount5y:2, news:[]},
-    {t:"TTKOM", n:"Türk Telekom", sector:"Telekomünikasyon", p:47.48, chg:-2.70, pe:6.4, pb:0.6, val:"ucuz", trend:"notr", div:0.00, news:[{title:"Türk Telekom'un dijital altyapısını üstlendiği COP31'de eş zamanlı bağlı cihaz rekoru kırıldı", url:"https://www.aa.com.tr/tr/ekonomi/turk-telekomun-dijital-altyapisini-ustlendigi-cop31de-es-zamanli-bagli-cihaz-rekoru-kirildi/4126498", src:"Anadolu Ajansı", date:"16 Kasım 2026"}]},
+    {t:"TTKOM", n:"Türk Telekom", sector:"Telekomünikasyon", p:47.48, chg:-2.70, pe:6.4, pb:0.6, val:"ucuz", trend:"notr", div:0.00, news:[{title:"Türk Telekom'dan spor yayıncılığında yeni yatırım mesajı", url:"https://www.aa.com.tr/tr/ekonomi/turk-telekomdan-spor-yayinciliginda-yeni-yatirim-mesaji/4132090", src:"Anadolu Ajansı", date:"20 Kasım 2026"}]},
     {t:"TUPRS", n:"Tüpraş", sector:"Enerji & Kimya", p:322.75, chg:-3.58, pe:5.0, pb:1.2, val:"ucuz", trend:"dususte", div:5.70, divCount5y:6,
       news:[{title:"Tüpraş'tan (TUPRS) yatırımcı bilgilendirme sunumu", url:"https://rotaborsa.com/tuprastan-tuprs-yatirimci-bilgilendirme-sunumu-7/", src:"Rota Borsa", date:"2 Eylül 2026"}]},
     {t:"VAKBN", n:"VakıfBank", sector:"Bankacılık", p:33.00, chg:-1.08, pe:4.5, pb:0.9, val:"ucuz", trend:"notr", div:0.00, news:[{title:"\"COP31'e Doğru: VakıfBank Geleceğe Değer Paneli ve Ürün Lansmanı\" programı gerçekleştirildi", url:"https://www.aa.com.tr/tr/ekonomi/cop31e-dogru-vakifbank-gelecege-deger-paneli-ve-urun-lansmani-programi-gerceklestirildi/4109900", src:"Anadolu Ajansı", date:"03 Kasım 2026"}]},
@@ -758,14 +758,14 @@
   }));
 
   var kap = [
-    {c:"KAP", t:"", d:"Emlak Konut GYO'nun Nezihpark Bahçekent projesinde 1969/7 Ada/Parsel kapsamındaki bloklara ait kısmi geçici kabul tutanağı 18 Kasım 2026'da onaylandı.", when:"18 Dakika Önce"},
-    {c:"KAP", t:"Halk Varlık Kiralama tarafından ihraç edilen 4", d:"75 milyar TL nominal değerli, 114 gün vadeli kira sertifikasının itfası 20 Kasım 2026'da gerçekleştirildi. Yatırımcılara dönemsel %12,6493 getiri oranıyla 600,84 milyon TL getiri ödemesi yapıldı.", when:"1 Saat Önce"},
-    {c:"KAP", t:"İş Yatırım tarafından ihraç edilen 1", d:"031 milyar TL nominal değerli, 92 gün vadeli finansman bonosu 20 Kasım 2026'da itfa edildi.", when:"1 Saat Önce"},
-    {c:"KAP", t:"EKGYO fon kullanıcılığında Halk Varlık Kiralama'nın ihraç ettiği 500 mn TL", d:"114 gün vadeli kira sertifikası itfa edildi. %12,6493 dönemsel getiriyle 63,25 mn TL kâr ve 500 mn TL anapara olmak üzere toplam 563,25 mn TL ödendi.", when:"1 Saat Önce"},
-    {c:"KAP", t:"Vakıflar Bankası", d:"91 gün vadeli 200 milyon TL nominal değerli finansman bonosu ihraç ve halka arzı için SPK'ya başvurdu. Satış 30 Kasım - 2 Aralık 2026 tarihleri arasında gerçekleştirilecek.", when:"1 Saat Önce"},
-    {c:"KAP", t:"Kıraç Galvaniz", d:"Karayolları 4. Bölge Müdürlüğü'nün 173 milyon TL bedelli çelik otokorkuluk yapım işi ihalesini kazandı ve sözleşme imzalandı.", when:"1 Saat Önce"},
-    {c:"KAP", t:"QNB Bank", d:"%40 yıllık sabit faiz oranıyla 1,845 milyar TL nominal değerli özel sektör tahvili ihracını tamamladı. Tahvilin vadesi 26 Kasım 2027 olarak belirlendi.", when:"1 Saat Önce"},
-    {c:"KAP", t:"QNB Bank'ın 2", d:"35 milyar TL nominal değerli, 182 gün vadeli finansman bonosu 20 Kasım 2026'da itfa edildi. Yıllık basit faiz oranı %42,50 olan bonoya ilişkin toplam ödeme tutarı 497,16 milyon TL olarak gerçekleşti.", when:"1 Saat Önce"}
+    {c:"KAP", t:"Kalyon Güneş", d:"20 Kasım 2026'da ortalama 49,44 TL fiyattan 128.611 TL nominal değerli pay geri aldı. Şirketin sahip olduğu payların toplam nominal değeri 5,06 milyon TL'ye, sermayeye oranı ise %1,09'a ulaştı.", when:"12 Dakika Önce"},
+    {c:"KAP", t:"PC İletişim", d:"20 Kasım 2026'da Borsa İstanbul'da ortalama 26,42 TL fiyattan 52.200 adet PCILT payı geri aldı.", when:"36 Dakika Önce"},
+    {c:"KAP", t:"Metgün Enerji", d:"20 Kasım 2026'da 19,90 TL – 20,70 TL fiyat aralığından 2.021.604 adet payı geri aldı.", when:"59 Dakika Önce"},
+    {c:"KAP", t:"Adel Kalemcilik'in 750 milyon TL nominal değerli finansman bonosunun 3. kupon ödemesi", d:"dönemsel %9,7336 faiz oranıyla 73 milyon TL olarak bugün gerçekleştirildi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Brisa Bridgestone", d:"Rekabet Kurumu'nun verdiği 1,02 milyar TL idari para cezasını %25 peşin ödeme indirimiyle 764,30 milyon TL olarak ödeyecek.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Europen Endüstri", d:"20 Kasım 2026'da Borsa İstanbul'da ortalama 2,36 TL fiyattan 808.147 adet payı geri aldı.", when:"1 Saat Önce"},
+    {c:"KAP", t:"DOF Robotik Yönetim Kurulu Başkanı Mustafa Mertcan", d:"20 Kasım 2026'da ortalama 54,63 TL fiyattan 191.500 TL nominal değerli pay aldı. Mertcan'ın şirketteki pay oranı %56,99'a, oy hakkı oranı ise %59,62'ye yükseldi.", when:"1 Saat Önce"},
+    {c:"KAP", t:"Martı GYO'nun portföyünde yer alan Antalya'daki 6.305 m² yüzölçümlü taşınmaz üzerindeki üst hakkı", d:"tapu sicilinden terkin edildi ve taşınmaz Maliye Hazinesi adına tescil edildi.", when:"1 Saat Önce"}
   
   ];
 
